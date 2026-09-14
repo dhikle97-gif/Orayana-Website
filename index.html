@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orayana Events and Getaways — The whole wedding. One roof.</title>
+<meta name="description" content="A boutique wedding resort on three acres in Nashik. Venue, décor, food, and the team that runs the day, all in-house, with 19 rooms for your guests to stay.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f4f0eb; --cream-deep:#ece5db; --sage:#e9eee2; --maroon:#7d3737; --maroon-deep:#5c2727; --green:#486730; --green-deep:#3a5427;
+  --gold:#d4a43a; --gold-deep:#b98b2a; --gold-light:#e6c67f; --peach:#ffc982; --peach-wash:rgba(255,201,130,.22);
+  --ink:#2b2a28; --ink-soft:#4b4843;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Lato',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+  --max:1500px; --r:6px; --arch:999px 999px var(--r) var(--r);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:clamp(17px,1.1vw,19px);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4,.serif{font-family:var(--serif);font-weight:500;color:var(--maroon);line-height:1.08;letter-spacing:-.005em}
+h1{font-size:clamp(2.9rem,7vw,5.4rem)}
+h2{font-size:clamp(2.1rem,4.2vw,3.2rem)}
+h3{font-size:1.6rem}
+p{max-width:66ch}
+a{color:inherit}
+img{display:block;max-width:100%}
+button{font:inherit;cursor:pointer;color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 40px}
+.center{text-align:center}
+.center p{margin-left:auto;margin-right:auto}
+.muted{color:var(--ink-soft);font-size:.95rem}
+.note{font-style:italic;color:var(--ink-soft);font-size:.95rem;margin-top:22px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-block;border:1px solid var(--gold);background:var(--gold);color:#fff;padding:15px 30px;border-radius:999px;text-decoration:none;font-weight:700;letter-spacing:.01em;transition:background .15s,border-color .15s,color .15s,transform .15s}
+.btn:hover{background:var(--gold-deep);border-color:var(--gold-deep)}
+.btn:active{transform:translateY(1px)}
+.btn.ghost{background:transparent;color:var(--gold-deep)}
+.btn.ghost:hover{background:var(--gold);color:#fff}
+.btn[disabled]{opacity:.4;cursor:not-allowed}
+.linkish{background:none;border:0;color:var(--green);font-size:.92rem;text-decoration:underline;text-underline-offset:3px;padding:0}
+
+/* ---------- header (fixed; logo centred, transparent over the hero, solid once scrolled) ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:30;height:72px;transition:background .25s,border-color .25s}
+header .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:72px;gap:18px}
+.logo{justify-self:center;display:block;line-height:0}
+.logo img{height:52px;width:auto;display:block}
+.nav{display:flex;align-items:center;gap:22px}
+.nav.left{justify-self:start}
+.nav.right{justify-self:end}
+.nav a{font-size:.92rem;color:var(--cream);text-decoration:none;opacity:.92;padding-bottom:2px;border-bottom:1px solid transparent;white-space:nowrap}
+.nav a:hover{border-bottom-color:var(--gold-light)}
+.nav .plan{border:1px solid var(--gold-light);border-radius:999px;padding:8px 16px;opacity:1}
+.nav .plan:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+.wa{display:inline-flex;align-items:center;gap:8px}
+.wa img{width:22px;height:22px;display:block}
+header.solid,body.planning header{background:rgba(244,240,235,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(230,198,127,.7)}
+header.solid .nav a,body.planning .nav a{color:var(--ink)}
+header.solid .nav .plan,body.planning .nav .plan{border-color:var(--gold);color:var(--gold-deep)}
+header.solid .nav .plan:hover{color:#fff}
+
+/* ---------- hero: full-bleed video, straight edge ---------- */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:grid;align-items:center;background:var(--maroon-deep);overflow:hidden;isolation:isolate}
+.hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero .poster{background-size:cover;background-position:center}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(180deg,rgba(30,14,14,.38) 0%,rgba(30,14,14,.06) 30%,rgba(30,14,14,.06) 62%,rgba(30,14,14,.5) 100%),
+  linear-gradient(90deg,rgba(30,14,14,.82) 0%,rgba(30,14,14,.62) 28%,rgba(30,14,14,.22) 58%,rgba(30,14,14,0) 82%)}
+.hero .wrap{position:relative;padding-top:120px;padding-bottom:110px;width:100%}
+.hero .hook{font-family:var(--serif);font-style:italic;font-size:clamp(1.25rem,2.1vw,1.55rem);color:var(--gold-light);margin-bottom:14px;text-shadow:0 1px 6px rgba(0,0,0,.55)}
+.hero h1{color:#fff;max-width:11ch;font-weight:600;text-shadow:0 2px 6px rgba(0,0,0,.4),0 10px 34px rgba(0,0,0,.4)}
+.hero .lede{color:#fff;font-size:clamp(1.1rem,1.7vw,1.32rem);max-width:44ch;margin:22px 0 34px;line-height:1.55;text-shadow:0 1px 4px rgba(0,0,0,.55),0 6px 22px rgba(0,0,0,.35)}
+.hero .facts{display:flex;gap:28px;flex-wrap:wrap;margin-top:36px;color:#fff;font-size:.95rem;font-weight:700;letter-spacing:.01em;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.hero .facts span{border-left:1px solid rgba(230,198,127,.9);padding-left:12px}
+.hero .cue{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);color:#fff;font-size:.85rem;opacity:.95;text-decoration:none;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+
+/* ---------- home sections ---------- */
+.sec{padding:88px 0;position:relative;overflow:hidden}
+.sec.alt{background:var(--sage)}
+/* couples mosaic: staggered reveal on scroll, lift on hover */
+.couples{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:260px;gap:16px}
+.couples figure{grid-column:var(--gc);grid-row:var(--gr)}
+.couples figure{margin:0;position:relative;overflow:hidden;border-radius:var(--r);box-shadow:0 0 0 1px var(--gold-light);cursor:zoom-in;background:var(--cream-deep)}
+.couples .tall{grid-row:span 2}
+.couples .wide{grid-column:span 2}
+
+.couples img{width:100%;height:100%;object-fit:cover;object-position:center 28%;transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.couples .top img{object-position:center 10%}
+.couples figure:hover img{transform:scale(1.06)}
+.couples figcaption{position:absolute;left:0;right:0;bottom:0;padding:48px 16px 14px;color:#fff;font-family:var(--serif);font-size:1.15rem;background:linear-gradient(180deg,rgba(30,14,14,0),rgba(30,14,14,.78));text-shadow:0 1px 6px rgba(0,0,0,.6);opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
+.couples figure:hover figcaption{opacity:1;transform:none}
+.couples figure{transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+.couples figure:hover{box-shadow:0 0 0 1px var(--gold),0 30px 50px -28px rgba(43,42,40,.6);z-index:2}
+.couples .view{position:absolute;top:14px;right:14px;background:rgba(244,240,235,.94);color:var(--maroon);font-family:var(--serif);font-size:1rem;padding:6px 14px 6px 12px;border-radius:999px;border:1px solid var(--gold);opacity:0;transform:translateY(-6px);transition:opacity .35s,transform .35s;pointer-events:none}
+.couples .view::before{content:"+";margin-right:6px;color:var(--gold-deep);font-weight:700}
+.couples figure:hover .view{opacity:1;transform:none}
+.couples .shine{position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,0) 40%,rgba(255,255,255,.28) 50%,rgba(255,255,255,0) 60%);transform:translateX(-120%);pointer-events:none}
+.couples figure:hover .shine{animation:shine 1.1s ease forwards}
+@keyframes shine{to{transform:translateX(120%)}}
+.lb .nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:1px solid var(--gold-light);background:rgba(244,240,235,.12);color:var(--cream);font-size:1.6rem;line-height:1;display:none;place-items:center;cursor:pointer}
+.lb .nav.on{display:grid}
+.lb .nav:hover{background:var(--gold);color:#fff}
+.lb .prev{left:18px}.lb .next{right:18px}
+.lb .count{position:absolute;top:18px;left:22px;color:var(--gold-light);font-family:var(--serif);font-size:1.05rem}
+.reveal{opacity:0;transform:translateY(28px) scale(.97)}
+.reveal.in{opacity:1;transform:none;transition:opacity .8s cubic-bezier(.2,.7,.2,1) var(--d,0s),transform .8s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+
+/* ornaments: one small gold emblem opens each section; larger motifs vary by section */
+.orn{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:22px}
+.orn::before,.orn::after{content:"";width:96px;height:1px;background:var(--gold-light)}
+.orn img{height:58px;width:auto;opacity:.95}
+.wm{position:absolute;pointer-events:none;user-select:none}
+.wm img{width:100%;height:auto;display:block}
+.wm.emblem-tr{right:-90px;top:-40px;width:420px;opacity:.16;transform:rotate(8deg)}
+.wm.emblem-bl{left:-120px;bottom:-60px;width:520px;opacity:.12;transform:rotate(-6deg)}
+.wm.emblem-cta{left:-160px;top:-80px;width:640px;opacity:.14;filter:brightness(1.4)}
+.wm.leaf-l{left:-50px;top:40px;width:200px;opacity:.16;transform:rotate(-24deg)}
+.wm.leaf-r{right:-40px;bottom:-30px;width:180px;opacity:.16;transform:rotate(150deg)}
+.wm.sprig-r{right:20px;top:30px;width:120px;opacity:.28;transform:rotate(12deg)}
+.wm.sprig-l{left:24px;bottom:20px;width:120px;opacity:.28;transform:rotate(-160deg)}
+.wm.sprig-foot{right:30px;top:20px;width:110px;opacity:.28;filter:brightness(2.4);transform:rotate(18deg)}
+.journey .wm.emblem-bl{opacity:.09}
+.journey{position:relative}
+.grounds-wrap{position:relative;margin-top:56px}
+.grounds{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 14px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--gold-light) transparent;scroll-behavior:smooth}
+.grounds figure{flex:0 0 calc((100% - 36px)/3);scroll-snap-align:start;aspect-ratio:3/2;overflow:hidden;border-radius:var(--r);box-shadow:0 0 0 1px var(--gold-light);position:relative}
+.grounds img{width:100%;height:100%;object-fit:cover}
+.grounds-btn{position:absolute;top:calc(50% - 5px);transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);background:rgba(244,240,235,.92);color:var(--green);font-size:22px;line-height:1;cursor:pointer;display:grid;place-items:center;box-shadow:0 6px 18px -8px rgba(43,42,40,.6);transition:background .2s,opacity .2s;z-index:2}
+.grounds-btn:hover{background:var(--gold-light)}
+.grounds-btn.prev{left:-23px}.grounds-btn.next{right:-23px}
+.grounds-btn[disabled]{opacity:.3;cursor:default}
+.grounds figcaption{position:absolute;left:0;right:0;bottom:0;padding:46px 14px 12px;color:#fff;font-family:var(--serif);font-size:1.15rem;text-shadow:0 1px 6px rgba(0,0,0,.7);background:linear-gradient(180deg,rgba(30,14,14,0),rgba(30,14,14,.68))}
+.sec-head .green{color:var(--green)}
+.sec-head{max-width:820px;margin:0 auto 44px;text-align:center}
+.sec-head .lede{font-size:1.08rem;margin-top:14px}
+.sec-head .lede{margin-left:auto;margin-right:auto}
+.two{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.two .lede{font-size:1.08rem;margin-top:14px}
+.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:8px}
+.flow div{border-top:1px solid var(--gold-light);padding-top:14px}
+.flow h4{font-size:1.25rem;margin-bottom:6px}
+.flow p{font-size:.9rem;color:var(--ink-soft)}
+.cta-final{position:relative;overflow:hidden;background:var(--maroon);color:var(--cream);padding:96px 0;text-align:center}
+.cta-final h2,.cta-final p{color:var(--cream)}
+.cta-final p{margin:14px auto 30px}
+.pkgs{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.card.menu{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.mhead{padding:22px 22px 18px;text-align:center;border-bottom:1px solid var(--gold-light);min-height:112px;display:grid;place-items:center}
+.mhead.green{background:var(--green)}.mhead.maroon{background:var(--maroon)}
+.mhead h3{color:var(--cream);margin:0;font-size:1.7rem}
+.mbody{padding:18px 22px 22px;flex:1;display:flex;flex-direction:column}
+.mbody > p.desc{font-size:.95rem;color:var(--ink-soft);margin:0 auto 14px;text-align:center;min-height:4.4em}
+.mlist{list-style:none;margin:0;padding:0;font-size:.95rem}
+.mlist li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:6px 0;border-top:1px dotted rgba(230,198,127,.8)}
+.card .mlist li::before{display:none}
+.mlist li span{flex:1;text-align:left}
+.mlist li span::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin:0 9px 3px 0}
+.mlist li b{font-family:var(--serif);font-weight:600;color:var(--maroon);font-size:1.1rem;min-width:1.2em;text-align:right}
+.special{margin-top:auto;padding-top:14px;font-style:italic;font-size:.9rem;color:var(--ink-soft);border-top:1px solid var(--gold-light);text-align:center}
+.card.menu.sel .mhead{box-shadow:inset 0 -3px 0 var(--gold)}
+.card.menu .tick{top:12px;right:12px}
+.counters-list{margin-top:26px;font-size:.95rem;color:var(--ink-soft)}
+#plan-view{display:none}
+body.planning #home-view{display:none}
+body.planning #plan-view{display:block}
+body.planning header{background:rgba(244,240,235,.94);border-bottom:1px solid rgba(230,198,127,.7)}
+body.planning .wordmark small{color:var(--green)}
+body.planning .nav a{color:var(--ink)}
+body.planning .nav .sec-link{display:none}
+body.planning .nav .plan{display:none}
+#plan-view{padding-top:72px}
+
+/* ---------- progress thread ---------- */
+.progress{position:sticky;top:72px;z-index:20;background:rgba(244,240,235,.93);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(230,198,127,.7)}
+.progress .wrap{display:flex;align-items:center;gap:18px;min-height:58px}
+.pback{background:none;border:0;color:var(--green);font-size:.92rem;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.pback[hidden]{display:none}
+.thread{flex:1;display:flex;align-items:center;justify-content:space-between;position:relative;padding:0 6px}
+.thread::before{content:"";position:absolute;left:14px;right:14px;top:8px;height:1px;background:var(--gold-light)}
+.thread button{position:relative;background:none;border:0;padding:0 2px;font-size:.78rem;color:var(--ink-soft);display:grid;justify-items:center;gap:6px;cursor:default}
+.thread button i{width:11px;height:11px;border-radius:50%;background:var(--cream);border:1px solid var(--gold-light);display:block;position:relative;top:2px;transition:background .2s,transform .2s}
+.thread button.done i{background:var(--gold-light);border-color:var(--gold)}
+.thread button.now i{background:var(--gold);border-color:var(--gold);transform:scale(1.35);box-shadow:0 0 0 5px var(--peach-wash)}
+.thread button.now{color:var(--maroon);font-weight:700}
+.thread button.done{cursor:pointer}
+.pnow{display:none;font-size:.92rem;color:var(--maroon)}
+.reset{background:none;border:0;color:var(--ink-soft);font-size:.85rem;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.reset[hidden]{display:none}
+.saved{font-size:.82rem;color:var(--ink-soft);font-style:italic;margin-top:12px}
+
+/* ---------- journey layout ---------- */
+.journey{display:grid;grid-template-columns:1fr 300px;gap:56px;padding:64px 0 90px;align-items:start}
+.stage{display:none}
+.stage.on{display:block;animation:in .45s ease}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.sec,.cta-final,.hero{scroll-margin-top:66px}
+.stage-head{margin-bottom:38px}
+.stage-head .lede{font-size:1.08rem;margin-top:14px;color:var(--ink)}
+.actions{margin-top:44px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.err{color:var(--maroon);font-size:.95rem;display:none}
+.err.on{display:block}
+
+/* ---------- cards ---------- */
+.cards{display:grid;gap:22px}
+.cards.c3{grid-template-columns:repeat(3,1fr)}
+.cards.c2{grid-template-columns:repeat(2,1fr)}
+.cards.c4{grid-template-columns:repeat(4,1fr)}
+.card{border:1px solid var(--gold-light);border-radius:var(--r);padding:24px 22px;background:rgba(255,255,255,.28);text-align:left;position:relative;transition:border-color .15s,background .15s,box-shadow .15s}
+.card h3{margin-bottom:8px}
+.card p{font-size:.98rem}
+.card.pick{cursor:pointer}
+.card.pick:hover{border-color:var(--gold);box-shadow:0 10px 30px -18px rgba(125,55,55,.35)}
+.card.sel{border-color:var(--gold);background:var(--peach-wash);box-shadow:inset 0 0 0 1px var(--gold)}
+.card .tick{position:absolute;top:14px;right:14px;width:22px;height:22px;border-radius:50%;background:var(--gold);color:#fff;font-size:12px;display:none;place-items:center;z-index:2}
+.card.sel .tick{display:grid}
+.card ul{list-style:none;font-size:.95rem;line-height:1.7}
+.card ul li::before{content:"";display:inline-block;width:5px;height:5px;background:var(--gold);border-radius:50%;margin:0 10px 3px 0}
+.card .sub{font-size:.9rem;color:var(--ink-soft);margin-top:8px}
+/* photo frames inside cards */
+.card.photo{padding:0;overflow:hidden}
+.card.photo .body{padding:20px 22px 24px}
+.card.photo .wide{aspect-ratio:3/2;overflow:hidden}
+.card.photo .wide img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.card.photo:hover .wide img{transform:scale(1.03)}
+.card.arch{padding:26px 22px 24px}
+.arch-frame{aspect-ratio:4/5;border-radius:var(--arch);overflow:hidden;position:relative;margin:0 auto 20px;box-shadow:0 0 0 5px var(--cream),0 0 0 6px var(--gold-light)}
+.card.sel .arch-frame{box-shadow:0 0 0 5px var(--peach-wash),0 0 0 6px var(--gold)}
+.arch-frame img{width:100%;height:100%;object-fit:cover}
+.card .cap{font-size:.82rem;color:var(--ink-soft);font-style:italic;margin-top:-10px;margin-bottom:12px;text-align:center}
+
+/* ---------- pills ---------- */
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.pill{border:1px solid var(--gold-light);border-radius:999px;padding:8px 16px;background:rgba(255,255,255,.4);color:var(--ink);font-size:.92rem;transition:all .12s}
+.pill:hover{border-color:var(--gold)}
+.pill.sel{background:var(--gold);border-color:var(--gold);color:#fff}
+.pill.check.sel{background:var(--green);border-color:var(--green)}
+.fnpick .pills{margin-top:10px}
+.fnrows{display:flex;flex-direction:column;gap:10px;margin-top:16px;max-width:520px}
+.field .fnrows label{display:grid;grid-template-columns:190px 130px auto;align-items:center;gap:14px;font-size:1rem;color:var(--ink);margin:0}
+.fnrows input{width:130px!important;max-width:130px!important;padding:10px 12px!important;text-align:center}
+.fnrows .hint{font-size:.85rem;color:var(--ink-soft)}
+
+/* ---------- inputs ---------- */
+.field{margin:22px 0}
+.field label{display:block;font-size:.95rem;color:var(--ink-soft);margin-bottom:8px}
+.field input,.field select,.field textarea{width:100%;max-width:420px;padding:13px 15px;border:1px solid var(--gold-light);border-radius:var(--r);background:#fff;font:inherit;color:var(--ink)}
+.field textarea{max-width:100%;min-height:96px}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);outline:0}
+.field.wide input{max-width:100%}
+
+/* ---------- aerial map ---------- */
+.map{position:relative;border-radius:var(--r);overflow:hidden;margin-bottom:34px;box-shadow:0 0 0 1px var(--gold-light)}
+.map img{width:100%;height:auto}
+.pin{position:absolute;transform:translate(-50%,-50%);background:rgba(244,240,235,.94);border:1px solid var(--gold);color:var(--maroon);font-family:var(--serif);font-size:1.05rem;font-weight:600;padding:6px 14px 6px 10px;border-radius:999px;display:flex;align-items:center;gap:8px;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);white-space:nowrap;transition:transform .15s,background .15s}
+.pin::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--gold)}
+.pin:hover,.pin.hot{background:var(--peach);transform:translate(-50%,-50%) scale(1.06)}
+.pin.soft{font-family:var(--sans);font-weight:400;font-size:.8rem;color:var(--ink-soft);border-color:var(--gold-light);padding:4px 11px 4px 8px}
+.pin.soft::before{background:var(--gold-light)}
+.map .legend{position:absolute;left:14px;bottom:14px;background:rgba(244,240,235,.9);border:1px solid var(--gold-light);border-radius:var(--r);padding:8px 12px;font-size:.82rem;color:var(--ink-soft)}
+.card.flash{animation:flash 1.2s ease}
+@keyframes flash{0%{box-shadow:0 0 0 0 rgba(212,164,58,.7)}100%{box-shadow:0 0 0 14px rgba(212,164,58,0)}}
+
+/* ---------- bands ---------- */
+.band{background:var(--green);color:var(--cream);padding:44px 38px;border-radius:var(--r);margin-top:34px;position:relative;overflow:hidden}
+.band h2,.band h3,.band h4{color:var(--cream)}
+.band p{color:var(--cream)}
+.band.maroon{background:var(--maroon)}
+.band.peach{background:var(--peach-wash);color:var(--ink);border:1px solid var(--gold-light)}
+.band.peach h3,.band.peach p{color:var(--ink)}
+.band.peach h3{color:var(--maroon)}
+.band .stage-head .lede{color:var(--cream)}
+.band .card{border-color:rgba(230,198,127,.45);color:var(--cream);background:rgba(255,255,255,.04)}
+.band .card h3{color:var(--gold-light);font-size:1.3rem}
+.band .card p,.band .card ul{color:var(--cream)}
+.band .card ul li::before{background:var(--gold-light)}
+
+/* décor process */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin:26px 0 4px}
+.steps::before{content:"";position:absolute;left:10%;right:10%;top:17px;height:1px;background:var(--gold-light);opacity:.6}
+.step{position:relative;padding:0 10px;text-align:center}
+.step b{display:block;width:34px;height:34px;line-height:32px;text-align:center;border:1px solid var(--gold-light);border-radius:50%;margin:0 auto 12px;background:var(--green);color:var(--gold-light);font-family:var(--serif);font-size:1.05rem;font-weight:500;position:relative}
+.step h4{font-family:var(--serif);font-weight:500;font-size:1.3rem;color:var(--cream);margin-bottom:4px}
+.step p{font-size:.9rem;color:var(--cream)}
+
+/* ---------- reels ---------- */
+.reels{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 14px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--gold-light) transparent}
+.reels .phone:first-child{margin-left:auto}
+.reels .phone:last-child{margin-right:auto}
+.phone{flex:0 0 280px;scroll-snap-align:start;aspect-ratio:9/16;border-radius:26px;overflow:hidden;border:1px solid var(--gold-light);background:#1f1a17;position:relative;box-shadow:0 20px 40px -26px rgba(43,42,40,.7)}
+.phone video{width:100%;height:100%;object-fit:cover;display:block}
+.phone span{position:absolute;left:0;bottom:0;right:0;padding:44px 12px 12px;color:#fff;font-family:var(--serif);font-size:1.1rem;text-shadow:0 1px 6px rgba(0,0,0,.7);background:linear-gradient(180deg,rgba(30,14,14,0),rgba(30,14,14,.7))}
+.mosaic{display:grid;grid-template-columns:320px 1fr 1fr 1fr;grid-template-rows:320px 320px;gap:18px}
+.mosaic .phone{grid-row:1/3;flex:none;width:auto;aspect-ratio:auto}
+.mosaic .big{grid-column:2/5}
+.mosaic figure{margin:0;position:relative;overflow:hidden;border-radius:var(--r);box-shadow:0 0 0 1px var(--gold-light)}
+.mosaic img{width:100%;height:100%;object-fit:cover}
+.mosaic figcaption{position:absolute;left:0;right:0;bottom:0;padding:60px 18px 16px;color:#fff;font-size:.98rem;text-shadow:0 1px 5px rgba(0,0,0,.6);background:linear-gradient(180deg,rgba(30,14,14,0),rgba(30,14,14,.78))}
+.mosaic figcaption b{display:block;font-family:var(--serif);font-weight:500;font-size:1.45rem;line-height:1.1;margin-bottom:2px}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.strip figure{aspect-ratio:3/2;overflow:hidden;border-radius:var(--r);box-shadow:0 0 0 1px var(--gold-light)}
+.strip img{width:100%;height:100%;object-fit:cover}
+
+/* ---------- summary rail ---------- */
+.rail{position:sticky;top:144px;border:1px solid var(--gold-light);border-radius:var(--r);padding:22px;background:rgba(255,255,255,.35)}
+.rail h4{font-family:var(--serif);font-weight:500;font-size:1.3rem;color:var(--maroon);margin-bottom:12px}
+.rail ol{list-style:none;font-size:.92rem}
+.rail li{padding:8px 0;border-top:1px solid rgba(230,198,127,.5);color:var(--ink-soft)}
+.rail li:first-child{border-top:0}
+.rail li b{display:block;color:var(--ink);font-weight:400}
+.rail li.todo{opacity:.45}
+
+/* ---------- estimate ---------- */
+.est{border:1px solid var(--gold-light);border-radius:var(--r);display:grid;grid-template-columns:1.05fr .95fr;overflow:hidden;background:rgba(255,255,255,.3)}
+.est > div{padding:32px 30px}
+.est .right{border-left:1px solid var(--gold-light);background:var(--peach-wash)}
+.est h4{font-family:var(--serif);font-weight:500;font-size:1.25rem;color:var(--maroon);margin-bottom:10px}
+.est ul{list-style:none;font-size:.95rem;line-height:1.8}
+.big{font-family:var(--serif);font-weight:500;color:var(--maroon);font-size:clamp(2.5rem,5.4vw,3.9rem);line-height:1;margin:8px 0 12px;font-variant-numeric:tabular-nums}
+.covers{font-size:.95rem;color:var(--ink-soft);margin-top:18px;font-style:italic}
+
+/* ---------- forms ---------- */
+form .row{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}
+form .field input,form .field select{max-width:100%}
+.ok{display:none;border:1px solid var(--gold-light);border-radius:var(--r);padding:22px;margin-top:22px;background:rgba(255,255,255,.4)}
+.ok.on{display:block}
+
+/* ---------- lightbox ---------- */
+.lb{position:fixed;inset:0;background:rgba(30,20,18,.92);display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;z-index:60;padding:16px;cursor:zoom-out}
+.lb.on{display:flex}
+.lb img,.lb video{max-width:calc(100vw - 32px);max-height:80vh;width:auto;height:auto;border-radius:var(--r);box-shadow:0 30px 80px -30px rgba(0,0,0,.8);background:#000}
+.lb video[hidden],.lb img[hidden]{display:none}
+.phone{cursor:zoom-in}
+.stay-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch;margin-top:36px}
+@media(max-width:600px){.stay-grid{grid-template-columns:1fr}}
+.lb p{max-width:60ch;text-align:center;color:var(--cream);font-family:var(--serif);font-size:1.05rem;margin:0;padding:0 8px}
+.lbx{position:absolute;top:14px;right:18px;background:none;border:0;color:var(--cream);font-size:2.2rem;line-height:1}
+.zoom{cursor:zoom-in}
+
+/* ---------- modal ---------- */
+.modal{position:fixed;inset:0;background:rgba(43,42,40,.55);display:none;place-items:center;z-index:50;padding:20px}
+.modal.on{display:grid}
+.modal .box{background:var(--cream);border-radius:var(--r);max-width:560px;width:100%;padding:34px 30px;max-height:92vh;overflow:auto;position:relative}
+.modal .x{position:absolute;top:12px;right:14px;background:none;border:0;font-size:1.6rem;color:var(--ink-soft);line-height:1}
+
+/* ---------- footer ---------- */
+footer{background:var(--green);color:var(--cream);padding:56px 0 44px;position:relative}
+footer .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start}
+footer .flogo{height:110px;width:auto;display:block}
+footer{overflow:hidden}
+footer p{font-size:.95rem;color:var(--cream);opacity:.92;line-height:1.7}
+footer a{color:var(--cream)}
+footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-top:22px;color:var(--gold-light)}
+
+/* ---------- mobile ---------- */
+@media (max-width:980px){
+  .wrap{padding:0 24px}
+  .journey{grid-template-columns:1fr;gap:28px;padding-top:40px}
+  .two{grid-template-columns:1fr;gap:28px}
+  .flow{grid-template-columns:repeat(3,1fr)}
+  .pkgs{grid-template-columns:1fr 1fr}
+  .couples{grid-template-columns:repeat(2,1fr);grid-auto-rows:220px;grid-auto-flow:dense}
+  .couples figure{grid-column:auto;grid-row:auto}
+  .couples figure:nth-child(1),.couples figure:nth-child(7),.couples figure:nth-child(11){grid-column:span 2}
+  .couples figcaption{opacity:1;transform:none}
+  .couples .view{display:none}
+  .nav{gap:16px}
+  .nav .sec-link{display:none}
+  .rail{position:static;order:-1;padding:16px}
+  .rail ol{display:flex;flex-wrap:wrap;gap:6px 14px}
+  .rail li{border:0;padding:2px 0}
+  .rail li.todo{display:none}
+  .cards.c3,.cards.c4,.cards.c2{grid-template-columns:1fr 1fr}
+  .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .mosaic .phone{grid-row:auto;aspect-ratio:9/16;max-width:320px}
+  .mosaic .big{grid-column:1/-1;aspect-ratio:3/2}
+  .mosaic figure{aspect-ratio:3/2}
+  .steps{grid-template-columns:1fr;gap:18px}
+  .steps::before{display:none}
+  .step{text-align:left;display:grid;grid-template-columns:34px 1fr;gap:4px 14px;align-items:center}
+  .step b{margin:0}
+  .step h4{margin:0}
+  .step p{grid-column:2}
+  .est{grid-template-columns:1fr}
+  .est .right{border-left:0;border-top:1px solid var(--gold-light)}
+  form .row{grid-template-columns:1fr}
+  footer .wrap{grid-template-columns:1fr}
+  .band{padding:32px 22px}
+}
+@media (max-width:640px){
+  .hero{min-height:92vh}
+  .hero .wrap{padding-top:110px;padding-bottom:90px}
+  header,header .wrap{height:64px}
+  .logo img{height:44px}
+  .nav{gap:14px}
+  .nav .sec-link{display:none}
+  .nav .plan{display:none}
+  .wa span{display:none}
+  .grounds figure{flex-basis:84%}
+  .grounds-btn{display:none}
+  .orn img{height:40px}
+  .orn::before,.orn::after{width:48px}
+  .wm.emblem-tr{width:260px;right:-70px}
+  .wm.emblem-bl{width:320px}
+  .wm.emblem-cta{width:380px}
+  .wm.sprig-r,.wm.sprig-l,.wm.leaf-l,.wm.leaf-r{width:90px}
+  .progress{top:64px}
+  #plan-view{padding-top:64px}
+  .flow{grid-template-columns:1fr 1fr}
+  .pkgs{grid-template-columns:1fr}
+  .couples{grid-auto-rows:180px;gap:10px}
+  .cta-final{padding:64px 0}
+  .hero .facts{gap:12px 14px;font-size:.88rem}
+  .cards.c3,.cards.c4,.cards.c2{grid-template-columns:1fr}
+  .mosaic{grid-template-columns:1fr}
+  .mosaic .phone{margin:0 auto}
+  .arch-frame{max-width:300px}
+  .thread button{font-size:0;gap:0}
+  .pnow{display:block;white-space:nowrap}
+  .pin{font-size:.85rem;padding:4px 10px;transform:translate(-50%,-50%) scale(.72);gap:0}
+  .pin::before{display:none}
+  .pin:hover,.pin.hot{transform:translate(-50%,-50%) scale(.78)}
+  .pin.soft{display:flex;transform:translate(-50%,-50%) scale(.62)}
+  .pin.soft:hover{transform:translate(-50%,-50%) scale(.66)}
+  .map .legend{display:none}
+  .strip{grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .phone{flex-basis:200px}
+  .reels .phone:first-child{margin-left:0}
+  .wordmark b{font-size:1.4rem}
+  .wa{font-size:.82rem}
+}
+
+/* ---------- food: function by function ---------- */
+.fplan{border:1px solid var(--gold-light);border-radius:var(--r);padding:26px 24px 20px;background:rgba(255,255,255,.35)}
+.fplan h3,.meals-wrap h3{margin-bottom:6px}
+.fplan .pills{margin-top:14px}
+.frows{margin-top:18px}
+.frow{display:grid;grid-template-columns:130px 1fr 1fr .9fr 1.25fr 34px;gap:14px;align-items:end;padding:14px 0;border-top:1px dotted rgba(230,198,127,.9)}
+.frow:first-child{border-top:0;padding-top:4px}
+.frow .fname{font-family:var(--serif);font-weight:600;font-size:1.25rem;color:var(--maroon);padding-bottom:10px}
+.frow label{display:grid;gap:6px;font-size:.85rem;color:var(--ink-soft);margin:0}
+.frow label[hidden]{display:none}
+.frow select,.frow input{width:100%;padding:11px 12px;border:1px solid var(--gold-light);border-radius:var(--r);background:#fff;font:inherit;color:var(--ink)}
+.frow select:focus,.frow input:focus{border-color:var(--gold);outline:0}
+.frow .frm{width:34px;height:42px;border:0;background:none;color:var(--ink-soft);font-size:1.5rem;line-height:1}
+.frow .frm:hover{color:var(--maroon)}
+.frow .frm[hidden]{visibility:hidden;display:block}
+.fnote{font-size:.92rem;color:var(--ink-soft);font-style:italic;margin-top:14px}
+.meals-wrap{margin-top:36px}
+.meal{border:1px solid var(--gold-light);border-radius:var(--r);background:rgba(255,255,255,.35);padding:22px 22px 20px;margin-top:16px}
+.mhd{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.mhd b{display:block;font-family:var(--serif);font-weight:600;font-size:1.45rem;color:var(--maroon);line-height:1.1}
+.mhd span{display:block;color:var(--ink);font-size:.98rem;margin-top:4px}
+.mhd em{display:block;font-size:.88rem;color:var(--ink-soft);margin-top:4px}
+.mguests{font-family:var(--serif);font-weight:600;font-size:1.25rem;color:var(--green);white-space:nowrap;padding-top:4px}
+.mpick{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.mopt{border:1px solid var(--gold-light);border-radius:var(--r);background:rgba(255,255,255,.45);padding:12px 14px;text-align:left;display:grid;gap:3px;transition:border-color .15s,background .15s}
+.mopt b{font-family:var(--serif);font-weight:600;font-size:1.15rem;color:var(--maroon);line-height:1.15}
+.mopt span{font-size:.85rem;color:var(--ink-soft);line-height:1.4}
+.mopt:hover{border-color:var(--gold)}
+.mopt.sel{background:var(--peach-wash);border-color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold)}
+.mopt.sel b::after{content:" ✓";color:var(--gold-deep)}
+.mcnt{margin-top:14px}
+.mcnt .pills{margin-top:8px}
+.mcnt[hidden]{display:none}
+#pkgCards .card.menu{cursor:default}
+@media (max-width:980px){.mpick{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){
+  .frow{grid-template-columns:1fr 1fr;gap:10px 12px;align-items:end}
+  .frow .fname{grid-column:1/-1;padding-bottom:0}
+  .frow .frm{grid-column:2;justify-self:end}
+  .frow label.mealsel{grid-column:1/-1}
+  .mpick{grid-template-columns:1fr}
+  .fplan{padding:18px 16px}
+  .meal{padding:16px}
+}
+</style>
+</head>
+<body>
+<header id="hdr">
+  <div class="wrap">
+    <nav class="nav left" aria-label="Main">
+      <a href="#home" onclick="route('home');return false;">Home</a>
+      <a class="sec-link" href="#venues" onclick="goSec('venues');return false;">Venues</a>
+      <a class="sec-link" href="#stay" onclick="goSec('stay');return false;">Stay</a>
+      <a class="sec-link" href="#food" onclick="goSec('food');return false;">Food</a>
+      <a class="sec-link" href="#decor" onclick="goSec('decor');return false;">Décor</a>
+      <a class="sec-link" href="#couples" onclick="goSec('couples');return false;">Couples</a>
+    </nav>
+    <a class="logo" href="#home" onclick="route('home');return false;" aria-label="Orayana Events and Getaways, home">
+      <img src="assets/img/logo.png" alt="Orayana">
+    </a>
+    <nav class="nav right" aria-label="Contact">
+      <a class="wa" href="https://wa.me/918484053303" target="_blank" rel="noopener" aria-label="WhatsApp 84840 53303"><img src="assets/img/whatsapp.png" alt=""><span>84840 53303</span></a>
+      <a class="plan" href="#plan" onclick="route('plan');return false;">Plan my wedding</a>
+    </nav>
+  </div>
+</header>
+
+<div id="home-view">
+
+<section class="hero" id="home">
+  <div class="poster" id="heroPoster" data-d="assets/img/hero_poster.jpg" data-m="assets/img/hero_poster_m.jpg" aria-hidden="true"></div>
+  <video id="heroVid" autoplay muted loop playsinline preload="none" aria-hidden="true" style="background:transparent" data-d="assets/vid/hero.mp4" data-x="assets/vid/hero.mp4" data-m="assets/vid/hero_m.mp4"></video>
+  <div class="wrap">
+    <p class="hook">Shaadi stress-free bhi ho sakti hai.</p>
+    <h1>The whole wedding. One roof.</h1>
+    <p class="lede">Venue, décor, food, and the team that runs the day, all on three acres in Nashik, with 19 rooms for your guests to stay.</p>
+    <a class="btn" href="#plan" onclick="route('plan');return false;">Plan my wedding</a>
+    <div class="facts"><span>Three acres</span><span>Three event spaces</span><span>Up to 1,500 guests</span><span>19 rooms</span></div>
+  </div>
+  <a class="cue" href="#how" onclick="goSec('how');return false;">See how it works</a>
+</section>
+
+<!-- how it works -->
+<section class="sec" id="how">
+  <div class="wm emblem-tr"><img src="assets/img/mark_outline.png" alt=""></div>
+  <div class="wrap">
+    <div class="two">
+      <div>
+        <h2>Everything in one place, and one team answerable for all of it.</h2>
+        <p class="lede">Most weddings mean a venue, a caterer, a decorator, a hotel and a planner, each with their own contract and their own excuses. At Orayana the venue, the kitchen, the décor team and the rooms are all ours. You deal with one team, and one number.</p>
+        <p class="lede">Before the day, six planning sessions are on us: three for décor, two for food, one for the flow of the day. We walk the grounds, taste, adjust, decide. By your date, nothing is a surprise.</p>
+      </div>
+      <div class="map" aria-label="Aerial view of the property with each space marked">
+        <img src="assets/img/aerial.jpg" alt="Aerial view of Orayana: two lawns, the covered hall, the villa and the gardens">
+        <button class="pin" style="left:79%;top:33%" onclick="goSec('venues')">Vishal-Van</button>
+        <button class="pin" style="left:40%;top:47%" onclick="goSec('venues')">Harit-Lila</button>
+        <button class="pin" style="left:11%;top:44%" onclick="goSec('venues')">Mangal-Vedika</button>
+        <button class="pin soft" style="left:11.8%;top:14%" onclick="goSec('stay')">Atithi Nivas</button>
+        <button class="pin soft" style="left:43%;top:82%" onclick="goSec('stay')">Amaltas Villa</button>
+        <button class="pin soft" style="left:77%;top:70%" onclick="openCustom()">Gazebo</button>
+      </div>
+    </div>
+    <div class="flow" style="margin-top:56px">
+      <div><h4>Shape of the day</h4><p>A full wedding over one to three days, or a single function.</p></div>
+      <div><h4>Venue</h4><p>Two lawns and a covered hall. On a wedding, all three are yours.</p></div>
+      <div><h4>Stay</h4><p>19 rooms across two buildings, a short walk from the lawns.</p></div>
+      <div><h4>Food</h4><p>Four menus from our kitchen, tasted before the day, twice.</p></div>
+      <div><h4>Décor</h4><p>An element sheet where every item carries its own cost.</p></div>
+      <div><h4>Your estimate</h4><p>One indicative number, inclusive of GST, in about five minutes.</p></div>
+    </div>
+    <div class="sec-head" style="margin-top:72px;margin-bottom:0">
+      <div class="orn"><img src="assets/img/mark_outline.png" alt=""></div>
+      <h2 class="green">Three acres of old trees, gardens and lawns.</h2>
+      <p class="lede">Heliconias at the balcony rails, palms over the villa, a gazebo in the garden, and two lawns that stay green through the season. The whole property is yours, and nothing is a stage set.</p>
+    </div>
+    <div class="grounds-wrap">
+    <button class="grounds-btn prev" type="button" aria-label="Previous photos">&#8249;</button>
+    <button class="grounds-btn next" type="button" aria-label="Next photos">&#8250;</button>
+    <div class="grounds">
+      <figure><img src="assets/img/aerial_pool.jpg" alt="Aerial view of the villa, pool and banquet hall roof with the hills of Nashik behind"><figcaption>The property from above</figcaption></figure>
+      <figure><img src="assets/img/harit_day.jpg" alt="Harit-Lila lawn by day, with the stage building and old trees behind"><figcaption>Harit-Lila by day</figcaption></figure>
+      <figure><img src="assets/img/gazebo.jpg" alt="A garden gazebo with a single set table, framed by greenery"><figcaption>The garden gazebo</figcaption></figure>
+      <figure><img src="assets/img/balcony.jpg" alt="A room balcony with two chairs, coffee, and heliconias at the railing"><figcaption>From a room balcony</figcaption></figure>
+      <figure><img src="assets/img/amaltas.jpg" alt="Amaltas Villa lit up at dusk under palms"><figcaption>Amaltas Villa at dusk</figcaption></figure>
+      <figure><img src="assets/img/pool_top.jpg" alt="The pool seen straight from above, wooden deck and palms around it"><figcaption>The pool, seen from above</figcaption></figure>
+      <figure><img src="assets/img/lawn_games.jpg" alt="A lawn set up with a badminton net, cricket stumps, bats and balls"><figcaption>Games on the lawn</figcaption></figure>
+      <figure><img src="assets/img/villa_lounge.jpg" alt="The double-height villa lounge with sofas, a jaali wall and a mezzanine above"><figcaption>The villa lounge</figcaption></figure>
+      <figure><img src="assets/img/games_room.jpg" alt="A pool table in the villa lounge with the mezzanine railing above"><figcaption>Pool in the lounge</figcaption></figure>
+      <figure><img src="assets/img/carrom.jpg" alt="A carrom board and four chairs on the mezzanine, trees through the glass"><figcaption>Carrom on the mezzanine</figcaption></figure>
+      <figure><img src="assets/img/dining_hall.jpg" alt="The dining hall with round wooden tables and green-cushioned chairs"><figcaption>The dining hall</figcaption></figure>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- venues -->
+<section class="sec alt" id="venues">
+  <div class="wm leaf-l"><img src="assets/img/leaf.svg+xml" alt=""></div>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="orn"><img src="assets/img/mark_outline.png" alt=""></div>
+      <h2>Three acres. Three spaces.</h2>
+      <p class="lede">Every space on the property, with honest numbers. On a full wedding, all three are yours. On a single function, choose any two.</p>
+    </div>
+    <div class="cards c3">
+      <div class="card photo">
+        <div class="wide"><img src="assets/img/vishal.jpg" alt="Vishal-Van lawn at dusk under a canopy of draped fabric and lights, set for a reception"></div>
+        <div class="body"><h3>Vishal-Van, the big lawn</h3><p>15,000 sq ft of open lawn under the Nashik sky. 1,200 to 1,500 guests. For the baraat, the big reception, the wedding where everyone comes.</p><button class="linkish" style="margin-top:14px" onclick="walk('Vishal-Van')">View in 3D</button></div>
+      </div>
+      <div class="card photo">
+        <div class="wide"><img src="assets/img/harit_stage.jpg" alt="Harit-Lila lawn by day: a blue-and-yellow haldi stage on the lawn with the stage building behind"></div>
+        <div class="body"><h3>Harit-Lila, the small lawn</h3><p>7,000 sq ft, framed by gardens. 300 to 400 guests. Haldi, sangeet, an engagement, or a wedding with room to breathe.</p><button class="linkish" style="margin-top:14px" onclick="walk('Harit-Lila')">View in 3D</button></div>
+      </div>
+      <div class="card photo">
+        <div class="wide"><img src="assets/img/mangal.jpg" alt="Inside Mangal-Vedika: a covered hall with draped ceilings, hanging florals and a stage"></div>
+        <div class="body"><h3>Mangal-Vedika, the banquet hall</h3><p>10,000 sq ft, fully covered. 700 to 800 guests. Weather-proof, and conference-ready for corporate events.</p><button class="linkish" style="margin-top:14px" onclick="walk('Mangal-Vedika')">View in 3D</button></div>
+      </div>
+    </div>
+    <p class="note">Your venue charge is set by how long you have the property, not by which lawn you pick.</p>
+  </div>
+</section>
+
+<!-- stay -->
+<section class="sec" id="stay">
+  <div class="wm sprig-r"><img src="assets/img/sprig.svg+xml" alt=""></div>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="orn"><img src="assets/img/mark_outline.png" alt=""></div>
+      <h2>Stay where you celebrate.</h2>
+      <p class="lede">19 rooms on the property, a short walk from the lawns. Your family wakes up on site, already part of the day. Two stage rooms for the couple come complimentary with every wedding.</p>
+    </div>
+    <div class="mosaic">
+      <div class="phone tall"><video muted loop playsinline preload="metadata" data-reel poster="assets/img/p_tour.jpg"><source src="assets/vid/r_tour.mp4" type="video/mp4"></video><span>A walk through the property</span></div>
+      <figure class="big"><img src="assets/img/amaltas.jpg" alt="Amaltas Villa at dusk, lit from inside, with palms around it"><figcaption><b>Amaltas Villa</b> 9 rooms. Comfortable for three, up to four per room.</figcaption></figure>
+      <figure><img src="assets/img/room.jpg" alt="A guest room at Atithi Nivas with a balcony opening onto the gardens"><figcaption><b>Atithi Nivas</b> 8 rooms. Comfortable for four, up to seven per room.</figcaption></figure>
+      <figure><img src="assets/img/lounge.jpg" alt="The villa lounge with a deep pink sofa and tall windows onto the garden"><figcaption>The villa lounge</figcaption></figure>
+      <figure><img src="assets/img/balcony.jpg" alt="A room balcony with two chairs, coffee, and heliconias at the railing"><figcaption>From a room balcony</figcaption></figure>
+    </div>
+    <p class="note">Standard capacity across both is 65 guests; up to 100 with extra bedding, at ₹900 per extra person.</p>
+  </div>
+</section>
+
+<!-- food -->
+<section class="sec alt" id="food">
+  <div class="wm leaf-r"><img src="assets/img/leaf.svg+xml" alt=""></div>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="orn"><img src="assets/img/mark_outline.png" alt=""></div>
+      <h2>Our kitchen. Your menu. Tasted before the day, twice.</h2>
+      <p class="lede">Four menus to start from. Every one can be shaped to your family. Before the event, you're welcome to visit a live wedding here and taste the food as it's served. On your day, you taste again before service, with time to adjust.</p>
+    </div>
+    <div class="pkgs">
+      <div class="card menu "><div class="mhead green"><h3>Authentic Maharashtrian</h3></div><div class="mbody"><p class="desc">A tribute to Maharashtra's kitchen. Traditional, soulful, rooted in regional flavour.</p><ul class="mlist"><li><span>Green salad</span><b>1</b></li><li><span>Mocktail</span><b>1</b></li><li><span>Maharashtrian gravy sabzi</span><b>1</b></li><li><span>Maharashtrian dry sabzi</span><b>1</b></li><li><span>Maharashtrian breads</span><b>2</b></li><li><span>Dal</span><b>1</b></li><li><span>Rice</span><b>1</b></li><li><span>Mithai</span><b>2</b></li></ul></div></div>
+      <div class="card menu "><div class="mhead maroon"><h3>Classic</h3></div><div class="mbody"><p class="desc">Everyday favourites. Comforting, balanced, timeless.</p><ul class="mlist"><li><span>Salad</span><b>1</b></li><li><span>Welcome drink</span><b>1</b></li><li><span>Gravy sabzi</span><b>1</b></li><li><span>Dry sabzi</span><b>1</b></li><li><span>Breads</span><b>2</b></li><li><span>Dal</span><b>1</b></li><li><span>Rice</span><b>1</b></li><li><span>Mithai</span><b>1</b></li></ul><p class="special">Special dessert: milk dessert or pure ghee halwa</p></div></div>
+      <div class="card menu "><div class="mhead green"><h3>Premium</h3></div><div class="mbody"><p class="desc">An elevated spread with soup, handcrafted starters and added variety.</p><ul class="mlist"><li><span>Salad</span><b>1</b></li><li><span>Soup</span><b>1</b></li><li><span>Signature mocktail</span><b>1</b></li><li><span>Appetizers</span><b>2</b></li><li><span>Gravy sabzi</span><b>2</b></li><li><span>Dry sabzi</span><b>1</b></li><li><span>Breads</span><b>2</b></li><li><span>Dal</span><b>1</b></li><li><span>Rice</span><b>1</b></li><li><span>Mithai</span><b>1</b></li><li><span>Ice cream</span><b>1</b></li></ul><p class="special">Special dessert: milk dessert or pure ghee halwa</p></div></div>
+      <div class="card menu "><div class="mhead maroon"><h3>Signature</h3></div><div class="mbody"><p class="desc">The full table. Two soups, two mocktails, a three-item chaat counter, the works. Live counters included.</p><ul class="mlist"><li><span>Salad</span><b>1</b></li><li><span>Soups</span><b>2</b></li><li><span>Signature mocktails</span><b>2</b></li><li><span>Appetizers</span><b>2</b></li><li><span>Chaat counter</span><b>3</b></li><li><span>Gravy sabzis</span><b>2</b></li><li><span>Dry sabzis</span><b>2</b></li><li><span>Breads</span><b>3</b></li><li><span>Dal</span><b>1</b></li><li><span>Rice</span><b>1</b></li><li><span>Mithai</span><b>1</b></li><li><span>Ice cream</span><b>1</b></li></ul><p class="special">Special desserts: milk dessert and pure ghee halwa</p></div></div>
+    </div>
+    <p class="counters-list">Live counters, priced per guest, can be added to any menu: Continental, Chinese, Chaat, South Indian, Pav Bhaji, Ice Cream, Barf ka Gola.</p>
+    <p style="margin-top:22px"><a class="btn ghost" href="assets/pdf/menu.pdf" target="_blank" rel="noopener">See the full menu (PDF)</a></p>
+    <p class="note">Every package includes papad of choice and 200 ml water bottles. Breakfast for up to 100 guests (any two items) is complimentary on Classic, Premium and Signature. All food is from Orayana's kitchen. Outside food isn't permitted. That's how we stand behind every plate.</p>
+  </div>
+</section>
+
+<!-- décor -->
+<section class="sec" id="decor">
+  <div class="wm emblem-bl"><img src="assets/img/mark_outline.png" alt=""></div>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="orn"><img src="assets/img/mark_outline.png" alt=""></div>
+      <h2>Design. Plan. Celebrate.</h2>
+      <p class="lede">Our in-house décor process. One team, no vendors to juggle. Every picture below was built here, by this team.</p>
+    </div>
+    <div class="cards c4">
+      <div class="card arch"><div class="arch-frame"><img src="assets/img/roundstage.jpg" alt="A round white stage ringed with white roses under draped fabric and bulbs"></div><h3>Basic</h3><p>Clean, elegant, everything essential. Entry, stage, seating, ambient lighting.</p></div>
+      <div class="card arch"><div class="arch-frame"><img src="assets/img/decor_good.jpg" alt="A daytime mandap under orange and white drapes, with a carved elephant-trunk arch and hanging floral strings"></div><h3>Good</h3><p>Basic, plus a photobooth, richer florals, a stronger stage and ceiling work.</p></div>
+      <div class="card arch"><div class="arch-frame"><img src="assets/img/decor_premium.jpg" alt="A night stage in white: lit arches, white florals and a flower-lined aisle"></div><h3>Premium</h3><p>Good, plus statement structures, layered lighting, a special entry and live elements.</p></div>
+      <div class="card arch"><div class="arch-frame"><img src="assets/img/canopy.jpg" alt="A full canopy of draped fabric and bulbs over the lawn, with the stage lit beyond"></div><h3>Luxury</h3><p>Premium, plus grand installations, SFX, artists, anchors, live musicians. The full production.</p></div>
+    </div>
+    <div class="band" style="margin-top:40px">
+      <div class="steps">
+        <div class="step"><b>1</b><h4>Choose</h4><p>Pick from our curated designs or bring your own vision.</p></div>
+        <div class="step"><b>2</b><h4>Finalise</h4><p>You receive an element sheet: every single element, listed.</p></div>
+        <div class="step"><b>3</b><h4>Review</h4><p>Each element carries its own cost. Add, remove, adjust.</p></div>
+        <div class="step"><b>4</b><h4>Confirm</h4><p>Our consultation fee is a separate line on the same sheet. No surprises later.</p></div>
+        <div class="step"><b>5</b><h4>Celebrate</h4><p>We build it, run it, and take it down.</p></div>
+      </div>
+    </div>
+    <p class="note">Photographer, makeup artist, mehendi artist and priest are arranged separately. We're happy to recommend.</p>
+  </div>
+</section>
+
+<!-- couples -->
+<section class="sec alt" id="couples">
+  <div class="wm emblem-tr"><img src="assets/img/mark_outline.png" alt=""></div>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="orn"><img src="assets/img/mark_outline.png" alt=""></div>
+      <h2>The couples of Orayana.</h2>
+      <p class="lede">Real weddings on these lawns. Each one planned with the same team that will plan yours.</p>
+      <p class="muted" style="margin:8px auto 0;font-style:italic;text-align:center">Tap any photo to step into that wedding.</p>
+    </div>
+    <div class="couples" id="coupleGrid">
+      <figure class=" reveal" style="--d:0.00s;--gc:1/2;--gr:1/3" data-i="0"><img src="assets/img/c_purple.jpg" alt="A bride in a purple Paithani and a groom in a pheta, laughing together against a wall of green"><figcaption>A Maharashtrian wedding, by the hedge wall</figcaption><span class="view">View</span><i class="shine"></i></figure>
+      <figure class=" reveal" style="--d:0.07s;--gc:2/3;--gr:1/2" data-i="1"><img src="assets/img/c_haldi.jpg" alt="A couple forehead to forehead under marigold strings at their haldi"><figcaption>Haldi under the marigolds</figcaption><span class="view">View</span><i class="shine"></i></figure>
+      <figure class=" reveal" style="--d:0.14s;--gc:3/4;--gr:1/2" data-i="2"><img src="assets/img/c_sparklers.jpg" alt="A couple walking through a tunnel of sparklers held by their guests at night"><figcaption>A sparkler entry on Vishal-Van</figcaption><span class="view">View</span><i class="shine"></i></figure>
+      <figure class=" reveal" style="--d:0.21s;--gc:4/5;--gr:1/2" data-i="3"><img src="assets/img/c_blue.jpg" alt="A couple in matching blue, his arms around her, at golden hour"><figcaption>Golden hour, engagement evening</figcaption><span class="view">View</span><i class="shine"></i></figure>
+      <figure class="top reveal" style="--d:0.28s;--gc:2/4;--gr:2/3" data-i="4"><img src="assets/img/c_petals.jpg" alt="A couple in green and white walking out under a shower of rose petals"><figcaption>Petals on the way out</figcaption><span class="view">View</span><i class="shine"></i></figure>
+      <figure class="top  reveal" style="--d:0.35s;--gc:4/5;--gr:2/3" data-i="5"><img src="assets/img/c_dance.jpg" alt="A couple in green dancing with their families in yellow at a daytime haldi"><figcaption>The haldi baraat</figcaption><span class="view">View</span><i class="shine"></i></figure>
+      <figure class="top reveal" style="--d:0.42s;--gc:4/5;--gr:3/5" data-i="6"><img src="assets/img/c_kiss.jpg" alt="A groom kissing the bride's mehendi hand, close and quiet"><figcaption>A quiet moment on the night</figcaption><span class="view">View</span><i class="shine"></i></figure>
+      <figure class=" reveal" style="--d:0.49s;--gc:1/2;--gr:3/4" data-i="7"><img src="assets/img/c_harp.jpg" alt="A couple on a black sofa in front of lit harp-shaped arches and white florals"><figcaption>Reception night</figcaption><span class="view">View</span><i class="shine"></i></figure>
+      <figure class=" reveal" style="--d:0.56s;--gc:2/3;--gr:3/4" data-i="8"><img src="assets/img/c_garland.jpg" alt="A South Indian couple at the mandap, garlands on, hands joined"><figcaption>The garland exchange</figcaption><span class="view">View</span><i class="shine"></i></figure>
+      <figure class="top  reveal" style="--d:0.63s;--gc:3/4;--gr:3/4" data-i="9"><img src="assets/img/c_red.jpg" alt="A bride in red Banarasi and a groom in white sherwani under a night of lights"><figcaption>Night of the wedding</figcaption><span class="view">View</span><i class="shine"></i></figure>
+      <figure class="top reveal" style="--d:0.70s;--gc:1/3;--gr:4/6" data-i="10"><img src="assets/img/c_hand.jpg" alt="A groom on one knee kissing the bride's hand as the sangeet crowd watches"><figcaption>The sangeet floor</figcaption><span class="view">View</span><i class="shine"></i></figure>
+      <figure class=" reveal" style="--d:0.77s;--gc:3/5;--gr:5/6" data-i="11"><img src="assets/img/c_pink.jpg" alt="A couple in white and pink on a curved sofa against a pastel painted backdrop"><figcaption>A daytime engagement</figcaption><span class="view">View</span><i class="shine"></i></figure>
+      <figure class="top  reveal" style="--d:0.84s;--gc:3/4;--gr:4/5" data-i="12"><img src="assets/img/c_white.jpg" alt="A couple in white and pink garlands, mid-dance on a petal-strewn floor"><figcaption>Just married</figcaption><span class="view">View</span><i class="shine"></i></figure>
+    </div>
+  </div>
+</section>
+
+<!-- gift + moments -->
+<section class="sec alt" id="gift">
+  <div class="wm sprig-l"><img src="assets/img/sprig.svg+xml" alt=""></div>
+  <div class="wrap">
+    <div class="band maroon" style="margin-top:0">
+      <div class="stage-head center" style="margin-bottom:26px">
+        <h2>Shaadi ka gift.</h2>
+        <p class="lede">Everything below is included with every wedding. Not an add-on, not a tier. It's already in your estimate.</p>
+      </div>
+      <div class="cards c3">
+        <div class="card"><h3>On the ground</h3><ul><li>2 shadows for the couple</li><li>Operations manager</li><li>F&amp;B manager</li><li>Production manager</li><li>4 porters</li></ul></div>
+        <div class="card"><h3>Safe and clean</h3><ul><li>Security for parking, guest safety and crowd control</li><li>Cleaning for washrooms, event and food areas, throughout</li></ul></div>
+        <div class="card"><h3>Essentials</h3><ul><li>300 Chivari chairs</li><li>6 low seating chairs</li><li>8 coolers</li><li>2 urlis</li><li>2 kg flower petals</li><li>A ghoda for the baraat</li></ul></div>
+        <div class="card"><h3>At the table</h3><ul><li>200 ml water bottles</li><li>Papad, achar and salad with every meal</li><li>20 round tables or pangat seating</li></ul></div>
+        <div class="card"><h3>The morning after</h3><ul><li>Breakfast for 100, any two items</li><li>Tea and coffee for the bidai</li></ul><p class="sub" style="color:var(--gold-light)">On Classic, Premium and Signature.</p></div>
+        <div class="card"><h3>Stay</h3><ul><li>2 stage rooms for the couple, complimentary</li></ul></div>
+      </div>
+    </div>
+    <div class="sec-head" style="margin-top:72px;margin-bottom:22px">
+      <h2>What a day here looks like.</h2>
+      <p class="lede">Real functions, filmed on our lawns. The same team sets up, runs the day, and takes it down.</p>
+    </div>
+    <div class="reels">
+      <div class="phone"><video muted loop playsinline preload="metadata" data-reel poster="assets/img/p_haldi.jpg"><source src="assets/vid/r_haldi.mp4" type="video/mp4"></video><span>Haldi on Harit-Lila</span></div>
+      <div class="phone"><video muted loop playsinline preload="metadata" data-reel poster="assets/img/p_vedic.jpg"><source src="assets/vid/r_vedic.mp4" type="video/mp4"></video><span>A Vedic wedding, by day</span></div>
+      <div class="phone"><video muted loop playsinline preload="metadata" data-reel poster="assets/img/p_vidhi.jpg"><source src="assets/vid/r_vidhi.mp4" type="video/mp4"></video><span>The vidhi, by night</span></div>
+      <div class="phone"><video muted loop playsinline preload="metadata" data-reel poster="assets/img/p_sangeet.jpg"><source src="assets/vid/r_sangeet.mp4" type="video/mp4"></video><span>Sangeet night</span></div>
+      <div class="phone"><video muted loop playsinline preload="metadata" data-reel poster="assets/img/p_team.jpg"><source src="assets/vid/r_team.mp4" type="video/mp4"></video><span>The team, the morning of</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- final CTA -->
+<section class="cta-final" id="try">
+  <div class="wm emblem-cta"><img src="assets/img/mark_outline.png" alt=""></div>
+  <div class="wrap">
+    <div class="orn"><img src="assets/img/mark_outline.png" alt="" style="filter:brightness(1.6)"></div>
+    <h2>Try the process. See where your wedding lands.</h2>
+    <p class="lede" style="max-width:52ch">Six quick choices, about five minutes, and you get an indicative number, inclusive of GST, before you've spoken to anyone.</p>
+    <a class="btn" href="#plan" onclick="route('plan');return false;">Plan my wedding</a>
+  </div>
+</section>
+
+</div><!-- /home-view -->
+
+<div id="plan-view">
+<nav class="progress" id="journey" aria-label="Progress">
+  <div class="wrap">
+    <button class="pback" id="back" hidden onclick="back()">Back</button>
+    <span class="pnow" id="pnow">Shape of the day</span>
+    <div class="thread" id="thread">
+      <button data-n="0" onclick="jump(0)"><i></i>Shape of the day</button>
+      <button data-n="1" onclick="jump(1)"><i></i>Venue</button>
+      <button data-n="2" onclick="jump(2)"><i></i>Stay</button>
+      <button data-n="3" onclick="jump(3)"><i></i>Food</button>
+      <button data-n="4" onclick="jump(4)"><i></i>Décor</button>
+      <button data-n="5" onclick="jump(5)"><i></i>Your team</button>
+      <button data-n="6" onclick="jump(6)"><i></i>Estimate</button>
+    </div>
+    <button class="reset" id="reset" hidden onclick="startOver()">Start over</button>
+  </div>
+</nav>
+
+<main class="wrap journey">
+<div class="wm emblem-bl"><img src="assets/img/mark_outline.png" alt=""></div>
+<div id="stages">
+
+<!-- ===== STAGE 0 : SHAPE ===== -->
+<section class="stage on" data-s="0">
+  <div class="stage-head center">
+    <h2>Let's start with the shape of the day.</h2>
+    <p class="lede">Tell us what you're planning and we'll walk you through exactly how it comes together at Orayana.</p>
+  </div>
+  <div class="cards c3">
+    <div class="card pick arch" data-kind="wedding" onclick="pickKind(this)">
+      <span class="tick">✓</span>
+      <div class="arch-frame"><img src="assets/img/pergola.jpg" alt="A lit walkway of chandeliers and draped fabric leading to the stage at dusk"></div>
+      <h3>A full wedding</h3>
+      <p>Multiple functions across one, two or three days. The whole property is yours.</p>
+      <p class="sub">How long do you need the property?</p>
+      <div class="pills" data-role="duration">
+        <button class="pill" data-v="24" onclick="pickDur(event,24)">One day</button>
+        <button class="pill" data-v="36" onclick="pickDur(event,36)">A day and a half</button>
+        <button class="pill" data-v="48" onclick="pickDur(event,48)">Two days</button>
+      </div>
+      <p class="sub">Most weddings with a haldi, sangeet and the wedding day take 36 to 48 hours.</p>
+    </div>
+    <div class="card pick arch" data-kind="single" onclick="pickKind(this)">
+      <span class="tick">✓</span>
+      <div class="arch-frame"><img src="assets/img/birds.jpg" alt="An engagement stage with gold arches, white flowers and lit paper birds overhead"></div>
+      <h3>A single function</h3>
+      <p>One event: a reception, engagement, haldi, sangeet or mehendi. Two venues for the day.</p>
+      <p class="sub">Which function? (8-hour booking)</p>
+      <div class="pills" data-role="fn">
+        <button class="pill" onclick="pickFn(event,'Reception')">Reception</button>
+        <button class="pill" onclick="pickFn(event,'Engagement')">Engagement</button>
+        <button class="pill" onclick="pickFn(event,'Haldi')">Haldi</button>
+        <button class="pill" onclick="pickFn(event,'Sangeet')">Sangeet</button>
+        <button class="pill" onclick="pickFn(event,'Mehendi')">Mehendi</button>
+      </div>
+    </div>
+    <div class="card pick arch" onclick="openCustom()">
+      <div class="arch-frame"><img src="assets/img/gazebo.jpg" alt="A garden gazebo with a single set table, framed by greenery"></div>
+      <h3>Something smaller</h3>
+      <p>A birthday, anniversary, puja, or an intimate family gathering. We'll quote this personally.</p>
+      <button class="btn ghost" style="margin-top:18px" onclick="event.stopPropagation();openCustom()">Tell us what you have in mind</button>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="btn" id="n0" disabled onclick="next()">Next: choose your venue</button>
+    <span class="err" id="e0">Pick one option, then how long or which function.</span>
+  </div>
+</section>
+
+<!-- ===== STAGE 1 : VENUE ===== -->
+<section class="stage" data-s="1">
+  <div class="stage-head center">
+    <h2>Three acres. Three spaces. Pick what fits.</h2>
+    <p class="lede" id="venueLede">Every space on the property, with honest numbers. On a full wedding, all three are yours. You're choosing where each function goes.</p>
+  </div>
+  <div class="map" aria-label="Aerial view of the property with each space marked">
+    <img src="assets/img/aerial.jpg" alt="Aerial view of Orayana: two lawns, the covered hall, the villa and the gardens">
+    <button class="pin" style="left:79%;top:33%" onclick="hop('Vishal-Van')">Vishal-Van</button>
+    <button class="pin" style="left:40%;top:47%" onclick="hop('Harit-Lila')">Harit-Lila</button>
+    <button class="pin" style="left:11%;top:44%" onclick="hop('Mangal-Vedika')">Mangal-Vedika</button>
+    <button class="pin soft" style="left:11.8%;top:14%" onclick="go(2)">Atithi Nivas</button>
+    <button class="pin soft" style="left:43%;top:82%" onclick="go(2)">Amaltas Villa</button>
+    <button class="pin soft" style="left:77%;top:70%" onclick="openCustom()">Gazebo</button>
+    <div class="legend">Tap a space to see it up close</div>
+  </div>
+  <div class="cards c3" id="venueCards">
+    <div class="card photo" data-v="Vishal-Van">
+      <span class="tick">✓</span>
+      <div class="wide"><img src="assets/img/vishal.jpg" alt="Vishal-Van lawn at dusk under a canopy of draped fabric and lights, set for a reception"></div>
+      <div class="body">
+        <h3>Vishal-Van, the big lawn</h3>
+        <p>15,000 sq ft of open lawn under the Nashik sky. 1,200 to 1,500 guests. For the baraat, the big reception, the wedding where everyone comes.</p>
+        <button class="linkish" style="margin-top:14px" onclick="event.stopPropagation();walk('Vishal-Van')">View in 3D</button>
+      </div>
+    </div>
+    <div class="card photo" data-v="Harit-Lila">
+      <span class="tick">✓</span>
+      <div class="wide"><img src="assets/img/harit_stage.jpg" alt="Harit-Lila lawn by day: a blue-and-yellow haldi stage on the lawn with the stage building behind"></div>
+      <div class="body">
+        <h3>Harit-Lila, the small lawn</h3>
+        <p>7,000 sq ft, framed by gardens. 300 to 400 guests. Haldi, sangeet, an engagement, or a wedding with room to breathe.</p>
+        <button class="linkish" style="margin-top:14px" onclick="event.stopPropagation();walk('Harit-Lila')">View in 3D</button>
+      </div>
+    </div>
+    <div class="card photo" data-v="Mangal-Vedika">
+      <span class="tick">✓</span>
+      <div class="wide"><img src="assets/img/mangal.jpg" alt="Inside Mangal-Vedika: a covered hall with draped ceilings, hanging florals and a stage"></div>
+      <div class="body">
+        <h3>Mangal-Vedika, the banquet hall</h3>
+        <p>10,000 sq ft, fully covered. 700 to 800 guests. Weather-proof, and conference-ready for corporate events.</p>
+        <button class="linkish" style="margin-top:14px" onclick="event.stopPropagation();walk('Mangal-Vedika')">View in 3D</button>
+      </div>
+    </div>
+  </div>
+  <p class="note">Your venue charge is set by how long you have the property, not by which lawn you pick.</p>
+  <div class="actions">
+    <button class="btn" id="n1" onclick="next()">Next: where your guests stay</button>
+    <span class="err" id="e1">Choose two spaces for a single function.</span>
+  </div>
+</section>
+
+<!-- ===== STAGE 2 : STAY ===== -->
+<section class="stage" data-s="2">
+  <div class="stage-head center">
+    <h2>Stay where you celebrate.</h2>
+    <p class="lede">19 rooms on the property, a short walk from the lawns. Your family wakes up on site, already part of the day. Two stage rooms for the couple come complimentary with every wedding.</p>
+  </div>
+  <div class="stay-grid">
+    <div class="card photo">
+      <div class="wide"><img src="assets/img/room.jpg" alt="A guest room at Atithi Nivas with a balcony opening onto the gardens"></div>
+      <div class="body"><h3>Atithi Nivas</h3><p>8 rooms. Comfortable for four, up to seven per room.</p></div>
+    </div>
+    <div class="card photo">
+      <div class="wide"><img src="assets/img/amaltas.jpg" alt="Amaltas Villa at dusk, lit from inside, with palms around it"></div>
+      <div class="body"><h3>Amaltas Villa</h3><p>9 rooms. Comfortable for three, up to four per room.</p></div>
+    </div>
+  </div>
+  <div class="strip">
+    <figure><img src="assets/img/lounge.jpg" alt="The villa lounge with a deep pink sofa and tall windows onto the garden"></figure>
+    <figure><img src="assets/img/balcony.jpg" alt="A room balcony with two chairs, coffee, and heliconias at the railing"></figure>
+    <figure><img src="assets/img/dining.jpg" alt="The guest dining room with round tables and a buffet counter"></figure>
+  </div>
+  <div class="pills" style="margin-top:28px" id="stayPills">
+    <button class="pill" data-label="No rooms needed" onclick="pickStay(event,0,'No rooms needed')">No rooms needed</button>
+    <button class="pill" data-label="Atithi Nivas" onclick="pickStay(event,1,'Atithi Nivas')">Atithi Nivas</button>
+    <button class="pill" data-label="Amaltas Villa" onclick="pickStay(event,1,'Amaltas Villa')">Amaltas Villa</button>
+    <button class="pill" data-label="Atithi Nivas and Amaltas Villa" onclick="pickStay(event,2,'Atithi Nivas and Amaltas Villa')">Both</button>
+  </div>
+  <p class="note">Standard capacity across both is 65 guests; up to 100 with extra bedding, at ₹900 per extra person.</p>
+  <div class="actions">
+    <button class="btn" id="n2" disabled onclick="next()">Next: the menu</button>
+  </div>
+</section>
+
+<!-- ===== STAGE 3 : FOOD ===== -->
+<section class="stage" data-s="3">
+  <div class="stage-head center">
+    <h2>Our kitchen. Your menu. Tasted before the day, twice.</h2>
+    <p class="lede">Food here is planned function by function. Tell us each function, when it happens and how many guests will eat, and we lay out the meals. Every meal can have its own menu: a simple lunch at the haldi and the full table at the reception is completely normal.</p>
+  </div>
+
+  <div class="fplan">
+    <h3>Which functions are you planning?</h3>
+    <p class="muted" id="fplanHint">Tap every function you'll host here, then tell us when it happens and how many guests will eat.</p>
+    <div class="pills" id="foodFnPills"></div>
+    <div class="frows" id="foodRows"></div>
+    <p class="fnote" id="mergeNote">Two functions back to back, a haldi in the evening followed by the sangeet, usually share one dinner. If that's your plan, use the Meal column to say which function eats with which, and you'll choose one menu for both.</p>
+  </div>
+
+  <div class="meals-wrap" id="mealsWrap" hidden>
+    <h3>Your meals</h3>
+    <p class="muted">One menu per meal. Each function is its own meal unless you've said it shares one; the four menus are laid out in full further down.</p>
+    <div id="meals"></div>
+  </div>
+
+  <div class="stage-head center" style="margin-top:56px;margin-bottom:26px">
+    <h3 style="font-size:1.9rem">What's in each menu</h3>
+    <p class="lede">Four menus to start from. Every one can be shaped to your family. Before the event, you're welcome to visit a live wedding here and taste the food as it's served. On your day, you taste again before service, with time to adjust.</p>
+  </div>
+  <div class="cards c4" id="pkgCards">
+    <div class="card menu" data-pkg="AM"><div class="mhead green"><h3>Authentic Maharashtrian</h3></div><div class="mbody"><p class="desc">A tribute to Maharashtra's kitchen. Traditional, soulful, rooted in regional flavour.</p><ul class="mlist"><li><span>Green salad</span><b>1</b></li><li><span>Mocktail</span><b>1</b></li><li><span>Maharashtrian gravy sabzi</span><b>1</b></li><li><span>Maharashtrian dry sabzi</span><b>1</b></li><li><span>Maharashtrian breads</span><b>2</b></li><li><span>Dal</span><b>1</b></li><li><span>Rice</span><b>1</b></li><li><span>Mithai</span><b>2</b></li></ul></div></div>
+    <div class="card menu" data-pkg="Classic"><div class="mhead maroon"><h3>Classic</h3></div><div class="mbody"><p class="desc">Everyday favourites. Comforting, balanced, timeless.</p><ul class="mlist"><li><span>Salad</span><b>1</b></li><li><span>Welcome drink</span><b>1</b></li><li><span>Gravy sabzi</span><b>1</b></li><li><span>Dry sabzi</span><b>1</b></li><li><span>Breads</span><b>2</b></li><li><span>Dal</span><b>1</b></li><li><span>Rice</span><b>1</b></li><li><span>Mithai</span><b>1</b></li></ul><p class="special">Special dessert: milk dessert or pure ghee halwa</p></div></div>
+    <div class="card menu" data-pkg="Premium"><div class="mhead green"><h3>Premium</h3></div><div class="mbody"><p class="desc">An elevated spread with soup, handcrafted starters and added variety.</p><ul class="mlist"><li><span>Salad</span><b>1</b></li><li><span>Soup</span><b>1</b></li><li><span>Signature mocktail</span><b>1</b></li><li><span>Appetizers</span><b>2</b></li><li><span>Gravy sabzi</span><b>2</b></li><li><span>Dry sabzi</span><b>1</b></li><li><span>Breads</span><b>2</b></li><li><span>Dal</span><b>1</b></li><li><span>Rice</span><b>1</b></li><li><span>Mithai</span><b>1</b></li><li><span>Ice cream</span><b>1</b></li></ul><p class="special">Special dessert: milk dessert or pure ghee halwa</p></div></div>
+    <div class="card menu" data-pkg="Signature"><div class="mhead maroon"><h3>Signature</h3></div><div class="mbody"><p class="desc">The full table. Two soups, two mocktails, a three-item chaat counter, the works. Live counters included.</p><ul class="mlist"><li><span>Salad</span><b>1</b></li><li><span>Soups</span><b>2</b></li><li><span>Signature mocktails</span><b>2</b></li><li><span>Appetizers</span><b>2</b></li><li><span>Chaat counter</span><b>3</b></li><li><span>Gravy sabzis</span><b>2</b></li><li><span>Dry sabzis</span><b>2</b></li><li><span>Breads</span><b>3</b></li><li><span>Dal</span><b>1</b></li><li><span>Rice</span><b>1</b></li><li><span>Mithai</span><b>1</b></li><li><span>Ice cream</span><b>1</b></li></ul><p class="special">Special desserts: milk dessert and pure ghee halwa</p></div></div>
+  </div>
+  <p class="counters-list">Live counters, priced per guest, can be added to any meal: Continental, Chinese, Chaat, South Indian, Pav Bhaji, Ice Cream, Barf ka Gola. <a href="assets/pdf/menu.pdf" target="_blank" rel="noopener" style="color:var(--green);text-decoration:underline;text-underline-offset:3px">See every dish in the full menu</a></p>
+  <div class="band peach" style="margin-top:30px">
+    <h3>Taste it at a real wedding first.</h3>
+    <p style="margin-top:8px">Come to a live wedding here and eat what the guests eat. Then, on your day, taste again before service, with a window to adjust. Every package includes papad of choice and 200 ml water bottles. Breakfast for up to 100 guests (any two items) is complimentary on Classic, Premium and Signature; on Authentic Maharashtrian it's ₹250 per person.</p>
+    <p class="muted" style="margin-top:12px;font-style:italic">All food is from Orayana's kitchen. Outside food isn't permitted. That's how we stand behind every plate.</p>
+  </div>
+  <div class="actions">
+    <button class="btn" id="n3" disabled onclick="next()">Next: the décor</button>
+    <span class="err" id="e3">Add at least one function with a guest count, and pick a menu for every meal.</span>
+  </div>
+</section>
+
+<!-- ===== STAGE 4 : DÉCOR ===== -->
+<section class="stage" data-s="4">
+  <div class="stage-head center">
+    <h2>Design. Plan. Celebrate.</h2>
+    <p class="lede">Our in-house décor process. One team, no vendors to juggle.</p>
+  </div>
+  <div class="band">
+    <div class="steps">
+      <div class="step"><b>1</b><h4>Choose</h4><p>Pick from our curated designs or bring your own vision.</p></div>
+      <div class="step"><b>2</b><h4>Finalise</h4><p>You receive an element sheet: every single element, listed.</p></div>
+      <div class="step"><b>3</b><h4>Review</h4><p>Each element carries its own cost. Add, remove, adjust.</p></div>
+      <div class="step"><b>4</b><h4>Confirm</h4><p>Our consultation fee is a separate line on the same sheet. No surprises later.</p></div>
+      <div class="step"><b>5</b><h4>Celebrate</h4><p>We build it, run it, and take it down.</p></div>
+    </div>
+  </div>
+  <div class="stage-head center" style="margin-top:48px">
+    <h3 style="font-size:1.9rem">Where do you see your décor?</h3>
+    <p class="lede">The final number depends on exactly what you choose in your element sheet. Pick the tier that feels right and we'll show you the range it usually lands in. Every picture below was built here, by this team.</p>
+  </div>
+  <div class="cards c4" id="tierCards">
+    <div class="card pick arch" data-t="Basic" onclick="pickTier(this)"><span class="tick">✓</span>
+      <div class="arch-frame"><img src="assets/img/roundstage.jpg" alt="A round white stage ringed with white roses under draped fabric and bulbs"></div>
+      <h3>Basic</h3><p data-w="Clean, elegant, everything essential. Entry, stage, seating, ambient lighting." data-s="The essentials done well. Entry, stage, seating, lights."></p></div>
+    <div class="card pick arch" data-t="Good" onclick="pickTier(this)"><span class="tick">✓</span>
+      <div class="arch-frame"><img src="assets/img/decor_good.jpg" alt="A daytime mandap under orange and white drapes, with a carved elephant-trunk arch and hanging floral strings"></div>
+      <h3>Good</h3><p data-w="Basic, plus a photobooth, richer florals, a stronger stage and ceiling work." data-s="Adds a photobooth, better florals, a fuller stage."></p></div>
+    <div class="card pick arch" data-t="Premium" onclick="pickTier(this)"><span class="tick">✓</span>
+      <div class="arch-frame"><img src="assets/img/decor_premium.jpg" alt="A night stage in white: lit arches, white florals and a flower-lined aisle"></div>
+      <h3>Premium</h3><p data-w="Good, plus statement structures, layered lighting, a special entry and live elements." data-s="Adds statement pieces, layered lighting, a special entry."></p></div>
+    <div class="card pick arch" data-t="Luxury" onclick="pickTier(this)"><span class="tick">✓</span>
+      <div class="arch-frame"><img src="assets/img/canopy.jpg" alt="A full canopy of draped fabric and bulbs over the lawn, with the stage lit beyond"></div>
+      <h3>Luxury</h3><p data-w="Premium, plus grand installations, SFX, artists, anchors, live musicians. The full production." data-s="The full production. SFX, artists, grand installations."></p></div>
+  </div>
+  <p class="note">Photographer, makeup artist, mehendi artist and priest are arranged separately. We're happy to recommend.</p>
+  <div class="actions">
+    <button class="btn" id="n4" disabled onclick="next()">Next: your team</button>
+  </div>
+</section>
+
+<!-- ===== STAGE 5 : TEAM ===== -->
+<section class="stage" data-s="5">
+  <div class="band maroon">
+    <div class="stage-head center" style="margin-bottom:26px">
+      <h2>Shaadi ka gift.</h2>
+      <p class="lede">Everything below is included with every wedding. Not an add-on, not a tier. It's already in your estimate.</p>
+    </div>
+    <div class="cards c3">
+      <div class="card"><h3>On the ground</h3><ul><li>2 shadows for the couple</li><li>Operations manager</li><li>F&amp;B manager</li><li>Production manager</li><li>4 porters</li></ul></div>
+      <div class="card"><h3>Safe and clean</h3><ul><li>Security for parking, guest safety and crowd control</li><li>Cleaning for washrooms, event and food areas, throughout</li></ul></div>
+      <div class="card"><h3>Essentials</h3><ul><li>300 Chivari chairs</li><li>6 low seating chairs</li><li>8 coolers</li><li>2 urlis</li><li>2 kg flower petals</li><li>A ghoda for the baraat</li></ul></div>
+      <div class="card"><h3>At the table</h3><ul><li>200 ml water bottles</li><li>Papad, achar and salad with every meal</li><li>20 round tables or pangat seating</li></ul></div>
+      <div class="card"><h3>The morning after</h3><ul><li>Breakfast for 100, any two items</li><li>Tea and coffee for the bidai</li></ul><p class="sub" style="color:var(--gold-light)">On Classic, Premium and Signature.</p></div>
+      <div class="card"><h3>Stay</h3><ul><li>2 stage rooms for the couple, complimentary</li></ul></div>
+    </div>
+  </div>
+  <div class="stage-head center" style="margin-top:48px">
+    <h3 style="font-size:1.9rem">And six planning sessions, on us.</h3>
+    <p class="lede">Three for décor, two for food, one for the flow of the day. We sit down together, walk the grounds, taste, adjust, decide. By your date, nothing is a surprise.</p>
+  </div>
+  <div class="actions" style="justify-content:center">
+    <button class="btn" onclick="next()">See my estimate</button>
+  </div>
+</section>
+
+<!-- ===== STAGE 6 : ESTIMATE ===== -->
+<section class="stage" data-s="6">
+  <div class="stage-head center">
+    <h2>Here's where your wedding lands.</h2>
+  </div>
+  <div class="est">
+    <div>
+      <h4>Your choices</h4>
+      <ul id="estChoices"></ul>
+    </div>
+    <div class="right">
+      <h4>Indicative range</h4>
+      <div class="big" id="estBig">—</div>
+      <p class="muted" style="font-style:italic">Approximate, inclusive of GST. Décor is the variable. Your real estimate comes from Team Orayana.</p>
+    </div>
+  </div>
+  <p class="covers" id="estCovers"></p>
+  <p class="note" style="margin-top:14px;max-width:70ch">This is an approximate figure to help you plan, not a quote. Your actual estimate comes from Team Orayana after we've walked the grounds with you and gone through your menu and element sheet together.</p>
+
+  <div class="stage-head center" style="margin-top:52px">
+    <h3 style="font-size:1.9rem">Let's make it real.</h3>
+    <p class="lede">We'll call within one working day, invite you to walk the grounds, and send you an itemised estimate.</p>
+  </div>
+  <form id="enq" onsubmit="return submitEnq(event)" novalidate>
+    <div class="row">
+      <div class="field"><label for="f_name">Full name</label><input id="f_name" name="name" required></div>
+      <div class="field"><label for="f_phone">Phone</label><input id="f_phone" name="phone" type="tel" required></div>
+      <div class="field"><label for="f_email">Email</label><input id="f_email" name="email" type="email" required></div>
+      <div class="field"><label for="f_start">Event start date (leave blank if not fixed)</label><input id="f_start" name="start" type="date"></div>
+      <div class="field"><label for="f_end">Event end date (leave blank if not fixed)</label><input id="f_end" name="end" type="date"></div>
+    </div>
+    <div class="field wide fnpick">
+      <label>Which functions are you planning? Tap all that apply.</label>
+      <div class="pills" id="fnPills"></div>
+      <div class="fnrows" id="fnRows"></div>
+    </div>
+    <div class="field wide"><label for="f_msg">Anything else you'd like us to know</label><textarea id="f_msg" name="message"></textarea></div>
+    <div class="actions">
+      <button class="btn" type="submit">Send my enquiry</button>
+      <span class="err" id="e6">Name, phone, email and at least one function are needed.</span>
+    </div>
+    <div class="ok" id="ok6">
+      <p><strong>Thank you. We've got it.</strong> Expect a call within one working day. If it's urgent, <a href="https://wa.me/918484053303" target="_blank" rel="noopener">WhatsApp us at 84840 53303</a>.</p>
+      <p style="margin-top:10px"><button class="linkish" type="button" onclick="startOver()">Plan another event</button></p>
+    </div>
+  </form>
+</section>
+
+</div><!-- /stages -->
+
+<aside class="rail" aria-label="Your choices so far">
+  <h4>Your choices so far</h4>
+  <ol id="rail">
+    <li class="todo" data-k="kind">Shape of the day<b>—</b></li>
+    <li class="todo" data-k="venue">Venue<b>—</b></li>
+    <li class="todo" data-k="stay">Stay<b>—</b></li>
+    <li class="todo" data-k="food">Food<b>—</b></li>
+    <li class="todo" data-k="decor">Décor<b>—</b></li>
+  </ol>
+  <p class="saved">Your choices are saved on this device until you start over.</p>
+</aside>
+</main>
+
+
+</div><!-- /plan-view -->
+<!-- lightbox -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Expanded photo" onclick="closeLb()">
+  <button class="lbx" aria-label="Close" onclick="closeLb()">×</button>
+  <span class="count" id="lbCount"></span>
+  <button class="nav prev" id="lbPrev" aria-label="Previous" onclick="event.stopPropagation();galStep(-1)">‹</button>
+  <button class="nav next" id="lbNext" aria-label="Next" onclick="event.stopPropagation();galStep(1)">›</button>
+  <img id="lbImg" alt="">
+  <video id="lbVid" muted loop playsinline controls hidden></video>
+  <p id="lbCap"></p>
+</div>
+
+<!-- custom enquiry modal -->
+<div class="modal" id="custom" role="dialog" aria-modal="true" aria-labelledby="ctitle">
+  <div class="box">
+    <button class="x" aria-label="Close" onclick="closeCustom()">×</button>
+    <h3 id="ctitle" style="font-size:1.9rem">Tell us what you have in mind.</h3>
+    <p class="muted" style="margin:8px 0 14px">We'll call within one working day with a personal quote.</p>
+    <form id="cform" onsubmit="return submitCustom(event)" novalidate>
+      <div class="field"><label for="c_name">Name</label><input id="c_name" name="name" required></div>
+      <div class="field"><label for="c_phone">Phone</label><input id="c_phone" name="phone" type="tel" required></div>
+      <div class="field"><label for="c_email">Email</label><input id="c_email" name="email" type="email"></div>
+      <div class="field"><label for="c_type">Type of gathering</label><input id="c_type" name="type" placeholder="Birthday, anniversary, puja…"></div>
+      <div class="field"><label for="c_date">Rough date</label><input id="c_date" name="date"></div>
+      <div class="field"><label for="c_guests">Approximate guests</label><input id="c_guests" name="guests" type="number" inputmode="numeric"></div>
+      <div class="field wide"><label for="c_msg">A line or two about what you need</label><textarea id="c_msg" name="message"></textarea></div>
+      <div class="actions"><button class="btn" type="submit">Send enquiry</button><span class="err" id="ec">Name and phone are needed.</span></div>
+      <div class="ok" id="okc"><p><strong>Thank you. We've got it.</strong> We'll call within one working day.</p></div>
+    </form>
+  </div>
+</div>
+
+<footer style="position:relative">
+  <div class="wm sprig-foot"><img src="assets/img/sprig.svg+xml" alt=""></div>
+  <div class="wrap">
+    <div>
+      <a href="#home" onclick="route('home');return false;" aria-label="Orayana, home"><img class="flogo" src="assets/img/logo_light.png" alt="Orayana Events and Getaways"></a>
+      <p class="tag">Orayana, the aura of a journey.</p>
+      <p style="margin-top:18px;max-width:40ch">Beautifully designed. Honestly priced. Yours.</p>
+    </div>
+    <div>
+      <p>145/3, opposite Manjula Palace, Nandur Naka,<br>Sambhaji Nagar Road, Nashik 422003</p>
+      <p style="margin-top:12px"><a href="tel:+918484053303">84840 53303</a><br><a href="mailto:info@orayana.com">info@orayana.com</a><br><a href="https://wa.me/918484053303" target="_blank" rel="noopener">WhatsApp</a></p>
+      <p style="margin-top:12px">About three and a half hours from Mumbai, four hours from Pune, thirty minutes from Nashik Road station.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ===== CONFIG =====
+   WEBHOOK: paste your Zoho Flow webhook URL here to send enquiries straight to Bigin.
+   Leave empty to fall back to a WhatsApp handoff with the details prefilled.
+   SPALBA: paste the walkthrough URL when it's ready. */
+const WEBHOOK = "";
+const SPALBA = "";
+
+/* ===== RATE CARD (not shown anywhere on the page) ===== */
+const R = {
+  venue:{8:200000,24:300000,36:350000,48:400000},   // +18% GST
+  stay:{24:50000,36:75000,48:100000},                // per building, +5% GST
+  plate:{AM:350,Classic:500,Premium:700,Signature:900}, // +5% GST
+  counter:{Continental:450,Chinese:240,Chaat:150,SouthIndian:150,PavBhaji:120,IceCream:120,Gola:100},
+  decor:{ wedding:{Basic:[300000,500000],Good:[500000,700000],Premium:[700000,900000],Luxury:[900000,1100000]},
+          single:{Basic:[75000,150000],Good:[150000,250000],Premium:[250000,400000],Luxury:[400000,600000]} }
+};
+const FEE=1.15, GST_V=1.18, GST_S=1.05, GST_F=1.05, GST_D=1.18;
+
+/* ===== STATE ===== */
+const S = {kind:null,dur:null,fn:null,venues:[],guests:0,stayN:null,stayLabel:null,fns:[],meals:{},tier:null};
+/* ===== ROUTING: home view vs planning view ===== */
+/* Scrolling has to work both standalone and inside an embed (Wix), where window.scrollTo only moves the
+   iframe itself. scrollIntoView propagates to the parent frame, so both are used. */
+function toTop(el){
+  try{ window.scrollTo({top:0,left:0,behavior:'instant'}); }catch(e){ window.scrollTo(0,0); }
+  if(el && el.scrollIntoView){ try{ el.scrollIntoView({block:'start',behavior:'instant'}); }catch(e){ el.scrollIntoView(true); } }
+}
+function route(v){
+  document.body.classList.toggle('planning',v==='plan');
+  if(v==='plan'){ history.replaceState(null,'','#plan'); show(cur); }
+  else { history.replaceState(null,'','#home'); toTop(document.getElementById('home-view')); heroVideo(); }
+}
+function goSec(id){
+  if(document.body.classList.contains('planning')) route('home');
+  const el=document.getElementById(id);
+  if(el) requestAnimationFrame(()=>{ try{ el.scrollIntoView({block:'start',behavior:'smooth'}); }catch(e){ el.scrollIntoView(true); } });
+}
+const NAMES=['Shape of the day','Venue','Stay','Food','Décor','Your team','Estimate'];
+let cur=0, reached=0;
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+
+/* ===== NAV ===== */
+function show(n){
+  cur=n; reached=Math.max(reached,n);
+  $$('.stage').forEach(s=>s.classList.toggle('on',+s.dataset.s===n));
+  $$('#thread button').forEach(b=>{const i=+b.dataset.n; b.classList.toggle('now',i===n); b.classList.toggle('done',i<n||(i<=reached&&i!==n));});
+  $('#pnow').textContent=NAMES[n];
+  $('#back').hidden = n===0;
+  if(n===1) setupVenue();
+  if(n===3) setupFood();
+  if(n===6) prefillFn();
+  if(n===4) setupDecor();
+  if(n===6) renderEstimate();
+  if(document.body.classList.contains('planning')){ const pv=$('#plan-view'); toTop(pv); requestAnimationFrame(()=>toTop(pv)); }
+  playReels();
+}
+function go(n){show(n)}
+function jump(n){ if(n<=reached) show(n) }
+function next(){
+  if(cur===0 && !ready0()){$('#e0').classList.add('on');return}
+  if(cur===1 && S.kind==='single' && S.venues.length!==2){$('#e1').classList.add('on');return}
+  if(cur===3 && !ready3()){$('#e3').classList.add('on');return}
+  if(cur===3){
+    const floor = S.kind==='wedding'?100:50;
+    if(S.guests<floor){ openCustom(true); return; }
+  }
+  show(cur+1);
+}
+function back(){ show(Math.max(0,cur-1)) }
+
+/* ===== STAGE 0 ===== */
+function pickKind(el){
+  const k=el.dataset.kind;
+  S.kind=k; S.dur=(k==='single')?8:null; S.fn=null; S.venues=[];
+  $$('[data-kind]').forEach(c=>c.classList.toggle('sel',c===el));
+  $$('[data-role] .pill').forEach(p=>p.classList.remove('sel'));
+  $('#e0').classList.remove('on'); sync();
+}
+function pickDur(e,d){ e.stopPropagation(); if(S.kind!=='wedding'){pickKind($('[data-kind="wedding"]'))} S.dur=d; $$('[data-role="duration"] .pill').forEach(p=>p.classList.toggle('sel',+p.dataset.v===d)); $('#e0').classList.remove('on'); sync(); }
+function pickFn(e,f){ e.stopPropagation(); if(S.kind!=='single'){pickKind($('[data-kind="single"]'))} S.fn=f; S.dur=8; $$('[data-role="fn"] .pill').forEach(p=>p.classList.toggle('sel',p.textContent===f)); $('#e0').classList.remove('on'); sync(); }
+function ready0(){ return (S.kind==='wedding' && S.dur) || (S.kind==='single' && S.fn); }
+
+/* ===== STAGE 1 ===== */
+function setupVenue(){
+  const single = S.kind==='single';
+  $('#venueLede').textContent = single
+    ? 'Every space on the property, with honest numbers. On a single function, choose any two.'
+    : 'Every space on the property, with honest numbers. On a full wedding, all three are yours. You\'re choosing where each function goes.';
+  $$('#venueCards .card').forEach(c=>{
+    c.classList.toggle('pick',single);
+    c.onclick = single ? ()=>toggleVenue(c) : null;
+    c.classList.toggle('sel', single ? S.venues.includes(c.dataset.v) : true);
+  });
+  if(!single) S.venues=['Vishal-Van','Harit-Lila','Mangal-Vedika'];
+  sync();
+}
+function toggleVenue(c){
+  const v=c.dataset.v, i=S.venues.indexOf(v);
+  if(i>-1) S.venues.splice(i,1); else { if(S.venues.length>=2) S.venues.shift(); S.venues.push(v); }
+  $$('#venueCards .card').forEach(x=>x.classList.toggle('sel',S.venues.includes(x.dataset.v)));
+  $('#e1').classList.remove('on'); sync();
+}
+function hop(v){
+  const c=$('#venueCards .card[data-v="'+v+'"]');
+  c.scrollIntoView({block:'center',behavior:'smooth'});
+  c.classList.remove('flash'); void c.offsetWidth; c.classList.add('flash');
+}
+function walk(v){ if(SPALBA){window.open(SPALBA,'_blank')} else {alert('The 3D walkthrough of '+v+' is coming soon.')} }
+
+/* ===== STAGE 2 ===== */
+function pickStay(e,n,label){ S.stayN=n; S.stayLabel=label; $$('#stayPills .pill').forEach(p=>p.classList.toggle('sel',p===e.currentTarget)); $('#n2').disabled=false; sync(); }
+
+/* ===== STAGE 3 : FOOD, function by function =====
+   Each function has a day, a time of day and a guest count. Functions on the same day in the same meal
+   slot (a haldi in the evening followed by the sangeet) share one meal, planned for the larger count,
+   with one menu. Menus and live counters are chosen per meal. */
+const FOOD_FNS=['Haldi','Mehendi','Sangeet','Engagement','Wedding','Reception','Cocktail','Other'];
+const TIMES=[['Morning','Brunch'],['Afternoon','Lunch'],['Evening','Dinner']];
+const SLOT_OF=Object.fromEntries(TIMES), SLOT_ORD={Brunch:0,Lunch:1,Dinner:2};
+const DEF_TIME={Haldi:'Morning',Mehendi:'Afternoon',Sangeet:'Evening',Engagement:'Evening',Wedding:'Afternoon',Reception:'Evening',Cocktail:'Evening',Other:'Evening'};
+const PKG_LINE={AM:'Maharashtra\'s kitchen. Traditional and soulful.',Classic:'Everyday favourites. Comforting, balanced.',Premium:'Soup, handcrafted starters, more variety.',Signature:'The full table. Live counters included.'};
+const CLABEL={Continental:'Continental (any three)',Chinese:'Chinese (any three)',Chaat:'Chaat (any three)',SouthIndian:'South Indian (any two)',PavBhaji:'Pav Bhaji',IceCream:'Ice Cream',Gola:'Barf ka Gola'};
+function days(){ return S.dur===8?1:Math.max(1,Math.ceil((S.dur||24)/24)); }
+function setupFood(){
+  const single=S.kind==='single', D=days();
+  if(single){ const f=S.fn; if(S.fns.length!==1||S.fns[0].fn!==f) S.fns=[{fn:f,day:1,time:DEF_TIME[f]||'Evening',guests:S.fns[0]?S.fns[0].guests:''}]; }
+  S.fns.forEach(f=>{ if(f.day>D) f.day=D; });
+  const box=$('#foodFnPills'); box.innerHTML='';
+  if(!single) FOOD_FNS.forEach(f=>{ const b=document.createElement('button'); b.type='button'; b.className='pill'+(S.fns.some(x=>x.fn===f)?' sel':''); b.textContent=f; b.onclick=()=>toggleFoodFn(f); box.appendChild(b); });
+  $('#fplanHint').textContent = single
+    ? `Your ${S.fn.toLowerCase()} is an 8-hour booking with one meal. Tell us when it is and how many guests will eat.`
+    : 'Tap every function you\'ll host here, then tell us when it happens, how many guests will eat, and whether it shares a meal with another function.';
+  $('#mergeNote').hidden=single;
+  renderFoodRows();
+}
+function toggleFoodFn(f){
+  const i=S.fns.findIndex(x=>x.fn===f);
+  if(i>-1){ S.fns.splice(i,1); const heir=S.fns.find(x=>x.share===f); if(heir&&S.meals[f]&&!S.meals[heir.fn]) S.meals[heir.fn]=S.meals[f]; S.fns.forEach(x=>{ if(x.share===f) x.share=''; }); } else S.fns.push({fn:f,day:(f==='Wedding'||f==='Reception')?days():1,time:DEF_TIME[f]||'Evening',guests:'',share:''});
+  $$('#foodFnPills .pill').forEach(p=>p.classList.toggle('sel',S.fns.some(x=>x.fn===p.textContent)));
+  $('#e3').classList.remove('on'); renderFoodRows();
+}
+function renderFoodRows(){
+  const rows=$('#foodRows'); rows.innerHTML=''; const D=days(), single=S.kind==='single';
+  S.fns.forEach(f=>{
+    const r=document.createElement('div'); r.className='frow';
+    r.innerHTML=`<b class="fname">${f.fn}</b>
+      <label${D===1?' hidden':''}><span>Day</span><select data-k="day">${Array.from({length:D},(_,d)=>`<option value="${d+1}"${f.day===d+1?' selected':''}>Day ${d+1}</option>`).join('')}</select></label>
+      <label><span>When</span><select data-k="time">${TIMES.map(t=>`<option value="${t[0]}"${f.time===t[0]?' selected':''}>${t[0]}${t[0]==='Evening'?' / night':''}</option>`).join('')}</select></label>
+      <label><span>Guests eating</span><input data-k="guests" type="number" min="1" inputmode="numeric" placeholder="e.g. 400" value="${f.guests||''}" aria-label="${f.fn}: guests eating"></label>
+      <label class="mealsel"${single?' hidden':''}><span>Meal</span><select data-k="share"><option value="">Its own meal</option>${S.fns.filter(o=>o.fn!==f.fn).map(o=>`<option value="${o.fn}"${f.share===o.fn?' selected':''}>Same meal as ${o.fn}</option>`).join('')}</select></label>
+      <button type="button" class="frm" aria-label="Remove ${f.fn}"${single?' hidden':''}>×</button>`;
+    r.querySelector('[data-k=day]').onchange=e=>{ f.day=+e.target.value; renderMeals(); };
+    r.querySelector('[data-k=time]').onchange=e=>{ f.time=e.target.value; renderMeals(); };
+    r.querySelector('[data-k=guests]').oninput=e=>{ f.guests=+e.target.value||''; renderMeals(true); };
+    r.querySelector('[data-k=share]').onchange=e=>{ f.share=e.target.value; const t=S.fns.find(x=>x.fn===f.share); if(t) f.day=t.day; renderFoodRows(); };
+    r.querySelector('.frm').onclick=()=>toggleFoodFn(f.fn);
+    rows.appendChild(r);
+  });
+  renderMeals();
+}
+function mealsFrom(){
+  /* a function eats alone unless the visitor linked it to another one; links are followed both ways */
+  const byName=Object.fromEntries(S.fns.map(f=>[f.fn,f])), root={};
+  const find=n=>{ while(root[n]&&root[n]!==n) n=root[n]; return n; };
+  S.fns.forEach(f=>root[f.fn]=f.fn);
+  S.fns.forEach(f=>{ if(f.share&&byName[f.share]){ const a=find(f.fn), b=find(f.share); if(a!==b) root[a]=b; } });
+  const g={};
+  S.fns.forEach(f=>{ const r=find(f.fn); if(!g[r]){ const lead=byName[r]; g[r]={key:r,day:lead.day,slot:SLOT_OF[lead.time]||'Dinner',fns:[],guests:0}; } g[r].fns.push(f.fn); g[r].guests=Math.max(g[r].guests,+f.guests||0); });
+  return Object.values(g).sort((a,b)=>a.day-b.day||SLOT_ORD[a.slot]-SLOT_ORD[b.slot]);
+}
+function mealTitle(m){ return m.slot+(days()>1?`, Day ${m.day}`:''); }
+function renderMeals(light){
+  const meals=mealsFrom();
+  meals.forEach(m=>{ if(!S.meals[m.key]){ const donor=m.fns.find(f=>f!==m.key&&S.meals[f]); if(donor) S.meals[m.key]=S.meals[donor]; } });
+  Object.keys(S.meals).forEach(k=>{ if(!meals.some(m=>m.key===k)) delete S.meals[k]; });
+  $('#mealsWrap').hidden=!meals.length;
+  if(light){ meals.forEach(m=>{ const el=$(`#meals .meal[data-key="${m.key}"] .mguests`); if(el) el.textContent=m.guests?`${m.guests} guests`:'How many guests?'; }); sync(); return; }
+  const box=$('#meals'); box.innerHTML='';
+  meals.forEach(m=>{
+    const c=S.meals[m.key]=S.meals[m.key]||{pkg:null,counters:[]}, shared=m.fns.length>1;
+    const el=document.createElement('div'); el.className='meal'; el.dataset.key=m.key;
+    el.innerHTML=`<div class="mhd"><div><b>${mealTitle(m)}</b><span>${shared?m.fns.join(' + ')+' share this meal':m.fns[0]}</span>${shared?'<em>You said these eat together, so one menu covers all of them. We plan for the larger guest count.</em>':''}</div><div class="mguests">${m.guests?m.guests+' guests':'How many guests?'}</div></div>
+      <div class="mpick">${['AM','Classic','Premium','Signature'].map(p=>`<button type="button" class="mopt${c.pkg===p?' sel':''}" data-pkg="${p}"><b>${pkgName(p)}</b><span>${PKG_LINE[p]}</span></button>`).join('')}</div>
+      <div class="mcnt"${c.pkg==='Signature'?' hidden':''}><span class="muted">Add a live counter to this meal? Optional, priced per guest.</span><div class="pills">${Object.keys(R.counter).map(k=>`<button type="button" class="pill check${c.counters.includes(k)?' sel':''}" data-c="${k}">${CLABEL[k]}</button>`).join('')}</div></div>`;
+    el.querySelectorAll('.mopt').forEach(b=>b.onclick=()=>{
+      c.pkg=b.dataset.pkg; el.querySelectorAll('.mopt').forEach(x=>x.classList.toggle('sel',x===b));
+      const cn=el.querySelector('.mcnt'); cn.hidden=c.pkg==='Signature';
+      if(c.pkg==='Signature'){ c.counters=[]; cn.querySelectorAll('.pill').forEach(p=>p.classList.remove('sel')); }
+      $('#e3').classList.remove('on'); sync();
+    });
+    el.querySelectorAll('.mcnt .pill').forEach(p=>p.onclick=()=>{ const k=p.dataset.c, i=c.counters.indexOf(k); if(i>-1) c.counters.splice(i,1); else c.counters.push(k); p.classList.toggle('sel'); sync(); });
+    box.appendChild(el);
+  });
+  sync();
+}
+function ready3(){ const m=mealsFrom(); return S.fns.length>0 && S.fns.every(f=>+f.guests>0) && m.length>0 && m.every(x=>S.meals[x.key]&&S.meals[x.key].pkg); }
+function maxGuests(){ return S.fns.reduce((a,f)=>Math.max(a,+f.guests||0),0); }
+function mealLine(m){ const c=S.meals[m.key]||{}; return `${mealTitle(m)}: ${m.fns.join(' + ')}, ${m.guests} guests, ${c.pkg?pkgName(c.pkg):'menu not chosen'}${c.counters&&c.counters.length?' with '+c.counters.map(cName).join(', ')+' counter'+(c.counters.length>1?'s':''):''}`; }
+function foodSummary(sep){ return mealsFrom().map(mealLine).join(sep||'; '); }
+function allCounters(){ return [...new Set(mealsFrom().flatMap(m=>(S.meals[m.key]||{}).counters||[]))]; }
+
+/* ===== STAGE 4 ===== */
+function setupDecor(){ const single=S.kind==='single'; $$('#tierCards p[data-w]').forEach(p=>p.textContent = single?p.dataset.s:p.dataset.w); }
+function pickTier(el){ S.tier=el.dataset.t; $$('#tierCards .card').forEach(c=>c.classList.toggle('sel',c===el)); $('#n4').disabled=false; sync(); }
+
+/* ===== SYNC (buttons + rail) ===== */
+function sync(){
+  $('#n0').disabled = !ready0();
+  $('#n1').disabled = (S.kind==='single' && S.venues.length!==2);
+  S.guests = maxGuests();
+  $('#n3').disabled = !ready3();
+  const set=(k,v)=>{const li=$('#rail [data-k="'+k+'"]'); li.classList.toggle('todo',!v); li.querySelector('b').textContent=v||'—';};
+  set('kind', S.kind==='wedding' ? (S.dur?`Full wedding, ${S.dur} hours`:'Full wedding') : S.kind==='single' ? (S.fn?`${S.fn}, 8 hours`:'Single function') : '');
+  set('venue', S.venues.length ? (S.kind==='wedding'?'All three spaces':S.venues.join(' and ')) : '');
+  set('stay', S.stayLabel||'');
+  const meals=mealsFrom(), picked=meals.filter(m=>S.meals[m.key]&&S.meals[m.key].pkg);
+  set('food', meals.length ? `${meals.length} meal${meals.length>1?'s':''}`+(picked.length?': '+[...new Set(picked.map(m=>pkgName(S.meals[m.key].pkg)))].join(', '):'')+(S.guests?`, up to ${S.guests} guests`:'') : '');
+  set('decor', S.tier ? S.tier+' décor' : '');
+  saveS();
+}
+/* ===== SAVE / RESTORE on this device ===== */
+function saveS(){ try{ localStorage.setItem('orayana-plan',JSON.stringify(S)); }catch(e){} $('#reset').hidden=!S.kind; }
+function restore(){
+  let d=null; try{ d=JSON.parse(localStorage.getItem('orayana-plan')||'null'); }catch(e){}
+  if(!d||!d.kind) return;
+  const ev={stopPropagation(){}};
+  if(d.kind==='wedding'){ pickKind($('[data-kind="wedding"]')); if(d.dur) pickDur(ev,d.dur); }
+  else { pickKind($('[data-kind="single"]')); if(d.fn) pickFn(ev,d.fn); }
+  S.venues=d.venues||[];
+  if(d.stayLabel){ const p=$('#stayPills .pill[data-label="'+d.stayLabel+'"]'); if(p) pickStay({currentTarget:p},d.stayN,d.stayLabel); }
+  S.fns=Array.isArray(d.fns)?d.fns:[]; S.meals=(d.meals&&typeof d.meals==='object')?d.meals:{};
+  if(d.tier){ pickTier($('[data-t="'+d.tier+'"]')); }
+  sync();
+}
+function startOver(){ try{ localStorage.removeItem('orayana-plan'); }catch(e){} location.hash='#plan'; location.reload(); }
+function pkgName(p){return {AM:'Authentic Maharashtrian',Classic:'Classic',Premium:'Premium',Signature:'Signature'}[p]}
+function cName(c){return {Continental:'Continental',Chinese:'Chinese',Chaat:'Chaat',SouthIndian:'South Indian',PavBhaji:'Pav Bhaji',IceCream:'Ice Cream',Gola:'Gola'}[c]}
+
+/* ===== ESTIMATE ===== */
+function estimate(){
+  const dur=S.dur, sd = dur===8?24:dur;
+  const venue = R.venue[dur]*GST_V;
+  const stay  = (S.stayN||0)*R.stay[sd]*GST_S;
+  let food=0, allAM=true;
+  mealsFrom().forEach(m=>{ const c=S.meals[m.key]||{}; if(!c.pkg) return; if(c.pkg!=='AM') allAM=false;
+    const per=R.plate[c.pkg]+(c.pkg==='Signature'?0:(c.counters||[]).reduce((a,k)=>a+R.counter[k],0)); food+=m.guests*per; });
+  food*=GST_F;
+  const bf    = (allAM && dur>=24) ? 100*250*GST_F : 0;   // breakfast for 100 is complimentary unless every meal is Authentic Maharashtrian
+  const [lo,hi] = R.decor[S.kind][S.tier];
+  const dlo=lo*FEE*GST_D, dhi=hi*FEE*GST_D;
+  const fixed = venue+stay+food+bf;
+  const low = Math.floor((fixed+dlo)/50000)*50000, high = Math.ceil((fixed+dhi)/50000)*50000;
+  return {low,high};
+}
+const lakh=n=>(n/100000).toFixed(1).replace(/\.0$/,'');
+function renderEstimate(){
+  const {low,high}=estimate();
+  const big=$('#estBig');
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){ big.textContent=`₹${lakh(low)} – ${lakh(high)} lakh`; }
+  else{
+    const t0=performance.now(), D=1100;
+    (function tick(t){ const p=Math.min(1,(t-t0)/D), e=1-Math.pow(1-p,3);
+      big.textContent=`₹${lakh(low*e)} – ${lakh(high*e)} lakh`;
+      if(p<1) requestAnimationFrame(tick); })(t0);
+  }
+  const L=[], meals=mealsFrom();
+  L.push(S.kind==='wedding'?`Full wedding, ${S.dur} hours, up to ${S.guests} guests`:`${S.fn}, 8 hours, ${S.guests} guests`);
+  L.push(S.kind==='wedding'?'All three spaces':S.venues.join(' and '));
+  L.push(S.stayLabel||'No rooms needed');
+  meals.forEach(m=>L.push(mealLine(m)));
+  L.push(S.tier+' décor');
+  $('#estChoices').innerHTML=L.map(x=>`<li>${x}</li>`).join('');
+  $('#estCovers').textContent=`This covers the property for ${S.dur} hours, ${S.stayN?S.stayLabel:'no rooms'}, ${meals.length} meal${meals.length>1?'s':''} from our kitchen for every guest, ${S.tier}-tier décor with our consultation fee, the full Shaadi ka gift, and six planning sessions.`;
+}
+
+/* ===== HERO VIDEO: never on phones or data-saver; loads on first view; pauses off-screen ===== */
+const hv=$('#heroVid'), hp=$('#heroPoster');
+const isSmall=()=>window.matchMedia('(max-width:640px)').matches;
+function heroPoster(){ if(hp) hp.style.backgroundImage="url('"+(isSmall()?hp.dataset.m:hp.dataset.d)+"')"; }
+heroPoster();
+function heroVideo(){
+  if(!hv || !document.body.contains(hv)) return;
+  const saver=navigator.connection && navigator.connection.saveData;
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(saver||reduce){ hv.remove(); return; }
+  const hiRes=window.innerWidth*(window.devicePixelRatio||1)>2000 && hv.dataset.x && !hv.dataset.x.startsWith('blob:') && !hv.dataset.x.startsWith('data:');
+  const want=isSmall()?hv.dataset.m:(hiRes?hv.dataset.x:hv.dataset.d);
+  if(hv.getAttribute('src')!==want){ hv.setAttribute('src',want); hv.load(); hv.addEventListener('canplay',()=>hv.play().catch(()=>{}),{once:true}); }
+  hv.play().catch(()=>{});
+}
+if(hv && 'IntersectionObserver' in window){
+  new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting) heroVideo(); else hv.pause(); }),{threshold:.2}).observe($('#home'));
+} else { heroVideo(); }
+window.addEventListener('scroll',()=>{ $('#hdr').classList.toggle('solid',window.scrollY>40); },{passive:true});
+
+/* ===== REELS: play only while on screen ===== */
+const reels=$$('video[data-reel]');
+const io=('IntersectionObserver' in window) ? new IntersectionObserver(es=>es.forEach(e=>{const v=e.target; if(e.isIntersecting){v.play().catch(()=>{})} else {v.pause()}}),{threshold:.35}) : null;
+function playReels(){ reels.forEach(v=>{ if(io){io.unobserve(v);io.observe(v)} else {v.play().catch(()=>{})} }) }
+playReels();
+
+/* ===== ENQUIRY: functions + guests per function ===== */
+const FNS=['Haldi','Mehendi','Sangeet','Engagement','Vedic','Nikah','Christian Wedding','Buddhist Wedding','Afternoon Reception','Night Reception','Cocktail Party','Other'];
+const FN_BIGIN={Wedding:'Vedic',Reception:'Night Reception',Cocktail:'Cocktail Party'};
+const FG={}; // {fn: guests}
+let fgTouched=false; // once the visitor edits the list by hand, stop overwriting it from the food step
+function buildFnPills(){ const box=$('#fnPills'); if(!box||box.children.length) return;
+  FNS.forEach(f=>{ const b=document.createElement('button'); b.type='button'; b.className='pill'; b.textContent=f; b.dataset.fn=f; b.onclick=()=>toggleFn(f); box.appendChild(b); }); }
+function toggleFn(f){ fgTouched=true; if(f in FG) delete FG[f]; else FG[f]=''; renderFn(); $('#e6').classList.remove('on'); }
+function renderFn(){ $$('#fnPills .pill').forEach(p=>p.classList.toggle('sel',p.dataset.fn in FG));
+  const rows=$('#fnRows'); rows.innerHTML='';
+  Object.keys(FG).forEach(f=>{ const l=document.createElement('label'); const s=document.createElement('span'); s.textContent=f;
+    const i=document.createElement('input'); i.type='number'; i.inputMode='numeric'; i.min=1; i.placeholder="0"; i.value=FG[f]; i.setAttribute('aria-label',f+' guests');
+    i.oninput=()=>{FG[f]=i.value}; const h=document.createElement('span'); h.className='hint'; h.textContent='guests'; l.append(s,i,h); rows.appendChild(l); }); }
+function prefillFn(){ buildFnPills();
+  if(fgTouched) return;
+  Object.keys(FG).forEach(k=>delete FG[k]);
+  S.fns.forEach(f=>{ let b=FN_BIGIN[f.fn]||f.fn; if(f.fn==='Reception'&&f.time!=='Evening') b='Afternoon Reception'; if(!FNS.includes(b)) b='Other'; FG[b]=f.guests||FG[b]||''; });
+  renderFn(); }
+function fnSummary(){ return Object.keys(FG).map(f=>f+(FG[f]?' ('+FG[f]+' guests)':'')).join(', '); }
+/* ===== ENQUIRY ===== */
+function payload(extra){
+  const {low,high}=S.tier?estimate():{low:0,high:0};
+  return Object.assign({
+    source:'orayana-journey', kind:S.kind, duration:S.dur, function:S.fn, venues:S.venues.join(', '),
+    guests:S.guests, stay:S.stayLabel, package:foodSummary('; '), counters:allCounters().map(cName).join(', '),
+    meals:mealsFrom().length, Food_Plan:foodSummary('\n'),
+    decorTier:S.tier, estimateLow:low, estimateHigh:high,
+    functions:fnSummary(), Selected_Functions:Object.keys(FG).join(', '), Function_Guests:Object.keys(FG).map(f=>f+': '+(FG[f]||'?')+' guests').join('; ')
+  },extra);
+}
+async function send(data, okEl, form){
+  if(WEBHOOK){
+    try{ await fetch(WEBHOOK,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(data)}); }
+    catch(e){ /* fall through to WhatsApp */ }
+    okEl.classList.add('on'); form.querySelector('button[type=submit]').disabled=true; return;
+  }
+  const lines=Object.entries(data).filter(([k,v])=>v!==''&&v!==null&&v!==undefined&&k!=='source').map(([k,v])=>`${k}: ${v}`).join('\n');
+  okEl.classList.add('on'); form.querySelector('button[type=submit]').disabled=true;
+  window.open('https://wa.me/918484053303?text='+encodeURIComponent('New enquiry from orayana.com\n'+lines),'_blank');
+}
+function submitEnq(e){
+  e.preventDefault();
+  const f=e.target, n=f.name.value.trim(), p=f.phone.value.trim(), m=f.email.value.trim();
+  if(!n||!p||!m||!Object.keys(FG).length){$('#e6').classList.add('on');return false}
+  $('#e6').classList.remove('on');
+  send(payload({name:n,phone:p,email:m,Event_Start_Date:f.start.value,Event_End_Date:f.end.value,Event_Type:[24,36,48].includes(S.dur)?S.dur+' Hours':'',Add_any_relevant_information:f.message.value.trim(),type:'journey'}), $('#ok6'), f);
+  return false;
+}
+function openCustom(fromFloor){
+  $('#custom').classList.add('on');
+  if(fromFloor){ $('#c_guests').value=S.guests||''; $('#c_type').value=S.fn||''; }
+  setTimeout(()=>$('#c_name').focus(),50);
+}
+function closeCustom(){ $('#custom').classList.remove('on') }
+function submitCustom(e){
+  e.preventDefault();
+  const f=e.target, n=f.name.value.trim(), p=f.phone.value.trim();
+  if(!n||!p){$('#ec').classList.add('on');return false}
+  $('#ec').classList.remove('on');
+  send({source:'orayana-journey',type:'custom',name:n,phone:p,email:f.email.value.trim(),gathering:f.type.value.trim(),date:f.date.value.trim(),guests:f.guests.value,message:f.message.value.trim()}, $('#okc'), f);
+  return false;
+}
+/* ===== REVEAL on scroll ===== */
+const rv=$$('.reveal');
+if('IntersectionObserver' in window){ const ro=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } }),{threshold:.2}); rv.forEach(el=>ro.observe(el)); } else { rv.forEach(el=>el.classList.add('in')); }
+
+/* ===== LIGHTBOX: every home photo expands on click ===== */
+let GAL=null, GI=0;
+function galShow(){ const f=GAL[GI], img=f.querySelector('img'); $('#lbImg').src=img.currentSrc||img.src; $('#lbImg').alt=img.alt; $('#lbCap').textContent=f.querySelector('figcaption').textContent; $('#lbCount').textContent=(GI+1)+' / '+GAL.length; }
+function galStep(d){ if(!GAL) return; GI=(GI+d+GAL.length)%GAL.length; galShow(); }
+function openGallery(i){ GAL=$$('#coupleGrid figure'); GI=i; $('#lbVid').hidden=true; $('#lbVid').pause(); $('#lbImg').hidden=false; $('#lbPrev').classList.add('on'); $('#lbNext').classList.add('on'); galShow(); $('#lb').classList.add('on'); }
+function openLb(img){ GAL=null; $('#lbPrev').classList.remove('on'); $('#lbNext').classList.remove('on'); $('#lbCount').textContent=''; $('#lbVid').hidden=true; $('#lbVid').pause(); $('#lbImg').hidden=false; $('#lbImg').src=img.currentSrc||img.src; $('#lbImg').alt=img.alt; $('#lbCap').textContent=img.alt; $('#lb').classList.add('on'); }
+function openLbVideo(phone){ GAL=null; $('#lbPrev').classList.remove('on'); $('#lbNext').classList.remove('on'); $('#lbCount').textContent=''; const v=phone.querySelector('video'), src=v.currentSrc||v.querySelector('source').src, cap=(phone.querySelector('span')||{}).textContent||'';
+  $('#lbImg').hidden=true; const lv=$('#lbVid'); lv.hidden=false; if(lv.getAttribute('src')!==src){ lv.setAttribute('src',src); lv.load(); } lv.poster=v.poster; lv.play().catch(()=>{}); $('#lbCap').textContent=cap; $('#lb').classList.add('on'); }
+function closeLb(){ $('#lb').classList.remove('on'); $('#lbVid').pause(); }
+$$('.phone').forEach(ph=>ph.addEventListener('click',e=>{ e.stopPropagation(); openLbVideo(ph); }));
+$('#lbVid').addEventListener('click',e=>e.stopPropagation());
+// grounds slider: arrows + automatic looping
+(function(){const w=document.querySelector('#home-view .grounds-wrap');if(!w)return;const s=w.querySelector('.grounds'),p=w.querySelector('.prev'),n=w.querySelector('.next');
+const orig=[...s.querySelectorAll('figure')],N=orig.length;
+orig.slice(0,3).forEach(f=>{const c=f.cloneNode(true);c.classList.add('clone');c.setAttribute('aria-hidden','true');s.appendChild(c)});
+const step=()=>orig[0].getBoundingClientRect().width+18;
+let tgt=null,idx=0;
+const jump=(i)=>{s.style.scrollBehavior='auto';s.scrollLeft=i*step();s.style.scrollBehavior='';idx=i};
+const go=d=>{idx=Math.round((tgt===null?s.scrollLeft:tgt)/step())+d;
+  if(idx<0){jump(N);idx=N-1} if(idx>N){jump(0);idx=1}
+  tgt=idx*step();s.scrollTo({left:tgt,behavior:'smooth'})};
+s.addEventListener('scroll',()=>{if(tgt!==null&&Math.abs(s.scrollLeft-tgt)<2)tgt=null; if(tgt===null&&s.scrollLeft>=N*step()-2)jump(0)},{passive:true});
+p.addEventListener('click',()=>{go(-1);rest()});n.addEventListener('click',()=>{go(1);rest()});
+/* autoplay: every 3.5 s, only while on screen, paused on hover / touch / lightbox */
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let timer=null,hold=false,seen=false;
+const tick=()=>{if(!hold&&seen&&!document.getElementById('lb').classList.contains('on'))go(1)};
+const start=()=>{if(reduce||timer)return;timer=setInterval(tick,3500)};
+const rest=()=>{if(timer){clearInterval(timer);timer=null}start()};
+w.addEventListener('mouseenter',()=>hold=true);w.addEventListener('mouseleave',()=>hold=false);
+s.addEventListener('touchstart',()=>hold=true,{passive:true});s.addEventListener('touchend',()=>setTimeout(()=>hold=false,2500),{passive:true});
+new IntersectionObserver(e=>{seen=e[0].isIntersecting},{threshold:.3}).observe(w);
+window.addEventListener('resize',()=>jump(idx));
+start();})();
+$$('#home-view .card.photo img, #home-view .grounds img, #home-view .mosaic img, #home-view .arch-frame img, #home-view .map > img, #home-view .strip img').forEach(img=>{
+  img.classList.add('zoom'); img.addEventListener('click',e=>{ e.stopPropagation(); openLb(img); });
+});
+/* couples: tilt toward the cursor, open as a browsable gallery */
+$$('#coupleGrid figure').forEach(f=>{
+  f.addEventListener('click',e=>{ e.stopPropagation(); openGallery(+f.dataset.i); });
+  f.addEventListener('mousemove',e=>{ const r=f.getBoundingClientRect(), x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5; f.style.transform=`perspective(900px) rotateX(${-y*6}deg) rotateY(${x*8}deg) translateY(-6px)`; });
+  f.addEventListener('mouseleave',()=>{ f.style.transform=''; });
+});
+let tx=null; $('#lb').addEventListener('touchstart',e=>{ tx=e.touches[0].clientX; },{passive:true});
+$('#lb').addEventListener('touchend',e=>{ if(tx===null||!GAL) return; const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>50) galStep(dx<0?1:-1); tx=null; });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeCustom(); closeLb(); } if(GAL && $('#lb').classList.contains('on')){ if(e.key==='ArrowRight') galStep(1); if(e.key==='ArrowLeft') galStep(-1); } });
+$('#custom').addEventListener('click',e=>{ if(e.target.id==='custom') closeCustom() });
+restore();
+sync();
+if(location.hash==='#plan') route('plan');
+</script>
+
+</body>
+</html>
