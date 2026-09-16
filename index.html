@@ -363,7 +363,7 @@ form .field input,form .field select{max-width:100%}
 /* ---------- modal ---------- */
 .modal{position:fixed;inset:0;background:rgba(43,42,40,.55);display:none;place-items:center;z-index:50;padding:20px}
 .modal.on{display:grid}
-.modal .box{background:var(--cream);border-radius:var(--r);max-width:560px;width:100%;padding:34px 30px;max-height:92vh;overflow:auto;position:relative}
+.modal .box{background:var(--cream);border-radius:var(--r);max-width:760px;width:100%;padding:34px 30px;max-height:92vh;overflow:auto;position:relative}
 .modal .x{position:absolute;top:12px;right:14px;background:none;border:0;font-size:1.6rem;color:var(--ink-soft);line-height:1}
 
 /* ---------- footer ---------- */
@@ -535,7 +535,7 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
   </nav>
   <div class="drawer-cta">
     <a class="btn" href="#plan" onclick="closeMenu();route('plan');return false;">Plan my wedding</a>
-    <a class="btn ghost" href="#" onclick="closeMenu();openCustom();return false;">Just send an enquiry</a>
+    <a class="btn ghost" href="#" onclick="closeMenu();openCustom();return false;">Quick enquiry</a>
     <a class="drawer-wa" href="https://wa.me/918484053303" target="_blank" rel="noopener">WhatsApp 84840 53303</a>
   </div>
 </div>
@@ -550,7 +550,7 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
     <h1>The whole wedding. One roof.</h1>
     <p class="lede">Venue, décor, food, and the team that runs the day, all on three acres in Nashik, with 19 rooms for your guests to stay.</p>
     <a class="btn" href="#plan" onclick="route('plan');return false;">Plan my wedding</a>
-    <a class="btn ghost hero-quick" href="#" onclick="openCustom();return false;">Just send an enquiry</a>
+    <a class="btn ghost hero-quick" href="#" onclick="openCustom();return false;">Quick enquiry</a>
     <div class="facts"><span>Three acres</span><span>Three event spaces</span><span>Up to 1,500 guests</span><span>19 rooms</span></div>
   </div>
   <a class="cue" href="#how" onclick="goSec('how');return false;">See how it works</a>
@@ -1119,18 +1119,27 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
 <div class="modal" id="custom" role="dialog" aria-modal="true" aria-labelledby="ctitle">
   <div class="box">
     <button class="x" aria-label="Close" onclick="closeCustom()">×</button>
-    <h3 id="ctitle" style="font-size:1.9rem">Tell us what you have in mind.</h3>
+    <h3 id="ctitle" style="font-size:1.9rem">Tell us about your event.</h3>
     <p class="muted" style="margin:8px 0 14px">We'll call within one working day with a personal quote.</p>
     <form id="cform" onsubmit="return submitCustom(event)" novalidate>
-      <div class="field"><label for="c_name">Name</label><input id="c_name" name="name" required></div>
-      <div class="field"><label for="c_phone">Phone</label><input id="c_phone" name="phone" type="tel" required></div>
-      <div class="field"><label for="c_email">Email</label><input id="c_email" name="email" type="email"></div>
-      <div class="field"><label for="c_type">Type of gathering</label><input id="c_type" name="type" placeholder="Birthday, anniversary, puja…"></div>
-      <div class="field"><label for="c_date">Rough date</label><input id="c_date" name="date"></div>
-      <div class="field"><label for="c_guests">Approximate guests</label><input id="c_guests" name="guests" type="number" inputmode="numeric"></div>
-      <div class="field wide"><label for="c_msg">A line or two about what you need</label><textarea id="c_msg" name="message"></textarea></div>
-      <div class="actions"><button class="btn" type="submit">Send enquiry</button><span class="err" id="ec">Name and phone are needed.</span></div>
-      <div class="ok" id="okc"><p><strong>Thank you. We've got it.</strong> We'll call within one working day.</p></div>
+      <div class="row">
+        <div class="field"><label for="c_name">Full name</label><input id="c_name" name="name" required></div>
+        <div class="field"><label for="c_phone">Phone</label><input id="c_phone" name="phone" type="tel" required></div>
+        <div class="field"><label for="c_email">Email</label><input id="c_email" name="email" type="email" required></div>
+        <div class="field"><label for="c_start">Event start date (leave blank if not fixed)</label><input id="c_start" name="start" type="date"></div>
+        <div class="field"><label for="c_end">Event end date (leave blank if not fixed)</label><input id="c_end" name="end" type="date"></div>
+      </div>
+      <div class="field wide fnpick">
+        <label>Which functions are you planning? Tap all that apply.</label>
+        <div class="pills" id="cfnPills"></div>
+        <div class="fnrows" id="cfnRows"></div>
+      </div>
+      <div class="field wide"><label for="c_msg">Anything else you'd like us to know</label><textarea id="c_msg" name="message"></textarea></div>
+      <div class="actions">
+        <button class="btn" type="submit">Send my enquiry</button>
+        <span class="err" id="ec">Name, phone, email and at least one function are needed.</span>
+      </div>
+      <div class="ok" id="okc"><p><strong>Thank you. We've got it.</strong> Expect a call within one working day. If it's urgent, <a href="https://wa.me/918484053303" target="_blank" rel="noopener">WhatsApp us at 84840 53303</a>.</p></div>
     </form>
   </div>
 </div>
@@ -1530,22 +1539,46 @@ function submitEnq(e){
   send(payload({name:n,phone:p,email:m,Event_Start_Date:f.start.value,Event_End_Date:f.end.value,Event_Type:[24,36,48].includes(S.dur)?S.dur+' Hours':'',Add_any_relevant_information:f.message.value.trim(),type:'journey'}), $('#ok6'), f);
   return false;
 }
+const CFG={}; // {fn: guests} for the standalone enquiry form
+function buildCFnPills(){ const box=$('#cfnPills'); if(!box||box.children.length) return;
+  FNS.forEach(f=>{ const b=document.createElement('button'); b.type='button'; b.className='pill'; b.textContent=f; b.dataset.fn=f; b.onclick=()=>toggleCFn(f); box.appendChild(b); }); }
+function toggleCFn(f){ if(f in CFG) delete CFG[f]; else CFG[f]=''; renderCFn(); $('#ec').classList.remove('on'); }
+function renderCFn(){ $$('#cfnPills .pill').forEach(p=>p.classList.toggle('sel',p.dataset.fn in CFG));
+  const rows=$('#cfnRows'); rows.innerHTML='';
+  Object.keys(CFG).forEach(f=>{ const l=document.createElement('label'); const s=document.createElement('span'); s.textContent=f;
+    const i=document.createElement('input'); i.type='number'; i.inputMode='numeric'; i.min=1; i.placeholder="0"; i.value=CFG[f]; i.setAttribute('aria-label',f+' guests');
+    i.oninput=()=>{CFG[f]=i.value}; const h=document.createElement('span'); h.className='hint'; h.textContent='guests'; l.append(s,i,h); rows.appendChild(l); }); }
 function openCustom(fromFloor){
   $('#custom').classList.add('on');
-  if(fromFloor){ $('#c_guests').value=S.guests||''; $('#c_type').value=S.fn||''; }
+  buildCFnPills();
+  if(fromFloor){ Object.keys(FG).forEach(k=>{ if(!(k in CFG)) CFG[k]=FG[k]; }); renderCFn(); }
   setTimeout(()=>$('#c_name').focus(),50);
 }
 function closeCustom(){
   $('#custom').classList.remove('on');
   const f=$('#cform'); if(!f) return;
-  if($('#okc').classList.contains('on')){ f.reset(); $('#okc').classList.remove('on'); f.querySelectorAll('.field,.actions').forEach(el=>el.style.display=''); const b=f.querySelector('button[type=submit]'); if(b) b.disabled=false; }
+  if($('#okc').classList.contains('on')){
+    f.reset(); Object.keys(CFG).forEach(k=>delete CFG[k]); renderCFn();
+    $('#okc').classList.remove('on');
+    f.querySelectorAll('.field,.actions,.fnpick').forEach(el=>el.style.display='');
+    const b=f.querySelector('button[type=submit]'); if(b) b.disabled=false;
+  }
 }
 function submitCustom(e){
   e.preventDefault();
-  const f=e.target, n=f.name.value.trim(), p=f.phone.value.trim();
-  if(!n||!p){$('#ec').classList.add('on');return false}
+  const f=e.target, n=f.name.value.trim(), p=f.phone.value.trim(), m=f.email.value.trim();
+  if(!n||!p||!m||!Object.keys(CFG).length){$('#ec').classList.add('on');return false}
   $('#ec').classList.remove('on');
-  send({source:'orayana-journey',type:'custom',name:n,phone:p,email:f.email.value.trim(),gathering:f.type.value.trim(),date:f.date.value.trim(),guests:f.guests.value,message:f.message.value.trim()}, $('#okc'), f);
+  send({
+    source:'orayana-journey', type:'direct',
+    name:n, phone:p, email:m,
+    Event_Start_Date:f.start.value, Event_End_Date:f.end.value,
+    functions:Object.keys(CFG).map(x=>x+(CFG[x]?' ('+CFG[x]+' guests)':'')).join(', '),
+    Selected_Functions:Object.keys(CFG).join(', '),
+    Function_Guests:Object.keys(CFG).map(x=>x+': '+(CFG[x]||'?')+' guests').join('; '),
+    guests:Object.values(CFG).reduce((a,b)=>a+(parseInt(b,10)||0),0)||'',
+    Add_any_relevant_information:f.message.value.trim()
+  }, $('#okc'), f);
   return false;
 }
 /* ===== REVEAL on scroll ===== */
