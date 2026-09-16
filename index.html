@@ -1447,7 +1447,7 @@ function payload(extra){
 }
 async function send(data, okEl, form){
   if(WEBHOOK){
-    try{ await fetch(WEBHOOK,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(data)}); }
+    try{ await fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}); }
     catch(e){ /* fall through to WhatsApp */ }
     okEl.classList.add('on'); form.querySelector('button[type=submit]').disabled=true; return;
   }
