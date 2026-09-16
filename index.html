@@ -1498,6 +1498,18 @@ function prefillFn(){ buildFnPills();
   S.fns.forEach(f=>{ let b=FN_BIGIN[f.fn]||f.fn; if(f.fn==='Reception'&&f.time!=='Evening') b='Afternoon Reception'; if(!FNS.includes(b)) b='Other'; FG[b]=f.guests||FG[b]||''; });
   renderFn(); }
 function fnSummary(){ return Object.keys(FG).map(f=>f+(FG[f]?' ('+FG[f]+' guests)':'')).join(', '); }
+function composeNotes(map, msg){
+  const keys=Object.keys(map);
+  let out='';
+  if(keys.length){
+    out+='FUNCTIONS REQUESTED\n';
+    keys.forEach(f=>{ out+= f+' - '+(map[f]?map[f]+' guests':'guest count not given')+'\n'; });
+    const tot=keys.reduce((a,f)=>a+(parseInt(map[f],10)||0),0);
+    if(tot) out+='Largest single function: '+Math.max.apply(null,keys.map(f=>parseInt(map[f],10)||0))+' guests\n';
+  }
+  if(msg){ out+= (out?'\n':'')+'NOTES FROM VISITOR\n'+msg+'\n'; }
+  return out.trim();
+}
 /* ===== ENQUIRY ===== */
 function payload(extra){
   const {low,high}=S.tier?estimate():{low:0,high:0};
@@ -1536,7 +1548,7 @@ function submitEnq(e){
   const f=e.target, n=f.name.value.trim(), p=f.phone.value.trim(), m=f.email.value.trim();
   if(!n||!p||!m||!Object.keys(FG).length){$('#e6').classList.add('on');return false}
   $('#e6').classList.remove('on');
-  send(payload({name:n,phone:p,email:m,Event_Start_Date:f.start.value,Event_End_Date:f.end.value,Event_Type:[24,36,48].includes(S.dur)?S.dur+' Hours':'',Add_any_relevant_information:f.message.value.trim(),type:'journey'}), $('#ok6'), f);
+  send(payload({name:n,phone:p,email:m,Event_Start_Date:f.start.value,Event_End_Date:f.end.value,Event_Type:[24,36,48].includes(S.dur)?S.dur+' Hours':'',Add_any_relevant_information:composeNotes(FG,f.message.value.trim()),type:'journey'}), $('#ok6'), f);
   return false;
 }
 const CFG={}; // {fn: guests} for the standalone enquiry form
@@ -1577,7 +1589,7 @@ function submitCustom(e){
     Selected_Functions:Object.keys(CFG).join(', '),
     Function_Guests:Object.keys(CFG).map(x=>x+': '+(CFG[x]||'?')+' guests').join('; '),
     guests:Object.values(CFG).reduce((a,b)=>a+(parseInt(b,10)||0),0)||'',
-    Add_any_relevant_information:f.message.value.trim()
+    Add_any_relevant_information:composeNotes(CFG,f.message.value.trim())
   }, $('#okc'), f);
   return false;
 }
