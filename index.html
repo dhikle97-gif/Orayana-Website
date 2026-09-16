@@ -58,6 +58,20 @@ header .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
 .nav .plan{border:1px solid var(--gold-light);border-radius:999px;padding:8px 16px;opacity:1}
 .nav .plan:hover{background:var(--gold);border-color:var(--gold);color:#fff}
 .wa{display:inline-flex;align-items:center;gap:8px}
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:0 9px;background:none;border:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.burger span{display:block;height:2px;width:100%;background:var(--cream);border-radius:2px;transition:transform .22s,opacity .18s,background .25s}
+header.solid .burger span,body.planning .burger span{background:var(--ink)}
+.burger.on span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.on span:nth-child(2){opacity:0}
+.burger.on span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.drawer{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;z-index:29;background:rgba(244,240,235,.985);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid rgba(230,198,127,.7);overflow-y:auto;-webkit-overflow-scrolling:touch;padding:10px 22px 32px}
+.drawer.on{display:block}
+.drawer nav{display:flex;flex-direction:column}
+.drawer nav a{padding:17px 2px;font-size:1.16rem;color:var(--ink);text-decoration:none;border-bottom:1px solid rgba(230,198,127,.45)}
+.drawer-cta{display:flex;flex-direction:column;gap:12px;margin-top:26px}
+.drawer-cta .btn{text-align:center}
+.drawer-wa{margin-top:6px;text-align:center;color:var(--gold-deep);text-decoration:none;font-size:.95rem}
+body.menu-open{overflow:hidden}
 .wa img{width:22px;height:22px;display:block}
 header.solid,body.planning header{background:rgba(244,240,235,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(230,198,127,.7)}
 header.solid .nav a,body.planning .nav a{color:var(--ink)}
@@ -75,6 +89,10 @@ header.solid .nav .plan:hover{color:#fff}
 .hero .hook{font-family:var(--serif);font-style:italic;font-size:clamp(1.25rem,2.1vw,1.55rem);color:var(--gold-light);margin-bottom:14px;text-shadow:0 1px 6px rgba(0,0,0,.55)}
 .hero h1{color:#fff;max-width:11ch;font-weight:600;text-shadow:0 2px 6px rgba(0,0,0,.4),0 10px 34px rgba(0,0,0,.4)}
 .hero .lede{color:#fff;font-size:clamp(1.1rem,1.7vw,1.32rem);max-width:44ch;margin:22px 0 34px;line-height:1.55;text-shadow:0 1px 4px rgba(0,0,0,.55),0 6px 22px rgba(0,0,0,.35)}
+.hero .hero-quick{margin-left:12px;color:#fff;border-color:rgba(255,255,255,.75);background:rgba(0,0,0,.18)}
+.hero .hero-quick:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+@media (max-width:640px){.hero .hero-quick{margin:12px 0 0;display:inline-block}}
+.nav .plan.quick{border-color:transparent;text-decoration:underline;text-underline-offset:4px;padding-left:6px;padding-right:6px}
 .hero .facts{display:flex;gap:28px;flex-wrap:wrap;margin-top:36px;color:#fff;font-size:.95rem;font-weight:700;letter-spacing:.01em;text-shadow:0 1px 4px rgba(0,0,0,.6)}
 .hero .facts span{border-left:1px solid rgba(230,198,127,.9);padding-left:12px}
 .hero .cue{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);color:#fff;font-size:.85rem;opacity:.95;text-decoration:none;text-shadow:0 1px 4px rgba(0,0,0,.6)}
@@ -116,7 +134,7 @@ header.solid .nav .plan:hover{color:#fff}
 .orn::before,.orn::after{content:"";width:96px;height:1px;background:var(--gold-light)}
 .orn img{height:58px;width:auto;opacity:.95}
 .wm{position:absolute;pointer-events:none;user-select:none}
-.wm img{width:100%;height:auto;display:block}
+.wm img,.wm>svg{width:100%;height:auto;display:block}
 .wm.emblem-tr{right:-90px;top:-40px;width:420px;opacity:.16;transform:rotate(8deg)}
 .wm.emblem-bl{left:-120px;bottom:-60px;width:520px;opacity:.12;transform:rotate(-6deg)}
 .wm.emblem-cta{left:-160px;top:-80px;width:640px;opacity:.14;filter:brightness(1.4)}
@@ -400,6 +418,8 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
   .nav{gap:14px}
   .nav .sec-link{display:none}
   .nav .plan{display:none}
+  .burger{display:flex}
+  .nav.left>a{display:none}
   .wa span{display:none}
   .grounds figure{flex-basis:84%}
   .grounds-btn{display:none}
@@ -485,6 +505,7 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
 <header id="hdr">
   <div class="wrap">
     <nav class="nav left" aria-label="Main">
+      <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="drawer" onclick="toggleMenu()"><span></span><span></span><span></span></button>
       <a href="#home" onclick="route('home');return false;">Home</a>
       <a class="sec-link" href="#venues" onclick="goSec('venues');return false;">Venues</a>
       <a class="sec-link" href="#stay" onclick="goSec('stay');return false;">Stay</a>
@@ -497,10 +518,27 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
     </a>
     <nav class="nav right" aria-label="Contact">
       <a class="wa" href="https://wa.me/918484053303" target="_blank" rel="noopener" aria-label="WhatsApp 84840 53303"><img src="assets/img/whatsapp.png" alt=""><span>84840 53303</span></a>
+      <a class="plan quick" href="#" onclick="openCustom();return false;">Quick enquiry</a>
       <a class="plan" href="#plan" onclick="route('plan');return false;">Plan my wedding</a>
     </nav>
   </div>
 </header>
+
+<div class="drawer" id="drawer" hidden>
+  <nav aria-label="Sections">
+    <a href="#home" onclick="menuGo('home');return false;">Home</a>
+    <a href="#venues" onclick="menuGo('venues');return false;">Venues</a>
+    <a href="#stay" onclick="menuGo('stay');return false;">Stay</a>
+    <a href="#food" onclick="menuGo('food');return false;">Food</a>
+    <a href="#decor" onclick="menuGo('decor');return false;">Décor</a>
+    <a href="#couples" onclick="menuGo('couples');return false;">Couples</a>
+  </nav>
+  <div class="drawer-cta">
+    <a class="btn" href="#plan" onclick="closeMenu();route('plan');return false;">Plan my wedding</a>
+    <a class="btn ghost" href="#" onclick="closeMenu();openCustom();return false;">Just send an enquiry</a>
+    <a class="drawer-wa" href="https://wa.me/918484053303" target="_blank" rel="noopener">WhatsApp 84840 53303</a>
+  </div>
+</div>
 
 <div id="home-view">
 
@@ -512,6 +550,7 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
     <h1>The whole wedding. One roof.</h1>
     <p class="lede">Venue, décor, food, and the team that runs the day, all on three acres in Nashik, with 19 rooms for your guests to stay.</p>
     <a class="btn" href="#plan" onclick="route('plan');return false;">Plan my wedding</a>
+    <a class="btn ghost hero-quick" href="#" onclick="openCustom();return false;">Just send an enquiry</a>
     <div class="facts"><span>Three acres</span><span>Three event spaces</span><span>Up to 1,500 guests</span><span>19 rooms</span></div>
   </div>
   <a class="cue" href="#how" onclick="goSec('how');return false;">See how it works</a>
@@ -572,7 +611,7 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
 
 <!-- venues -->
 <section class="sec alt" id="venues">
-  <div class="wm leaf-l"><img src="assets/img/leaf.svg+xml" alt=""></div>
+  <div class="wm leaf-l"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 330" fill="none" stroke="#486730" stroke-width="1.6" stroke-linecap="round"><path d="M100 8 C 28 92, 18 214, 100 322 C 182 214, 172 92, 100 8 Z"/><path d="M100 8 L100 322"/><path d="M100 70 C 75 60, 55 48, 56 32" /><path d="M100 70 C 125 60, 145 48, 144 32" /><path d="M100 96 C 75 86, 55 74, 50 58" /><path d="M100 96 C 125 86, 145 74, 150 58" /><path d="M100 122 C 75 112, 55 100, 45 84" /><path d="M100 122 C 125 112, 145 100, 155 84" /><path d="M100 148 C 75 138, 55 126, 40 110" /><path d="M100 148 C 125 138, 145 126, 160 110" /><path d="M100 174 C 75 164, 55 152, 40 136" /><path d="M100 174 C 125 164, 145 152, 160 136" /><path d="M100 200 C 75 190, 55 178, 46 162" /><path d="M100 200 C 125 190, 145 178, 154 162" /><path d="M100 226 C 75 216, 55 204, 51 188" /><path d="M100 226 C 125 216, 145 204, 149 188" /><path d="M100 252 C 75 242, 55 230, 56 214" /><path d="M100 252 C 125 242, 145 230, 144 214" /><path d="M100 278 C 75 268, 55 256, 61 240" /><path d="M100 278 C 125 268, 145 256, 139 240" /></svg></div>
   <div class="wrap">
     <div class="sec-head">
       <div class="orn"><img src="assets/img/mark_outline.png" alt=""></div>
@@ -599,7 +638,7 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
 
 <!-- stay -->
 <section class="sec" id="stay">
-  <div class="wm sprig-r"><img src="assets/img/sprig.svg+xml" alt=""></div>
+  <div class="wm sprig-r"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 340" fill="none" stroke="#486730" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M100 330 C 100 250, 130 190, 128 150 C 126 110, 100 80, 108 20"/><path d="M100 40 Q 127 10 147 11 Q 113 32 100 40 Z"/><path d="M100 40 L147 11"/><path d="M110 70 Q 84 40 65 43 Q 98 62 110 70 Z"/><path d="M110 70 L65 43"/><path d="M119 100 Q 144 71 161 74 Q 130 93 119 100 Z"/><path d="M119 100 L161 74"/><path d="M125 130 Q 101 102 85 106 Q 115 124 125 130 Z"/><path d="M125 130 L85 106"/><path d="M128 160 Q 151 132 166 137 Q 137 154 128 160 Z"/><path d="M128 160 L166 137"/><path d="M127 190 Q 105 163 92 168 Q 119 185 127 190 Z"/><path d="M127 190 L92 168"/><path d="M123 220 Q 144 194 156 200 Q 130 216 123 220 Z"/><path d="M123 220 L156 200"/><path d="M116 250 Q 96 225 85 231 Q 110 247 116 250 Z"/><path d="M116 250 L85 231"/><path d="M107 280 Q 125 255 136 262 Q 111 277 107 280 Z"/><path d="M107 280 L136 262"/></svg></div>
   <div class="wrap">
     <div class="sec-head">
       <div class="orn"><img src="assets/img/mark_outline.png" alt=""></div>
@@ -619,7 +658,7 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
 
 <!-- food -->
 <section class="sec alt" id="food">
-  <div class="wm leaf-r"><img src="assets/img/leaf.svg+xml" alt=""></div>
+  <div class="wm leaf-r"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 330" fill="none" stroke="#486730" stroke-width="1.6" stroke-linecap="round"><path d="M100 8 C 28 92, 18 214, 100 322 C 182 214, 172 92, 100 8 Z"/><path d="M100 8 L100 322"/><path d="M100 70 C 75 60, 55 48, 56 32" /><path d="M100 70 C 125 60, 145 48, 144 32" /><path d="M100 96 C 75 86, 55 74, 50 58" /><path d="M100 96 C 125 86, 145 74, 150 58" /><path d="M100 122 C 75 112, 55 100, 45 84" /><path d="M100 122 C 125 112, 145 100, 155 84" /><path d="M100 148 C 75 138, 55 126, 40 110" /><path d="M100 148 C 125 138, 145 126, 160 110" /><path d="M100 174 C 75 164, 55 152, 40 136" /><path d="M100 174 C 125 164, 145 152, 160 136" /><path d="M100 200 C 75 190, 55 178, 46 162" /><path d="M100 200 C 125 190, 145 178, 154 162" /><path d="M100 226 C 75 216, 55 204, 51 188" /><path d="M100 226 C 125 216, 145 204, 149 188" /><path d="M100 252 C 75 242, 55 230, 56 214" /><path d="M100 252 C 125 242, 145 230, 144 214" /><path d="M100 278 C 75 268, 55 256, 61 240" /><path d="M100 278 C 125 268, 145 256, 139 240" /></svg></div>
   <div class="wrap">
     <div class="sec-head">
       <div class="orn"><img src="assets/img/mark_outline.png" alt=""></div>
@@ -696,7 +735,7 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
 
 <!-- gift + moments -->
 <section class="sec alt" id="gift">
-  <div class="wm sprig-l"><img src="assets/img/sprig.svg+xml" alt=""></div>
+  <div class="wm sprig-l"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 340" fill="none" stroke="#486730" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M100 330 C 100 250, 130 190, 128 150 C 126 110, 100 80, 108 20"/><path d="M100 40 Q 127 10 147 11 Q 113 32 100 40 Z"/><path d="M100 40 L147 11"/><path d="M110 70 Q 84 40 65 43 Q 98 62 110 70 Z"/><path d="M110 70 L65 43"/><path d="M119 100 Q 144 71 161 74 Q 130 93 119 100 Z"/><path d="M119 100 L161 74"/><path d="M125 130 Q 101 102 85 106 Q 115 124 125 130 Z"/><path d="M125 130 L85 106"/><path d="M128 160 Q 151 132 166 137 Q 137 154 128 160 Z"/><path d="M128 160 L166 137"/><path d="M127 190 Q 105 163 92 168 Q 119 185 127 190 Z"/><path d="M127 190 L92 168"/><path d="M123 220 Q 144 194 156 200 Q 130 216 123 220 Z"/><path d="M123 220 L156 200"/><path d="M116 250 Q 96 225 85 231 Q 110 247 116 250 Z"/><path d="M116 250 L85 231"/><path d="M107 280 Q 125 255 136 262 Q 111 277 107 280 Z"/><path d="M107 280 L136 262"/></svg></div>
   <div class="wrap">
     <div class="band maroon" style="margin-top:0">
       <div class="stage-head center" style="margin-bottom:26px">
@@ -1097,7 +1136,7 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
 </div>
 
 <footer style="position:relative">
-  <div class="wm sprig-foot"><img src="assets/img/sprig.svg+xml" alt=""></div>
+  <div class="wm sprig-foot"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 340" fill="none" stroke="#486730" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M100 330 C 100 250, 130 190, 128 150 C 126 110, 100 80, 108 20"/><path d="M100 40 Q 127 10 147 11 Q 113 32 100 40 Z"/><path d="M100 40 L147 11"/><path d="M110 70 Q 84 40 65 43 Q 98 62 110 70 Z"/><path d="M110 70 L65 43"/><path d="M119 100 Q 144 71 161 74 Q 130 93 119 100 Z"/><path d="M119 100 L161 74"/><path d="M125 130 Q 101 102 85 106 Q 115 124 125 130 Z"/><path d="M125 130 L85 106"/><path d="M128 160 Q 151 132 166 137 Q 137 154 128 160 Z"/><path d="M128 160 L166 137"/><path d="M127 190 Q 105 163 92 168 Q 119 185 127 190 Z"/><path d="M127 190 L92 168"/><path d="M123 220 Q 144 194 156 200 Q 130 216 123 220 Z"/><path d="M123 220 L156 200"/><path d="M116 250 Q 96 225 85 231 Q 110 247 116 250 Z"/><path d="M116 250 L85 231"/><path d="M107 280 Q 125 255 136 262 Q 111 277 107 280 Z"/><path d="M107 280 L136 262"/></svg></div>
   <div class="wrap">
     <div>
       <a href="#home" onclick="route('home');return false;" aria-label="Orayana, home"><img class="flogo" src="assets/img/logo_light.png" alt="Orayana Events and Getaways"></a>
@@ -1144,6 +1183,22 @@ function route(v){
   document.body.classList.toggle('planning',v==='plan');
   if(v==='plan'){ history.replaceState(null,'','#plan'); show(cur); }
   else { history.replaceState(null,'','#home'); toTop(document.getElementById('home-view')); heroVideo(); }
+}
+function toggleMenu(){ $('#drawer').classList.contains('on') ? closeMenu() : openMenu(); }
+function openMenu(){
+  const d=$('#drawer'); d.hidden=false; d.classList.add('on');
+  $('#burger').classList.add('on'); $('#burger').setAttribute('aria-expanded','true');
+  document.body.classList.add('menu-open');
+}
+function closeMenu(){
+  const d=$('#drawer'); d.classList.remove('on'); d.hidden=true;
+  $('#burger').classList.remove('on'); $('#burger').setAttribute('aria-expanded','false');
+  document.body.classList.remove('menu-open');
+}
+function menuGo(id){
+  closeMenu();
+  if(id==='home'){ route('home'); return; }
+  setTimeout(()=>goSec(id),60);
 }
 function goSec(id){
   if(document.body.classList.contains('planning')) route('home');
@@ -1447,13 +1502,25 @@ function payload(extra){
 }
 async function send(data, okEl, form){
   if(WEBHOOK){
-    try{ await fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}); }
-    catch(e){ /* fall through to WhatsApp */ }
-    okEl.classList.add('on'); form.querySelector('button[type=submit]').disabled=true; return;
+    try{
+      const params=new URLSearchParams();
+      Object.entries(data).forEach(([k,v])=>{ if(v!==undefined&&v!==null) params.append(k,String(v)); });
+      const q=params.toString();
+      let url=WEBHOOK; if((url.length+q.length)<1900) url+='&'+q;
+      await fetch(url,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'application/x-www-form-urlencoded'},body:q});
+    }
+    catch(e){ /* fall through */ }
+    thanks(okEl, form); return;
   }
   const lines=Object.entries(data).filter(([k,v])=>v!==''&&v!==null&&v!==undefined&&k!=='source').map(([k,v])=>`${k}: ${v}`).join('\n');
-  okEl.classList.add('on'); form.querySelector('button[type=submit]').disabled=true;
+  thanks(okEl, form);
   window.open('https://wa.me/918484053303?text='+encodeURIComponent('New enquiry from orayana.com\n'+lines),'_blank');
+}
+function thanks(okEl, form){
+  okEl.classList.add('on');
+  form.querySelectorAll('.field,.actions,.fnpick').forEach(el=>el.style.display='none');
+  const b=form.querySelector('button[type=submit]'); if(b) b.disabled=true;
+  setTimeout(()=>okEl.scrollIntoView({behavior:'smooth',block:'center'}),50);
 }
 function submitEnq(e){
   e.preventDefault();
@@ -1468,7 +1535,11 @@ function openCustom(fromFloor){
   if(fromFloor){ $('#c_guests').value=S.guests||''; $('#c_type').value=S.fn||''; }
   setTimeout(()=>$('#c_name').focus(),50);
 }
-function closeCustom(){ $('#custom').classList.remove('on') }
+function closeCustom(){
+  $('#custom').classList.remove('on');
+  const f=$('#cform'); if(!f) return;
+  if($('#okc').classList.contains('on')){ f.reset(); $('#okc').classList.remove('on'); f.querySelectorAll('.field,.actions').forEach(el=>el.style.display=''); const b=f.querySelector('button[type=submit]'); if(b) b.disabled=false; }
+}
 function submitCustom(e){
   e.preventDefault();
   const f=e.target, n=f.name.value.trim(), p=f.phone.value.trim();
@@ -1513,7 +1584,7 @@ const rest=()=>{if(timer){clearInterval(timer);timer=null}start()};
 w.addEventListener('mouseenter',()=>hold=true);w.addEventListener('mouseleave',()=>hold=false);
 s.addEventListener('touchstart',()=>hold=true,{passive:true});s.addEventListener('touchend',()=>setTimeout(()=>hold=false,2500),{passive:true});
 new IntersectionObserver(e=>{seen=e[0].isIntersecting},{threshold:.3}).observe(w);
-window.addEventListener('resize',()=>jump(idx));
+window.addEventListener('resize',()=>{ jump(idx); if(window.innerWidth>900 && $('#drawer').classList.contains('on')) closeMenu(); });
 start();})();
 $$('#home-view .card.photo img, #home-view .grounds img, #home-view .mosaic img, #home-view .arch-frame img, #home-view .map > img, #home-view .strip img').forEach(img=>{
   img.classList.add('zoom'); img.addEventListener('click',e=>{ e.stopPropagation(); openLb(img); });
@@ -1526,7 +1597,7 @@ $$('#coupleGrid figure').forEach(f=>{
 });
 let tx=null; $('#lb').addEventListener('touchstart',e=>{ tx=e.touches[0].clientX; },{passive:true});
 $('#lb').addEventListener('touchend',e=>{ if(tx===null||!GAL) return; const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>50) galStep(dx<0?1:-1); tx=null; });
-document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeCustom(); closeLb(); } if(GAL && $('#lb').classList.contains('on')){ if(e.key==='ArrowRight') galStep(1); if(e.key==='ArrowLeft') galStep(-1); } });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeMenu(); closeCustom(); closeLb(); } if(GAL && $('#lb').classList.contains('on')){ if(e.key==='ArrowRight') galStep(1); if(e.key==='ArrowLeft') galStep(-1); } });
 $('#custom').addEventListener('click',e=>{ if(e.target.id==='custom') closeCustom() });
 restore();
 sync();
