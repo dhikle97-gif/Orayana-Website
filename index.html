@@ -499,6 +499,26 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
   .fplan{padding:18px 16px}
   .meal{padding:16px}
 }
+
+/* ===== 3D walkthroughs (Spalba) ===== */
+.lb iframe{width:min(1280px,calc(100vw - 32px));aspect-ratio:16/9;max-height:82vh;border:0;border-radius:var(--r);background:#000;box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
+.lb iframe[hidden]{display:none}
+.hero .hero-3d{display:block;width:max-content;margin:18px 0 0;color:var(--cream);font-family:var(--serif);font-style:italic;font-size:1.15rem;text-decoration:none;border-bottom:1px solid var(--gold-light);padding-bottom:2px}
+.hero .hero-3d:hover{color:var(--gold-light)}
+.tour-feature{position:relative;border-radius:var(--r);overflow:hidden;background:#000;aspect-ratio:16/9;max-height:640px;box-shadow:0 30px 80px -40px rgba(0,0,0,.6)}
+.tour-feature img{width:100%;height:100%;object-fit:cover;opacity:.8}
+.tour-feature .btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);white-space:nowrap;box-shadow:0 10px 30px -10px rgba(0,0,0,.6)}
+.tour-feature iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.tour-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:44px}
+.tour-group h3{font-size:1.25rem;color:var(--green);margin-bottom:12px}
+.tour-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.tour-tile{display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding:14px 14px 12px;border:1px solid var(--gold-light);border-radius:var(--r);background:rgba(255,255,255,.28);transition:border-color .15s,background .15s,box-shadow .15s}
+.tour-tile:hover{border-color:var(--gold);background:var(--peach-wash);box-shadow:0 10px 30px -18px rgba(125,55,55,.35)}
+.tour-tile .t360{font-family:var(--serif);font-size:.8rem;letter-spacing:.14em;color:var(--gold-deep);margin-bottom:6px}
+.tour-tile b{font-family:var(--serif);font-weight:500;font-size:1.2rem;color:var(--maroon);line-height:1.1}
+.tour-tile small{font-size:.85rem;color:var(--ink-soft);margin-top:2px}
+@media (max-width:980px){.tour-groups{grid-template-columns:1fr}.tour-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:640px){.tour-grid{grid-template-columns:1fr 1fr}.tour-feature{aspect-ratio:4/3}.lb iframe{aspect-ratio:auto;height:72vh}}
 </style>
 </head>
 <body>
@@ -529,6 +549,7 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
     <a href="#home" onclick="menuGo('home');return false;">Home</a>
     <a href="#venues" onclick="menuGo('venues');return false;">Venues</a>
     <a href="#stay" onclick="menuGo('stay');return false;">Stay</a>
+    <a href="#tour" onclick="menuGo('tour');return false;">3D walkthrough</a>
     <a href="#food" onclick="menuGo('food');return false;">Food</a>
     <a href="#decor" onclick="menuGo('decor');return false;">Décor</a>
     <a href="#couples" onclick="menuGo('couples');return false;">Couples</a>
@@ -551,6 +572,7 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
     <p class="lede">Venue, décor, food, and the team that runs the day, all on three acres in Nashik, with 19 rooms for your guests to stay.</p>
     <a class="btn" href="#plan" onclick="route('plan');return false;">Plan my wedding</a>
     <a class="btn ghost hero-quick" href="#" onclick="openCustom();return false;">Quick enquiry</a>
+    <a class="hero-3d" href="#tour" onclick="goSec('tour');return false;">Or walk the whole property in 3D</a>
     <div class="facts"><span>Three acres</span><span>Three event spaces</span><span>Up to 1,500 guests</span><span>19 rooms</span></div>
   </div>
   <a class="cue" href="#how" onclick="goSec('how');return false;">See how it works</a>
@@ -647,12 +669,61 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
     </div>
     <div class="mosaic">
       <div class="phone tall"><video muted loop playsinline preload="metadata" data-reel poster="assets/img/p_tour.jpg"><source src="assets/vid/r_tour.mp4" type="video/mp4"></video><span>A walk through the property</span></div>
-      <figure class="big"><img src="assets/img/amaltas.jpg" alt="Amaltas Villa at dusk, lit from inside, with palms around it"><figcaption><b>Amaltas Villa</b> 9 rooms. Comfortable for three, up to four per room.</figcaption></figure>
-      <figure><img src="assets/img/room.jpg" alt="A guest room at Atithi Nivas with a balcony opening onto the gardens"><figcaption><b>Atithi Nivas</b> 8 rooms. Comfortable for four, up to seven per room.</figcaption></figure>
+      <figure class="big"><img src="assets/img/amaltas.jpg" alt="Amaltas Villa at dusk, lit from inside, with palms around it"><figcaption><b>Amaltas Villa</b> 9 rooms. Comfortable for three, up to four per room. <button class="linkish" onclick="event.stopPropagation();walk('Amaltas Villa 101')">Walk through a room</button></figcaption></figure>
+      <figure><img src="assets/img/room.jpg" alt="A guest room at Atithi Nivas with a balcony opening onto the gardens"><figcaption><b>Atithi Nivas</b> 8 rooms. Comfortable for four, up to seven per room. <button class="linkish" onclick="event.stopPropagation();walk('Atithi Nivas 101')">Walk through a room</button></figcaption></figure>
       <figure><img src="assets/img/lounge.jpg" alt="The villa lounge with a deep pink sofa and tall windows onto the garden"><figcaption>The villa lounge</figcaption></figure>
       <figure><img src="assets/img/balcony.jpg" alt="A room balcony with two chairs, coffee, and heliconias at the railing"><figcaption>From a room balcony</figcaption></figure>
     </div>
     <p class="note">Standard capacity across both is 65 guests; up to 100 with extra bedding, at ₹900 per extra person.</p>
+  </div>
+</section>
+
+
+<!-- 3D walkthrough -->
+<section class="sec alt" id="tour">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="orn"><img src="assets/img/mark_outline.png" alt=""></div>
+      <h2>Walk through it yourself.</h2>
+      <p class="lede">The whole property, scanned room by room in 3D. Open any space, look around, and step from the lawns to the rooms at your own pace, on your phone or a big screen, before you ever drive to Nashik.</p>
+    </div>
+    <div class="tour-feature" id="tourFeature">
+      <img src="assets/img/aerial_pool.jpg" alt="Aerial view of the villa, pool and banquet hall roof with the hills of Nashik behind" loading="lazy">
+      <button class="btn" type="button" onclick="tourInline()">Walk the whole property</button>
+    </div>
+    <div class="tour-groups">
+      <div class="tour-group">
+        <h3>The spaces</h3>
+        <div class="tour-grid">
+        <button class="tour-tile" type="button" onclick="walk("Mangal-Vedika")"><span class="t360">360°</span><b>Mangal-Vedika</b><small>The banquet hall</small></button>
+        <button class="tour-tile" type="button" onclick="walk("Harit-Lila")"><span class="t360">360°</span><b>Harit-Lila</b><small>The small lawn</small></button>
+        <button class="tour-tile" type="button" onclick="walk("Vishal-Van")"><span class="t360">360°</span><b>Vishal-Van</b><small>The big lawn</small></button>
+        <button class="tour-tile" type="button" onclick="walk("Conference Hall")"><span class="t360">360°</span><b>Conference Hall</b><small>For corporate days</small></button>
+        <button class="tour-tile" type="button" onclick="walk("Conference Room")"><span class="t360">360°</span><b>Conference Room</b><small>The boardroom</small></button>
+        <button class="tour-tile" type="button" onclick="walk("Gazebo")"><span class="t360">360°</span><b>The gazebo</b><small>In the garden</small></button>
+        </div>
+      </div>
+      <div class="tour-group">
+        <h3>The rooms</h3>
+        <div class="tour-grid">
+        <button class="tour-tile" type="button" onclick="walk("Amaltas Villa 003")"><span class="t360">360°</span><b>Room 003</b><small>Amaltas Villa</small></button>
+        <button class="tour-tile" type="button" onclick="walk("Amaltas Villa 101")"><span class="t360">360°</span><b>Room 101</b><small>Amaltas Villa</small></button>
+        <button class="tour-tile" type="button" onclick="walk("Amaltas Villa 104")"><span class="t360">360°</span><b>Room 104</b><small>Amaltas Villa</small></button>
+        <button class="tour-tile" type="button" onclick="walk("Amaltas Villa S01")"><span class="t360">360°</span><b>Room S01</b><small>Amaltas Villa</small></button>
+        <button class="tour-tile" type="button" onclick="walk("Atithi Nivas 002")"><span class="t360">360°</span><b>Room 002</b><small>Atithi Nivas</small></button>
+        <button class="tour-tile" type="button" onclick="walk("Atithi Nivas 101")"><span class="t360">360°</span><b>Room 101</b><small>Atithi Nivas</small></button>
+        </div>
+      </div>
+      <div class="tour-group">
+        <h3>Pool, games and gym</h3>
+        <div class="tour-grid">
+        <button class="tour-tile" type="button" onclick="walk("Swimming Pool")"><span class="t360">360°</span><b>The pool</b><small>Deck and palms</small></button>
+        <button class="tour-tile" type="button" onclick="walk("Games Lounge")"><span class="t360">360°</span><b>The games lounge</b><small>Pool table in the villa</small></button>
+        <button class="tour-tile" type="button" onclick="walk("Gym")"><span class="t360">360°</span><b>The gym</b><small>In the villa</small></button>
+        </div>
+      </div>
+    </div>
+    <p class="note">Drag to look around, tap the circles on the floor to move. Use the fullscreen button in the corner of any walkthrough.</p>
   </div>
 </section>
 
@@ -908,11 +979,11 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
   <div class="stay-grid">
     <div class="card photo">
       <div class="wide"><img src="assets/img/room.jpg" alt="A guest room at Atithi Nivas with a balcony opening onto the gardens"></div>
-      <div class="body"><h3>Atithi Nivas</h3><p>8 rooms. Comfortable for four, up to seven per room.</p></div>
+      <div class="body"><h3>Atithi Nivas</h3><p>8 rooms. Comfortable for four, up to seven per room.</p><button class="linkish" style="margin-top:14px" onclick="event.stopPropagation();walk('Atithi Nivas 101')">Walk through a room</button></div>
     </div>
     <div class="card photo">
       <div class="wide"><img src="assets/img/amaltas.jpg" alt="Amaltas Villa at dusk, lit from inside, with palms around it"></div>
-      <div class="body"><h3>Amaltas Villa</h3><p>9 rooms. Comfortable for three, up to four per room.</p></div>
+      <div class="body"><h3>Amaltas Villa</h3><p>9 rooms. Comfortable for three, up to four per room.</p><button class="linkish" style="margin-top:14px" onclick="event.stopPropagation();walk('Amaltas Villa 101')">Walk through a room</button></div>
     </div>
   </div>
   <div class="strip">
@@ -1112,6 +1183,7 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
   <button class="nav next" id="lbNext" aria-label="Next" onclick="event.stopPropagation();galStep(1)">›</button>
   <img id="lbImg" alt="">
   <video id="lbVid" muted loop playsinline controls hidden></video>
+  <iframe id="lbFrame" hidden allowfullscreen allow="xr-spatial-tracking; fullscreen" title="3D walkthrough" onclick="event.stopPropagation()"></iframe>
   <p id="lbCap"></p>
 </div>
 
@@ -1164,9 +1236,9 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
 /* ===== CONFIG =====
    WEBHOOK: paste your Zoho Flow webhook URL here to send enquiries straight to Bigin.
    Leave empty to fall back to a WhatsApp handoff with the details prefilled.
-   SPALBA: paste the walkthrough URL when it's ready. */
+   SPALBA: 3D walkthrough URLs live in TOURS below; walk(name) opens one in the lightbox. */
 const WEBHOOK = "https://flow.zoho.in/60085630151/flow/webhook/incoming?zapikey=1001.0798dedeeeb50acd08a3e42d490276ca.a580d854eb8b3d8283d7985db1df1734&isdebug=false";
-const SPALBA = "";
+const TOURS = {"Property": {"src": "https://spalba.com/spalba_digitaltwin/U2FsdGVkX1+VdlgNI8KiDh36et84L6W78n715ZrnG79nvIBzdMeKnbB8aI82q6uQxH5O3AfjKRMV4Lqr4BPqoDbDBq+8pueE0Qc9pPyzbGTQwZ4lfXo4pg20m93iX4t2zWhatFFGILdGXL9ORPpquQ==?hr=1&brand=0","label": "The whole property"},"Mangal-Vedika": {"src": "https://spalba.com/spalba_digitaltwin/U2FsdGVkX19WlAIpAlsNB4+wUUpN4pmtkTsGYeCukShIeKlh2L7lkU4723MpjNOMyca4u6pjZ6gQsEz7xcFeRFDMi1Ub0jA0Og9K1fiCnGYFFtWguHdhKCFx9lzhIv9iDLnxeEaVhTwr+UhZr96De9ftEyBiLjQ7bVY0LED0vWw=?hr=1&brand=0","label": "Mangal-Vedika · The banquet hall"},"Harit-Lila": {"src": "https://spalba.com/spalba_digitaltwin/U2FsdGVkX19wiHDPB8E5ZeG+WjYAkDwY3Mt3NvYcVENOOWRrTCiKyHqLskF5Xl6NnNrhpWuvL0WXgyWLwMs8DBl3FckrgWQTihJpLpXk6a3wGTuKMEtA5Fq217nJLyydnwFZ2X12GF8n20wICRGJvFN4dn7iniOFAk5vy6u8ppE=?hr=1&brand=0","label": "Harit-Lila · The small lawn"},"Vishal-Van": {"src": "https://spalba.com/spalba_digitaltwin/U2FsdGVkX1+nCIk4SbFYFs0iFPcOwxYBXGagC+1tvV4NnilFwW2T69ICtad6L8W2Mqfv4zHrNvTlXZL1J73AYW326sakWB6whT4ILRMzS1vXYrqi8GQzkBhQ1zZksabuFzzJyYA4aaphbcoVVsMRT84nbzv+TBKRVLavedTWKO4=?hr=1&brand=0","label": "Vishal-Van · The big lawn"},"Conference Hall": {"src": "https://spalba.com/spalba_digitaltwin/U2FsdGVkX1+6dDI5n2PNoguHhKl4JlXXl3f3diD5X2xHQ8eGWmm1mIkpDEROrGIJN0M7Si8OgeQJ+sCoD82cRlHdop5C0u2DDz9oX4taxkPUxs0EL1rUTW11vDSqhI03lZaqwELvoGmp9e7e+ByG5zGERfilklNl+YLaoUnJOII=?hr=1&brand=0","label": "Conference Hall · For corporate days"},"Conference Room": {"src": "https://spalba.com/spalba_digitaltwin/U2FsdGVkX19tFae2rbLFyjTTZM5fP9o4QxI9fTRTQn0CRqymeW7qKeD2qkh+aopbLm80cHffmZHHmTSff4UT0gbcZekofwZ2kWbua9lOBsJ+kmA266UcXlilmRNe6KKW04cpzpMTXK1yqfmorqhHETBr9lj4HMqX8zNrTp+25OM=?hr=1&brand=0","label": "Conference Room · The boardroom"},"Gazebo": {"src": "https://spalba.com/spalba_digitaltwin/U2FsdGVkX19kawSSqLZd7k13ZE7ZncSPb2LiUxvu2uWO6CzHhoopGGdGmkIInNRhAsqBLtuDjwtGpjZIOvEVDXoCKABvQ0Vd8pEAFPAgnX3gBhvCiCNgwq04WXPA9paon0sIvx3Ol2L8nfrSO7rP8td0aJ9CXaGfgJ+g5cNrj1A=?hr=1&brand=0","label": "The gazebo · In the garden"},"Swimming Pool": {"src": "https://spalba.com/spalba_digitaltwin/U2FsdGVkX19qiljCwwQ5xAX+IOKLZtisKjsVmJ7BdKdN2o0CpuyNJWnQm3MmjaG98Yc8zc+KBis2zejdUWWJW11+yxPOjhnJx1CaUPPiaNw3+Vv4IpTMj14123o5+dXmK12+Zb0AhAczJN+fgt5TQZURaz4evIoUs7oq1akJbBs=?hr=1&brand=0","label": "The pool · Deck and palms"},"Games Lounge": {"src": "https://spalba.com/spalba_digitaltwin/U2FsdGVkX19YxUjL3zVESsVFm2pWhIGOC88Xl6h+JATyJjP5MYbBcsEfNAQUf6JT6cyGO5nxxZUZ8n72igFq0290S9iBVOF7Uca20Na2Y2uvEsqSoSvg1ffsm+OgXHRvOvMFSrgT5iWfe65qres3jLhgnuVPpMffjVGk0yDqHKc=?hr=1&brand=0","label": "The games lounge · Pool table in the villa"},"Gym": {"src": "https://spalba.com/spalba_digitaltwin/U2FsdGVkX19qKB9oIo2RceWFdRn10KyL3AbdPPZnzc0ji8GlUhfdV3orfy7JRR04duU5sK7Y8nABWOx0KGKSHKvVdGNcK92pPJJknjmEXCfCFG8WdfP5vCrWKbs4wzwmtBAoEx8jBIardZ4Y3e60tvku+tSkAwob9iXKuqQZpik=?hr=1&brand=0","label": "The gym · In the villa"},"Amaltas Villa 003": {"src": "https://spalba.com/spalba_digitaltwin/U2FsdGVkX1+C1wWa4uS8gxFOGm79YTu0UYhpGiG+AHynF2Cqqapq2NNmcU1hdypUHPMbNubUUbMC8QHZsKkiGcN2lFYE0siqVt0CCUkTxG+aABv9Doo1Dj1if0RzNMUAIVuAnsWJLPNL3+vgTgvA4BEWAq+NEnZc3+Y+Cv0d19w=?hr=1&brand=0","label": "Room 003 · Amaltas Villa"},"Amaltas Villa 101": {"src": "https://spalba.com/spalba_digitaltwin/U2FsdGVkX19AmrNzIRj83vqdR6zG7RFLsdQOrhdWhozDYzBw3aG9csBAXzzLTJawXUSZXA1FkTVq8tXh1vKm5y+Yfbhh1CTGp2BYsWbe3w6uYFw3aEAO5+u7dixY4p5MnhvB1W8zIpjlPRvx2iGA3FQu8WoibU9LYW16c71Uucg=?hr=1&brand=0","label": "Room 101 · Amaltas Villa"},"Amaltas Villa 104": {"src": "https://spalba.com/spalba_digitaltwin/U2FsdGVkX19F9Dd92mdGCCnR9krc+AoYMdBLok5p0qqyJ7XKSoRd6sTWI9Wm0tmoqOPcvL60j2BnKhc49OH8Nv9OGtdVUVWYuFenrYAp93D41KN6Mk24wYPQoaSBt3LcZRPIjGtaRFX3k2t+JF45wo+FeNvZrDDZEPL8t7yyNjI=?hr=1&brand=0","label": "Room 104 · Amaltas Villa"},"Atithi Nivas 002": {"src": "https://spalba.com/spalba_digitaltwin/U2FsdGVkX1+WQfjf8z7En+uZsGevduFx6PV0gaCgeGzUXzAPkJWXyUKWmfjWRZsiEjInjo3hVtwUcjVe+SjcVJfDSdMrtNYZ7Ki7lUERet0d7tD6zeXlzg95IaT8bQSYAy2UySPwEZq9tP+Gjeo0NkaFEXyTjaySS1CMitHPi1o=?hr=1&brand=0","label": "Room 002 · Atithi Nivas"},"Atithi Nivas 101": {"src": "https://spalba.com/spalba_digitaltwin/U2FsdGVkX18dZ48abgirqAp4wFWpDVQuQUDKsGSxkglOXcibAy5RIbuWY4T4FqUn4FhtTlWYDqDQq1otccmQAKQvurf804e5xJzKNy9dwYL7qTT+1MYG2CKD5ltojC+simZxPE1apl7QrmaZ1TaYhnxGaYjSr3kF3CSZO7slk2g=?hr=1&brand=0","label": "Room 101 · Atithi Nivas"},"Amaltas Villa S01": {"src": "https://spalba.com/spalba_digitaltwin/U2FsdGVkX1+wqTpGkWm+o3F1wnAwRksCKrYN8NLfqaMwI5O3sipGlR5tM6cHm3AKBTr3PPKSHPyNmg9GBbIJpnHxZGgWAlJNqJFZXtVxBimA5MEcmvKga5Bw60ZOMYkY8mnEP6mFEEqzgNU4jcr8iCO9Vs7zLpXvd0hROQUm178=?hr=1&brand=0","label": "Room S01 · Amaltas Villa"}};
 
 /* ===== RATE CARD (not shown anywhere on the page) ===== */
 const R = {
@@ -1284,7 +1356,9 @@ function hop(v){
   c.scrollIntoView({block:'center',behavior:'smooth'});
   c.classList.remove('flash'); void c.offsetWidth; c.classList.add('flash');
 }
-function walk(v){ if(SPALBA){window.open(SPALBA,'_blank')} else {alert('The 3D walkthrough of '+v+' is coming soon.')} }
+function walk(v){ const t=TOURS[v]; if(!t){ alert('The 3D walkthrough of '+v+' is coming soon.'); return; } GAL=null; $('#lbPrev').classList.remove('on'); $('#lbNext').classList.remove('on'); $('#lbCount').textContent=''; $('#lbImg').hidden=true; const lv=$('#lbVid'); lv.hidden=true; lv.pause(); const f=$('#lbFrame'); f.hidden=false; if(f.getAttribute('src')!==t.src) f.setAttribute('src',t.src); $('#lbCap').textContent=t.label; $('#lb').classList.add('on'); }
+function lbFrameOff(){ const f=$('#lbFrame'); if(!f) return; f.hidden=true; f.removeAttribute('src'); }
+function tourInline(){ const box=$('#tourFeature'); if(!box) return; box.innerHTML='<iframe src="'+TOURS['Property'].src+'" allowfullscreen allow="xr-spatial-tracking; fullscreen" title="3D walkthrough of the whole property"></iframe>'; }
 
 /* ===== STAGE 2 ===== */
 function pickStay(e,n,label){ S.stayN=n; S.stayLabel=label; $$('#stayPills .pill').forEach(p=>p.classList.toggle('sel',p===e.currentTarget)); $('#n2').disabled=false; sync(); }
@@ -1601,11 +1675,11 @@ if('IntersectionObserver' in window){ const ro=new IntersectionObserver(es=>es.f
 let GAL=null, GI=0;
 function galShow(){ const f=GAL[GI], img=f.querySelector('img'); $('#lbImg').src=img.currentSrc||img.src; $('#lbImg').alt=img.alt; $('#lbCap').textContent=f.querySelector('figcaption').textContent; $('#lbCount').textContent=(GI+1)+' / '+GAL.length; }
 function galStep(d){ if(!GAL) return; GI=(GI+d+GAL.length)%GAL.length; galShow(); }
-function openGallery(i){ GAL=$$('#coupleGrid figure'); GI=i; $('#lbVid').hidden=true; $('#lbVid').pause(); $('#lbImg').hidden=false; $('#lbPrev').classList.add('on'); $('#lbNext').classList.add('on'); galShow(); $('#lb').classList.add('on'); }
-function openLb(img){ GAL=null; $('#lbPrev').classList.remove('on'); $('#lbNext').classList.remove('on'); $('#lbCount').textContent=''; $('#lbVid').hidden=true; $('#lbVid').pause(); $('#lbImg').hidden=false; $('#lbImg').src=img.currentSrc||img.src; $('#lbImg').alt=img.alt; $('#lbCap').textContent=img.alt; $('#lb').classList.add('on'); }
+function openGallery(i){ GAL=$$('#coupleGrid figure'); GI=i; lbFrameOff(); $('#lbVid').hidden=true; $('#lbVid').pause(); $('#lbImg').hidden=false; $('#lbPrev').classList.add('on'); $('#lbNext').classList.add('on'); galShow(); $('#lb').classList.add('on'); }
+function openLb(img){ GAL=null; $('#lbPrev').classList.remove('on'); $('#lbNext').classList.remove('on'); $('#lbCount').textContent=''; lbFrameOff(); $('#lbVid').hidden=true; $('#lbVid').pause(); $('#lbImg').hidden=false; $('#lbImg').src=img.currentSrc||img.src; $('#lbImg').alt=img.alt; $('#lbCap').textContent=img.alt; $('#lb').classList.add('on'); }
 function openLbVideo(phone){ GAL=null; $('#lbPrev').classList.remove('on'); $('#lbNext').classList.remove('on'); $('#lbCount').textContent=''; const v=phone.querySelector('video'), src=v.currentSrc||v.querySelector('source').src, cap=(phone.querySelector('span')||{}).textContent||'';
-  $('#lbImg').hidden=true; const lv=$('#lbVid'); lv.hidden=false; if(lv.getAttribute('src')!==src){ lv.setAttribute('src',src); lv.load(); } lv.poster=v.poster; lv.play().catch(()=>{}); $('#lbCap').textContent=cap; $('#lb').classList.add('on'); }
-function closeLb(){ $('#lb').classList.remove('on'); $('#lbVid').pause(); }
+  lbFrameOff(); $('#lbImg').hidden=true; const lv=$('#lbVid'); lv.hidden=false; if(lv.getAttribute('src')!==src){ lv.setAttribute('src',src); lv.load(); } lv.poster=v.poster; lv.play().catch(()=>{}); $('#lbCap').textContent=cap; $('#lb').classList.add('on'); }
+function closeLb(){ $('#lb').classList.remove('on'); $('#lbVid').pause(); lbFrameOff(); }
 $$('.phone').forEach(ph=>ph.addEventListener('click',e=>{ e.stopPropagation(); openLbVideo(ph); }));
 $('#lbVid').addEventListener('click',e=>e.stopPropagation());
 // grounds slider: arrows + automatic looping
