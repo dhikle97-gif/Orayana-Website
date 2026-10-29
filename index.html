@@ -519,6 +519,249 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
 .tour-tile small{font-size:.85rem;color:var(--ink-soft);margin-top:2px}
 @media (max-width:980px){.tour-groups{grid-template-columns:1fr}.tour-grid{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:640px){.tour-grid{grid-template-columns:1fr 1fr}.tour-feature{aspect-ratio:4/3}.lb iframe{aspect-ratio:auto;height:72vh}}
+
+/* ===== THE WALK: guided landing layer over the classic site (every class prefixed w-) ===== */
+#w-walk{position:fixed;inset:0;z-index:35;background:var(--cream);color:var(--ink)}
+#w-walk[hidden]{display:none!important}
+body.walking{overflow:hidden;height:100vh;height:100dvh}
+body.walking header,body.walking #home-view,body.walking #plan-view,body.walking .drawer,body.walking footer{display:none!important}
+#w-walk .w-scene{position:fixed;inset:0;height:100vh;height:100dvh;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--gold-light) transparent;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(22px);transition:opacity .45s ease,transform .45s ease,visibility 0s linear .45s}
+#w-walk.w-back .w-scene{transform:translateY(-22px)}
+#w-walk .w-scene.out{transform:none}
+#w-walk .w-scene.on{opacity:1;visibility:visible;pointer-events:auto;transform:none;transition:opacity .55s ease .12s,transform .6s cubic-bezier(.2,.7,.2,1) .12s,visibility 0s}
+#w-walk .w-in{position:relative;z-index:2;min-height:100%;display:flex;flex-direction:column;justify-content:center;width:min(1120px,100% - 96px);margin:0 auto;padding:96px 0 110px}
+#w-walk .w-center{text-align:center;align-items:center}
+#w-walk .w-center p{margin-left:auto;margin-right:auto}
+#w-walk .w-cream{background:var(--cream)}
+#w-walk .w-sage{background:var(--sage)}
+#w-walk .w-dark{background:var(--maroon-deep);color:#fff}
+#w-walk .w-dark h1,#w-walk .w-dark h2,#w-walk .w-dark h3,#w-walk .w-dark p,#w-walk .w-dark .w-line{color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.45),0 8px 28px rgba(0,0,0,.3)}
+#w-walk .w-dark .btn.ghost{color:#fff;border-color:rgba(255,255,255,.75);background:rgba(0,0,0,.18)}
+#w-walk .w-dark .btn.ghost:hover{background:var(--gold);border-color:var(--gold)}
+#w-walk .w-bg{position:absolute;inset:0;z-index:0;overflow:hidden;background:var(--maroon-deep)}
+#w-walk .w-bg video,#w-walk .w-bg img,#w-walk .w-bg .w-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background-size:cover;background-position:center}
+#w-walk .w-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(30,14,14,.42) 0%,rgba(30,14,14,.1) 32%,rgba(30,14,14,.12) 60%,rgba(30,14,14,.62) 100%),linear-gradient(90deg,rgba(30,14,14,.7) 0%,rgba(30,14,14,.42) 36%,rgba(30,14,14,.08) 72%,rgba(30,14,14,0) 100%)}
+#w-walk .w-s9 .w-shade{background:linear-gradient(180deg,rgba(30,14,14,.62),rgba(30,14,14,.52) 50%,rgba(30,14,14,.74))}
+#w-walk .w-s8{background:var(--maroon)}
+
+/* type */
+#w-walk .w-kicker{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--gold-deep);margin-bottom:12px}
+#w-walk .w-dark .w-kicker{color:var(--gold-light);text-shadow:0 1px 4px rgba(0,0,0,.6),0 6px 20px rgba(0,0,0,.35)}
+#w-walk h1{font-size:clamp(2.7rem,6vw,5rem);max-width:12ch}
+#w-walk h2{font-size:clamp(2rem,4vw,3.1rem);max-width:24ch}
+#w-walk .w-center h2{margin-left:auto;margin-right:auto}
+#w-walk .w-lede{font-size:clamp(1.02rem,1.35vw,1.18rem);max-width:52ch;margin-top:16px;color:var(--ink-soft)}
+#w-walk .w-dark .w-lede{color:#fff}
+#w-walk .w-small{font-size:.9rem;color:var(--ink-soft);font-style:italic;margin-top:18px;max-width:52ch}
+#w-walk .w-small a{color:inherit}
+#w-walk .w-dark .w-small{color:rgba(255,255,255,.85)}
+#w-walk .w-line{font-family:var(--serif);font-size:clamp(1.35rem,2vw,1.7rem);line-height:1.35;color:var(--ink);max-width:40ch;margin-top:22px;min-height:3.9em;transition:opacity .25s}
+#w-walk .w-line{transition:opacity .25s,transform .25s}
+#w-walk .w-line.w-fade{opacity:0;transform:translateY(6px)}
+#w-walk .w-line em{font-style:normal;color:var(--maroon)}
+#w-walk .w-dark .w-line em{color:var(--gold-light)}
+
+/* top bar: wordmark exits home, skip link top-right, back chevron on the left */
+#w-walk .w-top{position:absolute;top:0;left:0;right:0;z-index:6;height:76px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 28px;pointer-events:none}
+#w-walk .w-top>*{pointer-events:auto}
+#w-walk .w-prev{justify-self:start;background:none;border:0;color:var(--ink);font-size:.9rem;opacity:.8;display:inline-flex;align-items:center;gap:6px;padding:8px 0;cursor:pointer}
+#w-walk .w-prev:hover{opacity:1}
+#w-walk.w-at-start .w-prev{visibility:hidden}
+#w-walk .w-mark{justify-self:center;line-height:0}
+#w-walk .w-mark img{height:50px;width:auto;display:block}
+#w-walk .w-mark .w-ld{display:none}
+#w-walk.w-on-dark .w-mark .w-ll{display:none}
+#w-walk.w-on-dark .w-mark .w-ld{display:block}
+#w-walk .w-skip{justify-self:end;font-size:.9rem;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px;white-space:nowrap;opacity:.9}
+#w-walk .w-skip:hover{opacity:1;color:var(--maroon)}
+#w-walk.w-on-dark .w-skip,#w-walk.w-on-dark .w-prev{color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+#w-walk.w-on-dark .w-skip{border-bottom-color:var(--gold-light)}
+
+/* chapter rail (desktop) */
+#w-walk .w-rail{position:absolute;right:22px;top:50%;transform:translateY(-50%);z-index:6;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+#w-walk .w-rail button{background:none;border:0;display:flex;align-items:center;gap:10px;padding:3px 0;color:var(--ink-soft);font-size:.78rem;opacity:.7;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#w-walk .w-rail button span{opacity:0;transform:translateX(6px);transition:opacity .2s,transform .2s;white-space:nowrap}
+#w-walk .w-rail:hover button span,#w-walk .w-rail button.now span{opacity:1;transform:none}
+#w-walk .w-rail button i{width:8px;height:8px;border-radius:50%;border:1px solid var(--gold);background:transparent;display:block;flex:none;transition:transform .2s,background .2s}
+#w-walk .w-rail button.done i{background:var(--gold-light)}
+#w-walk .w-rail button.now i{background:var(--gold);transform:scale(1.5)}
+#w-walk .w-rail button.now{color:var(--maroon);font-weight:700;opacity:1}
+#w-walk.w-on-dark .w-rail button{color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+#w-walk.w-on-dark .w-rail button.now{color:var(--gold-light)}
+
+/* continue control */
+#w-walk .w-continue{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:6;border:1px solid var(--gold);background:rgba(244,240,235,.94);color:var(--maroon);font-family:var(--serif);font-size:1.08rem;padding:10px 20px 10px 22px;border-radius:999px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 10px 26px -12px rgba(0,0,0,.5);cursor:pointer;-webkit-tap-highlight-color:transparent;white-space:nowrap}
+#w-walk .w-continue:hover{background:var(--gold);color:#fff}
+#w-walk .w-continue i{display:block;width:8px;height:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translate(-2px,-2px);animation:w-bob 1.6s ease-in-out infinite}
+@keyframes w-bob{0%,100%{transform:rotate(45deg) translate(-2px,-2px)}50%{transform:rotate(45deg) translate(0,0)}}
+#w-walk.w-at-start .w-continue,#w-walk.w-at-end .w-continue{display:none}
+
+/* scene 0: welcome */
+#w-walk .w-s0 .w-in{justify-content:center}
+#w-walk .w-s0 .w-hook{font-family:var(--serif);font-style:italic;font-size:clamp(1.2rem,2vw,1.5rem);color:var(--gold-light);margin-bottom:14px}
+#w-walk .w-s0 .w-q{font-size:clamp(1.1rem,1.6vw,1.3rem);margin:26px 0 20px;max-width:40ch}
+#w-walk .w-doors{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+#w-walk .w-doors .btn{text-align:center}
+
+/* scene 1: your day (information, not a choice) */
+#w-walk .w-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
+#w-walk .w-card{display:grid;gap:10px;padding:18px 18px 20px;border:1px solid var(--gold-light);border-radius:var(--r);background:rgba(255,255,255,.35)}
+#w-walk .w-card figure{margin:0;aspect-ratio:4/3;overflow:hidden;border-radius:var(--r);box-shadow:0 0 0 1px var(--gold-light)}
+#w-walk .w-card img{width:100%;height:100%;object-fit:cover}
+#w-walk .w-card b{font-family:var(--serif);font-weight:500;font-size:1.55rem;line-height:1.1;color:var(--maroon)}
+#w-walk .w-card span{font-size:.95rem;color:var(--ink-soft);line-height:1.5}
+
+/* scene 2: the place */
+#w-walk .w-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px;width:100%;max-width:960px}
+#w-walk .w-stats div{border-top:1px solid var(--gold-light);padding-top:16px;text-align:left}
+#w-walk .w-num{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(2.6rem,5vw,4rem);line-height:1;color:var(--maroon);font-variant-numeric:tabular-nums}
+#w-walk .w-stats span{display:block;margin-top:8px;font-size:.95rem;color:var(--ink-soft)}
+
+/* scene 3: the grounds */
+#w-walk .w-map{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:0 0 0 1px var(--gold-light);margin-top:22px;max-height:46vh;aspect-ratio:3/2;width:min(100%,calc(46vh * 1.5));background:var(--cream-deep)}
+#w-walk .w-map>img{width:100%;height:100%;object-fit:cover;display:block}
+#w-walk .w-pin{position:absolute;transform:translate(-50%,-50%);width:16px;height:16px;border-radius:50%;background:var(--gold);border:2px solid #fff;box-shadow:0 0 0 2px rgba(125,55,55,.35),0 6px 16px -6px rgba(0,0,0,.6);padding:0;cursor:pointer;opacity:0;-webkit-tap-highlight-color:transparent}
+#w-walk .w-pin::after{content:"";position:absolute;inset:-12px}
+#w-walk .w-pin span{position:absolute;left:50%;bottom:calc(100% + 8px);transform:translate(-50%,4px);background:rgba(244,240,235,.96);border:1px solid var(--gold);color:var(--maroon);font-family:var(--serif);font-weight:600;font-size:1rem;padding:5px 12px;border-radius:999px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;box-shadow:0 6px 18px -8px rgba(0,0,0,.5)}
+#w-walk .w-pin.open span{opacity:1;transform:translate(-50%,0)}
+#w-walk .w-pin.open{background:var(--peach)}
+#w-walk .w-map.go .w-pin{animation:w-drop .55s cubic-bezier(.2,.7,.2,1.2) forwards;animation-delay:calc(.25s + var(--i) * .16s)}
+@keyframes w-drop{from{opacity:0;transform:translate(-50%,-160%)}to{opacity:1;transform:translate(-50%,-50%)}}
+#w-walk .w-cap{font-family:var(--serif);font-size:1.25rem;color:var(--maroon);margin-top:14px;min-height:1.6em}
+#w-walk .w-cap .linkish{font-family:var(--serif);font-size:1.05rem;color:var(--green);white-space:nowrap}
+#w-walk .w-3dp{margin-top:22px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
+#w-walk .w-tab{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--gold-light);padding-bottom:1px}
+#w-walk .w-tab:hover{color:var(--maroon);border-bottom-color:var(--gold)}
+
+/* scene 5: the spaces */
+#w-walk .w-spaces{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}
+#w-walk .w-space{border:1px solid var(--gold-light);border-radius:var(--r);overflow:hidden;background:rgba(255,255,255,.35);cursor:pointer;text-align:left;transition:border-color .15s,box-shadow .15s;-webkit-tap-highlight-color:transparent}
+#w-walk .w-space:hover{border-color:var(--gold)}
+#w-walk .w-space.open{border-color:var(--gold);box-shadow:0 10px 30px -18px rgba(125,55,55,.35)}
+#w-walk .w-space figure{margin:0;aspect-ratio:3/2;overflow:hidden}
+#w-walk .w-space img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+#w-walk .w-space:hover img{transform:scale(1.03)}
+#w-walk .w-sbody{padding:16px 18px 18px}
+#w-walk .w-sbody b{display:block;font-family:var(--serif);font-weight:500;font-size:1.5rem;line-height:1.1;color:var(--maroon)}
+#w-walk .w-sbody>span{display:block;font-size:.9rem;color:var(--ink-soft);margin-top:4px}
+#w-walk .w-more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+#w-walk .w-space.open .w-more{grid-template-rows:1fr}
+#w-walk .w-more>div{overflow:hidden}
+#w-walk .w-more p{font-size:.95rem;color:var(--ink);margin-top:10px;line-height:1.5}
+#w-walk .w-more .linkish{margin-top:10px}
+#w-walk .w-hint{display:inline-block;font-size:.82rem;color:var(--gold-deep);margin-top:10px}
+#w-walk .w-space.open .w-hint{display:none}
+
+/* scene 6: stay */
+#w-walk .w-stay{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px}
+#w-walk .w-stay figure{margin:0;position:relative;aspect-ratio:3/2;overflow:hidden;border-radius:var(--r);box-shadow:0 0 0 1px var(--gold-light)}
+#w-walk .w-stay img{width:100%;height:100%;object-fit:cover}
+#w-walk .w-stay figcaption{position:absolute;left:0;right:0;bottom:0;padding:56px 18px 16px;color:#fff;background:linear-gradient(180deg,rgba(30,14,14,0),rgba(30,14,14,.78));text-shadow:0 1px 5px rgba(0,0,0,.6);display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+#w-walk .w-stay figcaption b{font-family:var(--serif);font-weight:500;font-size:1.5rem;line-height:1.1}
+#w-walk .w-stay figcaption span{font-size:.95rem}
+#w-walk .w-stay .linkish{color:var(--gold-light);font-size:.92rem;margin-top:4px}
+
+/* tease pattern: tabs + one line (scenes 7, 8, 9) */
+#w-walk .w-pills{display:flex;flex-wrap:wrap;gap:2px 26px;margin-top:28px;border-bottom:1px solid rgba(212,164,58,.4)}
+#w-walk .w-pill{background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;padding:8px 2px 10px;color:var(--ink-soft);font-size:.98rem;cursor:pointer;transition:color .15s,border-color .25s;-webkit-tap-highlight-color:transparent}
+#w-walk .w-pill:hover{color:var(--maroon)}
+#w-walk .w-pill.sel{color:var(--maroon);border-bottom-color:var(--gold);font-weight:700}
+#w-walk .w-dark .w-pills{border-bottom-color:rgba(230,198,127,.4)}
+#w-walk .w-dark .w-pill{color:rgba(255,255,255,.72)}
+#w-walk .w-dark .w-pill:hover,#w-walk .w-dark .w-pill.sel{color:#fff;border-bottom-color:var(--gold-light)}
+
+/* scene 8: décor split */
+#w-walk .w-split{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
+#w-walk .w-arch{height:min(62vh,560px);aspect-ratio:4/5;width:auto;max-width:100%;justify-self:center;border-radius:var(--arch);overflow:hidden;box-shadow:0 0 0 5px var(--cream),0 0 0 6px var(--gold-light);background:var(--cream-deep)}
+#w-walk .w-arch img{width:100%;height:100%;object-fit:cover;transition:opacity .3s}
+#w-walk .w-arch img.w-fade{opacity:0}
+
+/* scene 10: your number */
+#w-walk .w-s9 .w-lede{max-width:46ch}
+#w-walk .w-s9 .w-act{margin-top:28px;display:flex;flex-direction:column;gap:16px;align-items:center}
+#w-walk .w-s9 .w-act .linkish{color:#fff;font-size:.95rem;text-decoration-color:var(--gold-light);text-shadow:0 1px 4px rgba(0,0,0,.5)}
+
+/* liveliness: content rises in one line at a time, photos settle with a slow zoom, the chapter dot breathes */
+@keyframes w-rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes w-kb{from{transform:scale(1.08)}to{transform:scale(1)}}
+@keyframes w-grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes w-breathe{0%,100%{box-shadow:0 0 0 0 rgba(212,164,58,.55)}50%{box-shadow:0 0 0 7px rgba(212,164,58,0)}}
+#w-walk .w-scene.on .w-in>*,#w-walk .w-scene.on .w-split>*{animation:w-rise .8s cubic-bezier(.2,.7,.2,1) backwards}
+#w-walk .w-scene.on .w-in>:nth-child(1),#w-walk .w-scene.on .w-split>:nth-child(1){animation-delay:.2s}
+#w-walk .w-scene.on .w-in>:nth-child(2),#w-walk .w-scene.on .w-split>:nth-child(2){animation-delay:.32s}
+#w-walk .w-scene.on .w-in>:nth-child(3){animation-delay:.44s}
+#w-walk .w-scene.on .w-in>:nth-child(4){animation-delay:.56s}
+#w-walk .w-scene.on .w-in>:nth-child(5){animation-delay:.68s}
+#w-walk .w-scene.on .w-in>:nth-child(6){animation-delay:.8s}
+#w-walk .w-scene.on .w-in>:nth-child(7){animation-delay:.92s}
+#w-walk .w-scene.on .w-cards>*,#w-walk .w-scene.on .w-stats>*,#w-walk .w-scene.on .w-spaces>*,#w-walk .w-scene.on .w-stay>*{animation:w-rise .8s cubic-bezier(.2,.7,.2,1) backwards}
+#w-walk .w-scene.on .w-cards>:nth-child(1),#w-walk .w-scene.on .w-stats>:nth-child(1),#w-walk .w-scene.on .w-spaces>:nth-child(1),#w-walk .w-scene.on .w-stay>:nth-child(1){animation-delay:.55s}
+#w-walk .w-scene.on .w-cards>:nth-child(2),#w-walk .w-scene.on .w-stats>:nth-child(2),#w-walk .w-scene.on .w-spaces>:nth-child(2),#w-walk .w-scene.on .w-stay>:nth-child(2){animation-delay:.7s}
+#w-walk .w-scene.on .w-cards>:nth-child(3),#w-walk .w-scene.on .w-stats>:nth-child(3),#w-walk .w-scene.on .w-spaces>:nth-child(3){animation-delay:.85s}
+#w-walk .w-scene.on .w-stats>:nth-child(4){animation-delay:1s}
+#w-walk .w-scene.on .w-bg img,#w-walk .w-scene.on .w-bg .w-poster,#w-walk .w-scene.on .w-stay img,#w-walk .w-scene.on .w-card img{animation:w-kb 14s ease-out both}
+#w-walk .w-scene.on .w-arch img{animation:w-kb 12s ease-out both}
+#w-walk .w-in:not(.w-center) .w-kicker::before{content:"";display:inline-block;width:30px;height:1px;background:var(--gold);margin:0 10px 4px 0;vertical-align:middle;transform-origin:left center}
+#w-walk .w-scene.on .w-in:not(.w-center) .w-kicker::before{animation:w-grow .7s .5s cubic-bezier(.2,.7,.2,1) backwards}
+#w-walk .w-rail button.now i{animation:w-breathe 2.4s ease-out infinite}
+@media (prefers-reduced-motion:reduce){#w-walk .w-scene.on .w-in>*,#w-walk .w-scene.on .w-split>*,#w-walk .w-scene.on .w-bg img,#w-walk .w-scene.on .w-arch img{animation:none;opacity:1;transform:none}}
+
+/* desktop: the grounds scene puts the copy beside the aerial */
+@media (min-width:981px){
+  #w-walk .w-s3 .w-in{display:grid;grid-template-columns:.85fr 1.15fr;grid-template-rows:1fr auto auto auto auto 1fr;column-gap:56px;align-content:center;align-items:start}
+  #w-walk .w-s3 .w-in{grid-template-rows:1fr auto auto auto auto auto 1fr}
+  #w-walk .w-s3 .w-kicker{grid-area:2/1}#w-walk .w-s3 h2{grid-area:3/1}#w-walk .w-s3 .w-lede{grid-area:4/1}#w-walk .w-s3 .w-3dp{grid-area:5/1}#w-walk .w-s3 .w-cap{grid-area:6/1}
+  #w-walk .w-s3 .w-map{grid-column:2;grid-row:1/8;width:100%;max-height:none;align-self:center;margin-top:0}
+  #w-walk .w-s3 .w-cap{margin-top:22px}
+}
+/* tablets: rail collapses to dots */
+@media (max-width:1300px){#w-walk .w-rail button span{display:none}}
+@media (max-width:980px){
+  #w-walk .w-rail{display:none}
+  #w-walk .w-in{width:min(1120px,100% - 56px);padding:84px 0 110px}
+  #w-walk .w-cards{grid-template-columns:1fr;gap:12px;margin-top:24px}
+  #w-walk .w-card{grid-template-columns:96px 1fr;grid-template-rows:auto auto;gap:2px 16px;align-items:center;padding:12px 14px}
+  #w-walk .w-card figure{grid-row:1/3;aspect-ratio:1/1;border-radius:var(--r)}
+  #w-walk .w-card b{font-size:1.3rem}
+  #w-walk .w-card span{font-size:.88rem}
+  #w-walk .w-stats{grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+  #w-walk .w-spaces{grid-template-columns:1fr;gap:12px;margin-top:22px}
+  #w-walk .w-space{display:grid;grid-template-columns:112px 1fr}
+  #w-walk .w-space figure{aspect-ratio:auto;height:100%;min-height:104px}
+  #w-walk .w-sbody{padding:12px 14px 14px}
+  #w-walk .w-sbody b{font-size:1.25rem}
+  #w-walk .w-stay{grid-template-columns:1fr;gap:12px;margin-top:22px}
+  #w-walk .w-stay figure{aspect-ratio:16/9}
+  #w-walk .w-split{grid-template-columns:1fr;gap:14px}
+  #w-walk .w-arch{height:28vh}
+  #w-walk .w-map{max-height:none;width:100%;aspect-ratio:3/2}
+  #w-walk .w-line{min-height:4.5em;font-size:1.3rem}
+}
+@media (max-width:640px){
+  #w-walk .w-top{height:64px;padding:0 18px}
+  #w-walk .w-mark img{height:44px}
+  #w-walk .w-skip{font-size:.84rem}
+  #w-walk .w-prev span{display:none}
+  #w-walk .w-in{width:min(1120px,100% - 40px);padding:78px 0 104px}
+  #w-walk h2{font-size:clamp(1.9rem,8vw,2.5rem)}
+  #w-walk .w-kicker{font-size:1.05rem;margin-bottom:8px}
+  #w-walk .w-lede{margin-top:12px;font-size:1rem}
+  /* welcome: copy sits low; the clip's baked-in caption near the top is darkened into background */
+  #w-walk .w-s0 .w-in{justify-content:flex-end;padding-bottom:40px}
+  #w-walk .w-s0 .w-shade{background:linear-gradient(180deg,rgba(30,14,14,.96) 0%,rgba(30,14,14,.9) 24%,rgba(30,14,14,.5) 40%,rgba(30,14,14,.6) 56%,rgba(30,14,14,.84) 100%)}
+  #w-walk .w-s0 .w-q{margin:18px 0 14px}
+  #w-walk .w-doors{flex-direction:column;align-items:stretch;gap:10px}
+  #w-walk .w-doors .btn{display:block}
+  #w-walk .w-small{font-size:.85rem;margin-top:12px}
+  #w-walk .w-pills{gap:8px;margin-top:18px}
+  #w-walk .w-pill{padding:9px 14px;font-size:.9rem}
+  #w-walk .w-continue{font-size:1rem;padding:9px 18px 9px 20px;bottom:18px}
+  #w-walk .w-num{font-size:2.4rem}
+  #w-walk .w-pin{width:14px;height:14px}
+  #w-walk .w-pin span{font-size:.88rem;padding:4px 10px}
+  #w-walk .w-cap{font-size:1.1rem}
+}
+@media (prefers-reduced-motion:reduce){#w-walk .w-pin{opacity:1}#w-walk .w-line.w-fade,#w-walk .w-arch img.w-fade{opacity:1}}
 </style>
 </head>
 <body>
@@ -527,6 +770,7 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
     <nav class="nav left" aria-label="Main">
       <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="drawer" onclick="toggleMenu()"><span></span><span></span><span></span></button>
       <a href="#home" onclick="route('home');return false;">Home</a>
+      <a class="w-navlink" href="#walk" onclick="wStart();return false;">The walk</a>
       <a class="sec-link" href="#venues" onclick="goSec('venues');return false;">Venues</a>
       <a class="sec-link" href="#stay" onclick="goSec('stay');return false;">Stay</a>
       <a class="sec-link" href="#food" onclick="goSec('food');return false;">Food</a>
@@ -547,6 +791,7 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
 <div class="drawer" id="drawer" hidden>
   <nav aria-label="Sections">
     <a href="#home" onclick="menuGo('home');return false;">Home</a>
+    <a href="#walk" onclick="wStart();return false;">The walk</a>
     <a href="#venues" onclick="menuGo('venues');return false;">Venues</a>
     <a href="#stay" onclick="menuGo('stay');return false;">Stay</a>
     <a href="#tour" onclick="menuGo('tour');return false;">3D walkthrough</a>
@@ -559,6 +804,199 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
     <a class="btn ghost" href="#" onclick="closeMenu();openCustom();return false;">Quick enquiry</a>
     <a class="drawer-wa" href="https://wa.me/918484053303" target="_blank" rel="noopener">WhatsApp 84840 53303</a>
   </div>
+</div>
+
+<!-- ===== THE WALK: guided landing layer. Lives over the classic site; nothing below it changes. ===== -->
+<div id="w-walk" class="w-at-start w-on-dark" hidden aria-label="A short guided walk through Orayana">
+  <div class="w-top">
+    <button class="w-prev" type="button" onclick="wGo(W.i-1)" aria-label="Previous"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2 4 7l5 5"/></svg><span>Back</span></button>
+    <a class="w-mark" href="#home" onclick="wExit('home');return false;" aria-label="Orayana, home"><img class="w-ll" src="assets/img/logo.png" alt="Orayana"><img class="w-ld" src="assets/img/logo_light.png" alt="Orayana"></a>
+    <a class="w-skip" href="#home" onclick="wExit('home');return false;">Skip to the site</a>
+  </div>
+  <nav class="w-rail" id="w-rail" aria-label="Chapters"></nav>
+  <button class="w-continue" type="button" onclick="wGo(W.i+1)">Continue <i aria-hidden="true"></i></button>
+
+  <!-- 0 · welcome -->
+  <section class="w-scene w-dark w-s0 on" data-w="0">
+    <div class="w-bg"><div class="w-poster" id="w-poster" data-d="assets/img/hero_poster.jpg" data-m="assets/img/walk_poster_m.jpg" aria-hidden="true"></div><video id="w-vid" muted loop playsinline preload="none" aria-hidden="true" data-d="assets/vid/hero.mp4" data-m="assets/vid/hero_m.mp4"></video></div>
+    <div class="w-shade"></div>
+    <div class="w-in">
+      <p class="w-hook">Shaadi stress-free bhi ho sakti hai.</p>
+      <h1>The whole wedding. One roof.</h1>
+      <p class="w-q">How would you like to see the place?</p>
+      <div class="w-doors">
+        <button class="btn" type="button" onclick="wGo(1)">Walk me through</button>
+        <button class="btn ghost" type="button" onclick="wExit('home')">Browse at my own pace</button>
+      </div>
+      <p class="w-small">The walk takes about two minutes. You can step out at any point.</p>
+    </div>
+  </section>
+
+  <!-- 1 · your day -->
+  <section class="w-scene w-cream w-s1" data-w="1">
+    <div class="w-in">
+      <p class="w-kicker">Your day</p>
+      <h2>Whatever shape your day takes.</h2>
+      <p class="w-lede">A three-day wedding, one big function, or a quiet family gathering. All of it happens here, with the same team.</p>
+      <div class="w-cards">
+        <div class="w-card"><figure><img src="assets/img/pergola.jpg" alt="A lit walkway of chandeliers and draped fabric leading to the stage at dusk"></figure><b>A full wedding</b><span>Several functions over one to three days. The whole property is yours.</span></div>
+        <div class="w-card"><figure><img src="assets/img/birds.jpg" alt="An engagement stage with gold arches, white flowers and lit paper birds overhead"></figure><b>A single function</b><span>A reception, engagement, haldi, sangeet or mehendi. One day, two spaces.</span></div>
+        <div class="w-card"><figure><img src="assets/img/gazebo.jpg" alt="A garden gazebo with a single set table, framed by greenery"></figure><b>Something smaller</b><span>A birthday, an anniversary, a puja, a family gathering. Quoted personally.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · the place -->
+  <section class="w-scene w-sage w-s2" data-w="2">
+    <div class="w-in w-center">
+      <div class="orn"><img src="assets/img/mark_outline.png" alt=""></div>
+      <h2>One property. Everything under it.</h2>
+      <p class="w-lede">Venue, rooms, kitchen, décor and the team that runs the day. One contract, one number, and one team answerable for all of it.</p>
+      <div class="w-stats">
+        <div><b class="w-num" data-n="3">0</b><span>acres of gardens and lawns</span></div>
+        <div><b class="w-num" data-n="1500">0</b><span>guests at the biggest function</span></div>
+        <div><b class="w-num" data-n="19">0</b><span>rooms, a short walk from the lawns</span></div>
+        <div><b class="w-num" data-n="6">0</b><span>planning sessions, on us</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · the grounds -->
+  <section class="w-scene w-cream w-s3" data-w="3">
+    <div class="w-in">
+      <p class="w-kicker">The grounds</p>
+      <h2>Three acres, from above.</h2>
+      <p class="w-lede">Two lawns, a covered hall, 19 rooms for a hundred guests to stay, and a gazebo in the garden. Tap a pin for the spot, or walk the whole property in 3D, room by room.</p>
+      <p class="w-3dp"><button class="btn" type="button" onclick="walk('Property')">Walk the whole property in 3D</button><a class="w-tab" id="w-tourTab" href="#tour" target="_blank" rel="noopener">Or open it in a new tab</a></p>
+      <div class="w-map" id="w-map">
+        <img src="assets/img/aerial.jpg" alt="Aerial view of Orayana: two lawns, the covered hall, the villa and the gardens">
+        <button class="w-pin" type="button" style="left:79%;top:33%;--i:0" data-cap="Vishal-Van, the big lawn. 1,200 to 1,500 guests." data-t="Vishal-Van" onclick="wPin(this)" aria-label="Vishal-Van"><span>Vishal-Van</span></button>
+        <button class="w-pin" type="button" style="left:40%;top:47%;--i:1" data-cap="Harit-Lila, the small lawn. 300 to 400 guests, framed by gardens." data-t="Harit-Lila" onclick="wPin(this)" aria-label="Harit-Lila"><span>Harit-Lila</span></button>
+        <button class="w-pin" type="button" style="left:11%;top:44%;--i:2" data-cap="Mangal-Vedika, the banquet hall. 700 to 800 guests, fully covered." data-t="Mangal-Vedika" onclick="wPin(this)" aria-label="Mangal-Vedika"><span>Mangal-Vedika</span></button>
+        <button class="w-pin" type="button" style="left:11.8%;top:14%;--i:3" data-cap="Atithi Nivas, the guest house. Eight rooms." data-t="Atithi Nivas 101" onclick="wPin(this)" aria-label="Atithi Nivas"><span>Atithi Nivas</span></button>
+        <button class="w-pin" type="button" style="left:43%;top:82%;--i:4" data-cap="Amaltas Villa. Nine rooms, a lounge, the pool." data-t="Amaltas Villa 101" onclick="wPin(this)" aria-label="Amaltas Villa"><span>Amaltas Villa</span></button>
+        <button class="w-pin" type="button" style="left:77%;top:70%;--i:5" data-cap="The garden gazebo. For the small, quiet function." data-t="Gazebo" onclick="wPin(this)" aria-label="Gazebo"><span>Gazebo</span></button>
+      </div>
+      <p class="w-cap" id="w-pinCap" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <!-- 4 · the spaces -->
+  <section class="w-scene w-sage w-s4" data-w="4">
+    <div class="w-in">
+      <p class="w-kicker">The spaces</p>
+      <h2>Three spaces. Honest numbers.</h2>
+      <p class="w-lede">On a wedding, all three are yours. On a single function, pick any two.</p>
+      <div class="w-spaces">
+        <div class="w-space" role="button" tabindex="0" onclick="wSpace(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();wSpace(this)}">
+          <figure><img src="assets/img/vishal.jpg" alt="Vishal-Van lawn at dusk under a canopy of draped fabric and lights, set for a reception"></figure>
+          <div class="w-sbody"><b>Vishal-Van</b><span>The big lawn · 1,200 to 1,500 guests</span><span class="w-hint">Tap to read more</span>
+            <div class="w-more"><div><p>Open lawn under the Nashik sky. For the baraat, the big reception, the wedding where everyone comes.</p><button class="linkish" type="button" onclick="event.stopPropagation();walk('Vishal-Van')">See it in 360°</button></div></div>
+          </div>
+        </div>
+        <div class="w-space" role="button" tabindex="0" onclick="wSpace(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();wSpace(this)}">
+          <figure><img src="assets/img/harit_stage.jpg" alt="Harit-Lila lawn by day: a blue-and-yellow haldi stage on the lawn with the stage building behind"></figure>
+          <div class="w-sbody"><b>Harit-Lila</b><span>The small lawn · 300 to 400 guests</span><span class="w-hint">Tap to read more</span>
+            <div class="w-more"><div><p>A lawn framed by gardens. Haldi, sangeet, an engagement, or a wedding with room to breathe.</p><button class="linkish" type="button" onclick="event.stopPropagation();walk('Harit-Lila')">See it in 360°</button></div></div>
+          </div>
+        </div>
+        <div class="w-space" role="button" tabindex="0" onclick="wSpace(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();wSpace(this)}">
+          <figure><img src="assets/img/mangal.jpg" alt="Inside Mangal-Vedika: a covered hall with draped ceilings, hanging florals and a stage"></figure>
+          <div class="w-sbody"><b>Mangal-Vedika</b><span>The banquet hall · 700 to 800 guests</span><span class="w-hint">Tap to read more</span>
+            <div class="w-more"><div><p>Fully covered, so the weather is never part of the plan. Conference-ready for corporate days.</p><button class="linkish" type="button" onclick="event.stopPropagation();walk('Mangal-Vedika')">See it in 360°</button></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · stay -->
+  <section class="w-scene w-cream w-s5" data-w="5">
+    <div class="w-in">
+      <p class="w-kicker">Stay</p>
+      <h2>Your family wakes up here.</h2>
+      <p class="w-lede">19 rooms across two guest houses, a short walk from the lawns. Nobody drives back to a hotel at two in the morning.</p>
+      <div class="w-stay">
+        <figure><img src="assets/img/amaltas.jpg" alt="Amaltas Villa at dusk, lit from inside, with palms around it"><figcaption><b>Amaltas Villa</b><span>Nine rooms, a lounge and the pool.</span><button class="linkish" type="button" onclick="walk('Amaltas Villa 101')">Walk through a room</button></figcaption></figure>
+        <figure><img src="assets/img/room.jpg" alt="A guest room at Atithi Nivas with a balcony opening onto the gardens"><figcaption><b>Atithi Nivas</b><span>Eight rooms with balconies onto the gardens.</span><button class="linkish" type="button" onclick="walk('Atithi Nivas 101')">Walk through a room</button></figcaption></figure>
+      </div>
+      <p class="w-small">Two stage rooms for the couple come complimentary with every wedding.</p>
+    </div>
+  </section>
+
+  <!-- 6 · food -->
+  <section class="w-scene w-sage w-s6" data-w="6">
+    <div class="w-in">
+      <p class="w-kicker">Food</p>
+      <h2>Four menus. Tasted before the day, twice.</h2>
+      <p class="w-lede">Everything is from our own kitchen. You taste it at a live wedding here before you decide, and again on your day before service.</p>
+      <div class="w-pills" id="w-foodPills">
+        <button class="w-pill" type="button" data-l="The feast-day table of a Maharashtrian home. Rooted, generous, and cooked the way your Aajji (grandmother) would approve of.">Authentic Maharashtrian</button>
+        <button class="w-pill" type="button" data-l="The spread everyone knows and nobody tires of. Comforting, balanced, with a proper dessert to end on.">Classic</button>
+        <button class="w-pill" type="button" data-l="A step up in every course. Soup to start, hand-made starters, and more on the table to choose from.">Premium</button>
+        <button class="w-pill" type="button" data-l="The full table, with live counters already in. More of everything, and the desserts people talk about on the drive home.">Signature</button>
+      </div>
+      <p class="w-line" id="w-foodLine"></p>
+      <p class="w-small">Live counters can be added to any menu. The full menu is shared at your tasting.</p>
+    </div>
+  </section>
+
+  <!-- 7 · décor -->
+  <section class="w-scene w-cream w-s7" data-w="7">
+    <div class="w-in">
+      <div class="w-split">
+        <div class="w-arch"><img id="w-decorImg" src="assets/img/decor_basic.jpg" alt="A night mandap of cream drapes and white florals under a frangipani tree strung with bulbs, the chairs sashed in green"></div>
+        <div>
+          <p class="w-kicker">Décor</p>
+          <h2>Built here, by our own team.</h2>
+          <p class="w-lede">Four tiers to start from. Every picture is a real wedding on these lawns.</p>
+          <div class="w-pills" id="w-decorPills">
+            <button class="w-pill" type="button" data-img="assets/img/decor_basic.jpg" data-alt="A night mandap of cream drapes and white florals under a frangipani tree strung with bulbs, the chairs sashed in green" data-l="Clean, elegant, everything essential. Entry, stage, seating, ambient lighting.">Basic</button>
+            <button class="w-pill" type="button" data-img="assets/img/decor_good.jpg" data-alt="A daytime mandap under orange and white drapes, with a carved elephant-trunk arch and hanging floral strings" data-l="Basic, plus a photobooth, richer florals, a stronger stage and ceiling work.">Good</button>
+            <button class="w-pill" type="button" data-img="assets/img/decor_premium.jpg" data-alt="A night stage in white: lit arches, white florals and a flower-lined aisle" data-l="Good, plus statement structures, layered lighting, a special entry and live elements.">Premium</button>
+            <button class="w-pill" type="button" data-img="assets/img/canopy.jpg" data-alt="A full canopy of draped fabric and bulbs over the lawn, with the stage lit beyond" data-l="Premium, plus grand installations, SFX, artists, anchors, live musicians. The full production.">Luxury</button>
+          </div>
+          <p class="w-line" id="w-decorLine"></p>
+          <p class="w-small">You pick from our designs or bring your own. Every element is priced on its own sheet, with our consultation fee as a separate line.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · shaadi ka gift -->
+  <section class="w-scene w-dark w-s8" data-w="8">
+    <div class="w-in">
+      <p class="w-kicker">Included with every wedding</p>
+      <h2>Shaadi ka gift.</h2>
+      <p class="w-lede">Not an add-on, not a tier. The people and the things a wedding day needs, already in your estimate.</p>
+      <div class="w-pills" id="w-giftPills">
+        <button class="w-pill" type="button" data-l="A manager each for operations, food and production, two shadows who stay with the couple, and porters. Our people, on our payroll, included.">On the ground</button>
+        <button class="w-pill" type="button" data-l="Security at the gate, the parking and the crowd. Cleaning that runs right through the day, not just before it.">Safe and clean</button>
+        <button class="w-pill" type="button" data-l="The chairs, the seating, the coolers, the urlis, the petals, and a ghoda for the baraat. The things every wedding needs and most venues bill for.">Essentials</button>
+        <button class="w-pill" type="button" data-l="Water, papad, achar and salad with every meal, and the tables to eat at, round or pangat.">At the table</button>
+        <button class="w-pill" type="button" data-l="Breakfast for the family that stayed, and tea and coffee for the bidai. On Classic, Premium and Signature.">The morning after</button>
+        <button class="w-pill" type="button" data-l="Two stage rooms for the couple, complimentary, so the two of you have somewhere to breathe.">Stay</button>
+      </div>
+      <p class="w-line" id="w-giftLine"></p>
+      <p class="w-small">The full list, item by item, is in your estimate. And six planning sessions before the day are on us.</p>
+    </div>
+  </section>
+
+  <!-- 9 · your number -->
+  <section class="w-scene w-dark w-s9" data-w="9">
+    <div class="w-bg"><img src="assets/img/canopy.jpg" alt="" aria-hidden="true"></div>
+    <div class="w-shade"></div>
+    <div class="w-in w-center">
+      <div class="orn"><img src="assets/img/mark_outline.png" alt="" style="filter:brightness(1.6)"></div>
+      <p class="w-kicker">Now, your number</p>
+      <h2>Your wedding as a number.</h2>
+      <p class="w-lede">That's the walk. The planner takes six quick choices, about five minutes, and gives you an honest range, inclusive of GST, before you've spoken to anyone.</p>
+      <div class="w-act">
+        <button class="btn" type="button" onclick="wExit('plan')">Plan my wedding</button>
+        <button class="linkish" type="button" id="w-finalCustom" onclick="wExit('custom')">Something smaller? Tell us what you have in mind</button>
+        <button class="linkish" type="button" onclick="wExit('home')">or browse the property at your own pace</button>
+      </div>
+  </section>
 </div>
 
 <div id="home-view">
@@ -586,7 +1024,7 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
       <div>
         <h2>Everything in one place, and one team answerable for all of it.</h2>
         <p class="lede">Most weddings mean a venue, a caterer, a decorator, a hotel and a planner, each with their own contract and their own excuses. At Orayana the venue, the kitchen, the décor team and the rooms are all ours. You deal with one team, and one number.</p>
-        <p class="lede">Before the day, six planning sessions are on us: three for décor, two for food, one for the flow of the day. We walk the grounds, taste, adjust, decide. By your date, nothing is a surprise.</p>
+        <p class="lede">Before the day, six planning sessions are on us, to settle the décor, the food and the flow of the day together. By your date, nothing is a surprise.</p>
       </div>
       <div class="map" aria-label="Aerial view of the property with each space marked">
         <img src="assets/img/aerial.jpg" alt="Aerial view of Orayana: two lawns, the covered hall, the villa and the gardens">
@@ -737,14 +1175,13 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
       <p class="lede">Four menus to start from. Every one can be shaped to your family. Before the event, you're welcome to visit a live wedding here and taste the food as it's served. On your day, you taste again before service, with time to adjust.</p>
     </div>
     <div class="pkgs">
-      <div class="card menu "><div class="mhead green"><h3>Authentic Maharashtrian</h3></div><div class="mbody"><p class="desc">A tribute to Maharashtra's kitchen. Traditional, soulful, rooted in regional flavour.</p><ul class="mlist"><li><span>Green salad</span><b>1</b></li><li><span>Mocktail</span><b>1</b></li><li><span>Maharashtrian gravy sabzi</span><b>1</b></li><li><span>Maharashtrian dry sabzi</span><b>1</b></li><li><span>Maharashtrian breads</span><b>2</b></li><li><span>Dal</span><b>1</b></li><li><span>Rice</span><b>1</b></li><li><span>Mithai</span><b>2</b></li></ul></div></div>
-      <div class="card menu "><div class="mhead maroon"><h3>Classic</h3></div><div class="mbody"><p class="desc">Everyday favourites. Comforting, balanced, timeless.</p><ul class="mlist"><li><span>Salad</span><b>1</b></li><li><span>Welcome drink</span><b>1</b></li><li><span>Gravy sabzi</span><b>1</b></li><li><span>Dry sabzi</span><b>1</b></li><li><span>Breads</span><b>2</b></li><li><span>Dal</span><b>1</b></li><li><span>Rice</span><b>1</b></li><li><span>Mithai</span><b>1</b></li></ul><p class="special">Special dessert: milk dessert or pure ghee halwa</p></div></div>
-      <div class="card menu "><div class="mhead green"><h3>Premium</h3></div><div class="mbody"><p class="desc">An elevated spread with soup, handcrafted starters and added variety.</p><ul class="mlist"><li><span>Salad</span><b>1</b></li><li><span>Soup</span><b>1</b></li><li><span>Signature mocktail</span><b>1</b></li><li><span>Appetizers</span><b>2</b></li><li><span>Gravy sabzi</span><b>2</b></li><li><span>Dry sabzi</span><b>1</b></li><li><span>Breads</span><b>2</b></li><li><span>Dal</span><b>1</b></li><li><span>Rice</span><b>1</b></li><li><span>Mithai</span><b>1</b></li><li><span>Ice cream</span><b>1</b></li></ul><p class="special">Special dessert: milk dessert or pure ghee halwa</p></div></div>
-      <div class="card menu "><div class="mhead maroon"><h3>Signature</h3></div><div class="mbody"><p class="desc">The full table. Two soups, two mocktails, a three-item chaat counter, the works. Live counters included.</p><ul class="mlist"><li><span>Salad</span><b>1</b></li><li><span>Soups</span><b>2</b></li><li><span>Signature mocktails</span><b>2</b></li><li><span>Appetizers</span><b>2</b></li><li><span>Chaat counter</span><b>3</b></li><li><span>Gravy sabzis</span><b>2</b></li><li><span>Dry sabzis</span><b>2</b></li><li><span>Breads</span><b>3</b></li><li><span>Dal</span><b>1</b></li><li><span>Rice</span><b>1</b></li><li><span>Mithai</span><b>1</b></li><li><span>Ice cream</span><b>1</b></li></ul><p class="special">Special desserts: milk dessert and pure ghee halwa</p></div></div>
+      <div class="card menu"><div class="mhead green"><h3>Authentic Maharashtrian</h3></div><div class="mbody"><p class="desc">The feast-day table of a Maharashtrian home. Rooted, generous, and cooked the way your Aajji (grandmother) would approve of. For the family that wants the food of home.</p></div></div>
+      <div class="card menu"><div class="mhead maroon"><h3>Classic</h3></div><div class="mbody"><p class="desc">The spread everyone knows and nobody tires of. Comforting, balanced, with a proper dessert to end on. Complete, without being showy.</p></div></div>
+      <div class="card menu"><div class="mhead green"><h3>Premium</h3></div><div class="mbody"><p class="desc">A step up in every course. Soup to start, hand-made starters, and more on the table to choose from. Where Classic is complete, Premium is generous.</p></div></div>
+      <div class="card menu"><div class="mhead maroon"><h3>Signature</h3></div><div class="mbody"><p class="desc">The full table, with live counters already in. More of everything, and the desserts people talk about on the drive home. For the night everyone comes.</p></div></div>
     </div>
-    <p class="counters-list">Live counters, priced per guest, can be added to any menu: Continental, Chinese, Chaat, South Indian, Pav Bhaji, Ice Cream, Barf ka Gola.</p>
-    <p style="margin-top:22px"><a class="btn ghost" href="assets/pdf/menu.pdf" target="_blank" rel="noopener">See the full menu (PDF)</a></p>
-    <p class="note">Every package includes papad of choice and 200 ml water bottles. Breakfast for up to 100 guests (any two items) is complimentary on Classic, Premium and Signature. All food is from Orayana's kitchen. Outside food isn't permitted. That's how we stand behind every plate.</p>
+    <p class="counters-list">Live counters, priced per guest, can be added to any menu. The full menu is shared at your tasting, or on request.</p>
+    <p class="note">Water, papad and the basics are on the table with every meal. Breakfast the morning after is complimentary on Classic, Premium and Signature. All food is from Orayana's kitchen. Outside food isn't permitted. That's how we stand behind every plate.</p>
   </div>
 </section>
 
@@ -758,7 +1195,7 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
       <p class="lede">Our in-house décor process. One team, no vendors to juggle. Every picture below was built here, by this team.</p>
     </div>
     <div class="cards c4">
-      <div class="card arch"><div class="arch-frame"><img src="assets/img/roundstage.jpg" alt="A round white stage ringed with white roses under draped fabric and bulbs"></div><h3>Basic</h3><p>Clean, elegant, everything essential. Entry, stage, seating, ambient lighting.</p></div>
+      <div class="card arch"><div class="arch-frame"><img src="assets/img/decor_basic.jpg" alt="A night mandap of cream drapes and white florals under a frangipani tree strung with bulbs, the chairs sashed in green"></div><h3>Basic</h3><p>Clean, elegant, everything essential. Entry, stage, seating, ambient lighting.</p></div>
       <div class="card arch"><div class="arch-frame"><img src="assets/img/decor_good.jpg" alt="A daytime mandap under orange and white drapes, with a carved elephant-trunk arch and hanging floral strings"></div><h3>Good</h3><p>Basic, plus a photobooth, richer florals, a stronger stage and ceiling work.</p></div>
       <div class="card arch"><div class="arch-frame"><img src="assets/img/decor_premium.jpg" alt="A night stage in white: lit arches, white florals and a flower-lined aisle"></div><h3>Premium</h3><p>Good, plus statement structures, layered lighting, a special entry and live elements.</p></div>
       <div class="card arch"><div class="arch-frame"><img src="assets/img/canopy.jpg" alt="A full canopy of draped fabric and bulbs over the lawn, with the stage lit beyond"></div><h3>Luxury</h3><p>Premium, plus grand installations, SFX, artists, anchors, live musicians. The full production.</p></div>
@@ -814,13 +1251,14 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
         <p class="lede">Everything below is included with every wedding. Not an add-on, not a tier. It's already in your estimate.</p>
       </div>
       <div class="cards c3">
-        <div class="card"><h3>On the ground</h3><ul><li>2 shadows for the couple</li><li>Operations manager</li><li>F&amp;B manager</li><li>Production manager</li><li>4 porters</li></ul></div>
-        <div class="card"><h3>Safe and clean</h3><ul><li>Security for parking, guest safety and crowd control</li><li>Cleaning for washrooms, event and food areas, throughout</li></ul></div>
-        <div class="card"><h3>Essentials</h3><ul><li>300 Chivari chairs</li><li>6 low seating chairs</li><li>8 coolers</li><li>2 urlis</li><li>2 kg flower petals</li><li>A ghoda for the baraat</li></ul></div>
-        <div class="card"><h3>At the table</h3><ul><li>200 ml water bottles</li><li>Papad, achar and salad with every meal</li><li>20 round tables or pangat seating</li></ul></div>
-        <div class="card"><h3>The morning after</h3><ul><li>Breakfast for 100, any two items</li><li>Tea and coffee for the bidai</li></ul><p class="sub" style="color:var(--gold-light)">On Classic, Premium and Signature.</p></div>
-        <div class="card"><h3>Stay</h3><ul><li>2 stage rooms for the couple, complimentary</li></ul></div>
+        <div class="card"><h3>On the ground</h3><p>A manager each for operations, food and production, two shadows who stay with the couple, and porters. Our people, on our payroll, included.</p></div>
+        <div class="card"><h3>Safe and clean</h3><p>Security at the gate, the parking and the crowd. Cleaning that runs right through the day, not just before it.</p></div>
+        <div class="card"><h3>Essentials</h3><p>The chairs, the seating, the coolers, the urlis, the petals, and a ghoda for the baraat. The things every wedding needs and most venues bill for.</p></div>
+        <div class="card"><h3>At the table</h3><p>Water, papad, achar and salad with every meal, and the tables to eat at, round or pangat.</p></div>
+        <div class="card"><h3>The morning after</h3><p>Breakfast for the family that stayed, and tea and coffee for the bidai.</p><p class="sub" style="color:var(--gold-light)">On Classic, Premium and Signature.</p></div>
+        <div class="card"><h3>Stay</h3><p>Two stage rooms for the couple, complimentary, so the two of you have somewhere to breathe.</p></div>
       </div>
+      <p class="lede" style="margin:26px auto 0;max-width:60ch;text-align:center">The full list, item by item, comes with your estimate.</p>
     </div>
     <div class="sec-head" style="margin-top:72px;margin-bottom:22px">
       <h2>What a day here looks like.</h2>
@@ -1029,15 +1467,15 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
     <p class="lede">Four menus to start from. Every one can be shaped to your family. Before the event, you're welcome to visit a live wedding here and taste the food as it's served. On your day, you taste again before service, with time to adjust.</p>
   </div>
   <div class="cards c4" id="pkgCards">
-    <div class="card menu" data-pkg="AM"><div class="mhead green"><h3>Authentic Maharashtrian</h3></div><div class="mbody"><p class="desc">A tribute to Maharashtra's kitchen. Traditional, soulful, rooted in regional flavour.</p><ul class="mlist"><li><span>Green salad</span><b>1</b></li><li><span>Mocktail</span><b>1</b></li><li><span>Maharashtrian gravy sabzi</span><b>1</b></li><li><span>Maharashtrian dry sabzi</span><b>1</b></li><li><span>Maharashtrian breads</span><b>2</b></li><li><span>Dal</span><b>1</b></li><li><span>Rice</span><b>1</b></li><li><span>Mithai</span><b>2</b></li></ul></div></div>
-    <div class="card menu" data-pkg="Classic"><div class="mhead maroon"><h3>Classic</h3></div><div class="mbody"><p class="desc">Everyday favourites. Comforting, balanced, timeless.</p><ul class="mlist"><li><span>Salad</span><b>1</b></li><li><span>Welcome drink</span><b>1</b></li><li><span>Gravy sabzi</span><b>1</b></li><li><span>Dry sabzi</span><b>1</b></li><li><span>Breads</span><b>2</b></li><li><span>Dal</span><b>1</b></li><li><span>Rice</span><b>1</b></li><li><span>Mithai</span><b>1</b></li></ul><p class="special">Special dessert: milk dessert or pure ghee halwa</p></div></div>
-    <div class="card menu" data-pkg="Premium"><div class="mhead green"><h3>Premium</h3></div><div class="mbody"><p class="desc">An elevated spread with soup, handcrafted starters and added variety.</p><ul class="mlist"><li><span>Salad</span><b>1</b></li><li><span>Soup</span><b>1</b></li><li><span>Signature mocktail</span><b>1</b></li><li><span>Appetizers</span><b>2</b></li><li><span>Gravy sabzi</span><b>2</b></li><li><span>Dry sabzi</span><b>1</b></li><li><span>Breads</span><b>2</b></li><li><span>Dal</span><b>1</b></li><li><span>Rice</span><b>1</b></li><li><span>Mithai</span><b>1</b></li><li><span>Ice cream</span><b>1</b></li></ul><p class="special">Special dessert: milk dessert or pure ghee halwa</p></div></div>
-    <div class="card menu" data-pkg="Signature"><div class="mhead maroon"><h3>Signature</h3></div><div class="mbody"><p class="desc">The full table. Two soups, two mocktails, a three-item chaat counter, the works. Live counters included.</p><ul class="mlist"><li><span>Salad</span><b>1</b></li><li><span>Soups</span><b>2</b></li><li><span>Signature mocktails</span><b>2</b></li><li><span>Appetizers</span><b>2</b></li><li><span>Chaat counter</span><b>3</b></li><li><span>Gravy sabzis</span><b>2</b></li><li><span>Dry sabzis</span><b>2</b></li><li><span>Breads</span><b>3</b></li><li><span>Dal</span><b>1</b></li><li><span>Rice</span><b>1</b></li><li><span>Mithai</span><b>1</b></li><li><span>Ice cream</span><b>1</b></li></ul><p class="special">Special desserts: milk dessert and pure ghee halwa</p></div></div>
+    <div class="card menu" data-pkg="AM"><div class="mhead green"><h3>Authentic Maharashtrian</h3></div><div class="mbody"><p class="desc">The feast-day table of a Maharashtrian home. Rooted, generous, and cooked the way your Aajji (grandmother) would approve of. For the family that wants the food of home.</p></div></div>
+    <div class="card menu" data-pkg="Classic"><div class="mhead maroon"><h3>Classic</h3></div><div class="mbody"><p class="desc">The spread everyone knows and nobody tires of. Comforting, balanced, with a proper dessert to end on. Complete, without being showy.</p></div></div>
+    <div class="card menu" data-pkg="Premium"><div class="mhead green"><h3>Premium</h3></div><div class="mbody"><p class="desc">A step up in every course. Soup to start, hand-made starters, and more on the table to choose from. Where Classic is complete, Premium is generous.</p></div></div>
+    <div class="card menu" data-pkg="Signature"><div class="mhead maroon"><h3>Signature</h3></div><div class="mbody"><p class="desc">The full table, with live counters already in. More of everything, and the desserts people talk about on the drive home. For the night everyone comes.</p></div></div>
   </div>
-  <p class="counters-list">Live counters, priced per guest, can be added to any meal: Continental, Chinese, Chaat, South Indian, Pav Bhaji, Ice Cream, Barf ka Gola. <a href="assets/pdf/menu.pdf" target="_blank" rel="noopener" style="color:var(--green);text-decoration:underline;text-underline-offset:3px">See every dish in the full menu</a></p>
+  <p class="counters-list">Live counters, priced per guest, can be added to any meal. The full menu is shared at your tasting, or on request.</p>
   <div class="band peach" style="margin-top:30px">
     <h3>Taste it at a real wedding first.</h3>
-    <p style="margin-top:8px">Come to a live wedding here and eat what the guests eat. Then, on your day, taste again before service, with a window to adjust. Every package includes papad of choice and 200 ml water bottles. Breakfast for up to 100 guests (any two items) is complimentary on Classic, Premium and Signature; on Authentic Maharashtrian it's ₹250 per person.</p>
+    <p style="margin-top:8px">Come to a live wedding here and eat what the guests eat. Then, on your day, taste again before service, with a window to adjust. Water, papad and the basics are on the table with every meal. Breakfast the morning after is complimentary on Classic, Premium and Signature, and charged separately on Authentic Maharashtrian.</p>
     <p class="muted" style="margin-top:12px;font-style:italic">All food is from Orayana's kitchen. Outside food isn't permitted. That's how we stand behind every plate.</p>
   </div>
   <div class="actions">
@@ -1067,7 +1505,7 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
   </div>
   <div class="cards c4" id="tierCards">
     <div class="card pick arch" data-t="Basic" onclick="pickTier(this)"><span class="tick">✓</span>
-      <div class="arch-frame"><img src="assets/img/roundstage.jpg" alt="A round white stage ringed with white roses under draped fabric and bulbs"></div>
+      <div class="arch-frame"><img src="assets/img/decor_basic.jpg" alt="A night mandap of cream drapes and white florals under a frangipani tree strung with bulbs, the chairs sashed in green"></div>
       <h3>Basic</h3><p data-w="Clean, elegant, everything essential. Entry, stage, seating, ambient lighting." data-s="The essentials done well. Entry, stage, seating, lights."></p></div>
     <div class="card pick arch" data-t="Good" onclick="pickTier(this)"><span class="tick">✓</span>
       <div class="arch-frame"><img src="assets/img/decor_good.jpg" alt="A daytime mandap under orange and white drapes, with a carved elephant-trunk arch and hanging floral strings"></div>
@@ -1093,17 +1531,18 @@ footer .tag{font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-
       <p class="lede">Everything below is included with every wedding. Not an add-on, not a tier. It's already in your estimate.</p>
     </div>
     <div class="cards c3">
-      <div class="card"><h3>On the ground</h3><ul><li>2 shadows for the couple</li><li>Operations manager</li><li>F&amp;B manager</li><li>Production manager</li><li>4 porters</li></ul></div>
-      <div class="card"><h3>Safe and clean</h3><ul><li>Security for parking, guest safety and crowd control</li><li>Cleaning for washrooms, event and food areas, throughout</li></ul></div>
-      <div class="card"><h3>Essentials</h3><ul><li>300 Chivari chairs</li><li>6 low seating chairs</li><li>8 coolers</li><li>2 urlis</li><li>2 kg flower petals</li><li>A ghoda for the baraat</li></ul></div>
-      <div class="card"><h3>At the table</h3><ul><li>200 ml water bottles</li><li>Papad, achar and salad with every meal</li><li>20 round tables or pangat seating</li></ul></div>
-      <div class="card"><h3>The morning after</h3><ul><li>Breakfast for 100, any two items</li><li>Tea and coffee for the bidai</li></ul><p class="sub" style="color:var(--gold-light)">On Classic, Premium and Signature.</p></div>
-      <div class="card"><h3>Stay</h3><ul><li>2 stage rooms for the couple, complimentary</li></ul></div>
+      <div class="card"><h3>On the ground</h3><p>A manager each for operations, food and production, two shadows who stay with the couple, and porters. Our people, on our payroll, included.</p></div>
+      <div class="card"><h3>Safe and clean</h3><p>Security at the gate, the parking and the crowd. Cleaning that runs right through the day, not just before it.</p></div>
+      <div class="card"><h3>Essentials</h3><p>The chairs, the seating, the coolers, the urlis, the petals, and a ghoda for the baraat. The things every wedding needs and most venues bill for.</p></div>
+      <div class="card"><h3>At the table</h3><p>Water, papad, achar and salad with every meal, and the tables to eat at, round or pangat.</p></div>
+      <div class="card"><h3>The morning after</h3><p>Breakfast for the family that stayed, and tea and coffee for the bidai.</p><p class="sub" style="color:var(--gold-light)">On Classic, Premium and Signature.</p></div>
+      <div class="card"><h3>Stay</h3><p>Two stage rooms for the couple, complimentary, so the two of you have somewhere to breathe.</p></div>
     </div>
+    <p class="lede" style="margin:26px auto 0;max-width:60ch;text-align:center">The full list, item by item, comes with your estimate.</p>
   </div>
   <div class="stage-head center" style="margin-top:48px">
     <h3 style="font-size:1.9rem">And six planning sessions, on us.</h3>
-    <p class="lede">Three for décor, two for food, one for the flow of the day. We sit down together, walk the grounds, taste, adjust, decide. By your date, nothing is a surprise.</p>
+    <p class="lede">Six sittings to settle the décor, the food and the flow of the day, together. By your date, nothing is a surprise.</p>
   </div>
   <div class="actions" style="justify-content:center">
     <button class="btn" onclick="next()">See my estimate</button>
@@ -1372,7 +1811,7 @@ const TIMES=[['Morning','Brunch'],['Afternoon','Lunch'],['Evening','Dinner']];
 const SLOT_OF=Object.fromEntries(TIMES), SLOT_ORD={Brunch:0,Lunch:1,Dinner:2};
 const DEF_TIME={Haldi:'Morning',Mehendi:'Afternoon',Sangeet:'Evening',Engagement:'Evening',Wedding:'Afternoon',Reception:'Evening',Cocktail:'Evening',Other:'Evening'};
 const PKG_LINE={AM:'Maharashtra\'s kitchen. Traditional and soulful.',Classic:'Everyday favourites. Comforting, balanced.',Premium:'Soup, handcrafted starters, more variety.',Signature:'The full table. Live counters included.'};
-const CLABEL={Continental:'Continental (any three)',Chinese:'Chinese (any three)',Chaat:'Chaat (any three)',SouthIndian:'South Indian (any two)',PavBhaji:'Pav Bhaji',IceCream:'Ice Cream',Gola:'Barf ka Gola'};
+const CLABEL={Continental:'Continental',Chinese:'Chinese',Chaat:'Chaat',SouthIndian:'South Indian',PavBhaji:'Pav Bhaji',IceCream:'Ice Cream',Gola:'Barf ka Gola'};
 function days(){ return S.dur===8?1:Math.max(1,Math.ceil((S.dur||24)/24)); }
 function setupFood(){
   const single=S.kind==='single', D=days();
@@ -1721,6 +2160,155 @@ $('#custom').addEventListener('click',e=>{ if(e.target.id==='custom') closeCusto
 restore();
 sync();
 if(location.hash==='#plan') route('plan');
+
+/* ===== THE WALK: guided landing layer. A layer over the classic site; it only calls route(), openCustom() and walk(). ===== */
+const W={on:false,i:0,busy:false,wheelT:0,touch:null,cycle:null};
+const WN=['Welcome','Your day','The place','The grounds','The spaces','Stay','Food','Décor','Shaadi ka gift','Your number'];
+const wRoot=$('#w-walk');
+const wScenes=$$('#w-walk .w-scene');
+const wLast=wScenes.length-1;
+const wReduce=()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const wSaver=()=>!!(navigator.connection && navigator.connection.saveData);
+const wOverlayOpen=()=>$('#lb').classList.contains('on') || $('#custom').classList.contains('on');
+const wAtTop=s=>s.scrollTop<=1;
+const wAtBottom=s=>s.scrollTop+s.clientHeight>=s.scrollHeight-2;
+
+function wStart(){
+  closeMenu(); closeLb(); closeCustom();
+  document.body.classList.remove('planning');
+  wRoot.hidden=false; document.body.classList.add('walking'); W.on=true;
+  history.replaceState(null,'','#walk');
+  if(!$('#w-rail').children.length) WN.forEach((n,i)=>{ const b=document.createElement('button'); b.type='button'; b.innerHTML='<span>'+n+'</span><i></i>'; b.setAttribute('aria-label',n); b.onclick=()=>wGo(i); $('#w-rail').appendChild(b); });
+  wPoster();
+  wGo(0,true);
+}
+function wExit(to){
+  if(!W.on) return;
+  W.on=false; document.body.classList.remove('walking'); wRoot.hidden=true;
+  wPauseVideos(); wStopCycle();
+  if(to==='plan'){ route('plan'); return; }
+  route('home');
+  /* leave no #home behind: a reload, or a link copied after stepping out, lands on the walk again */
+  history.replaceState(null,'',location.pathname+location.search);
+  if(to==='custom') setTimeout(openCustom,120);
+}
+function wGo(n,instant){
+  n=Math.max(0,Math.min(wLast,n));
+  if(!instant && (W.busy || n===W.i)) return;
+  const prev=W.i; W.i=n;
+  wRoot.classList.toggle('w-back',n<prev);
+  wScenes.forEach((s,i)=>{ const on=i===n; s.classList.toggle('on',on); s.classList.toggle('out',!on && i===prev); s.setAttribute('aria-hidden',on?'false':'true'); if(on) s.scrollTop=0; });
+  wRoot.classList.toggle('w-at-start',n===0);
+  wRoot.classList.toggle('w-at-end',n===wLast);
+  wRoot.classList.toggle('w-on-dark',wScenes[n].classList.contains('w-dark'));
+  $$('#w-rail button').forEach((b,i)=>{ b.classList.toggle('now',i===n); b.classList.toggle('done',i<n); });
+  wEnter(n);
+  W.busy=true; setTimeout(()=>{ W.busy=false; },instant?0:650);
+}
+function wEnter(n){
+  if(n===0) wVideo(); else { const v=$('#w-vid'); if(v) v.pause(); }
+  if(n===2) wCount();
+  if(n===3) wPins();
+  if(n===7) ['decor_basic','decor_good','decor_premium','canopy'].forEach(f=>{ const im=new Image(); im.src='assets/img/'+f+'.jpg'; });
+  wCycle(n);
+}
+
+/* scene 0: the same rules as the live hero — poster only on data-saver or reduced motion; the night clip on phones */
+function wPoster(){ const p=$('#w-poster'); if(p) p.style.backgroundImage="url('"+(isSmall()?p.dataset.m:p.dataset.d)+"')"; }
+function wVideo(){
+  const v=$('#w-vid'); if(!v) return;
+  if(wSaver()||wReduce()){ v.remove(); return; }
+  const want=isSmall()?v.dataset.m:v.dataset.d;
+  if(v.getAttribute('src')!==want){ v.setAttribute('src',want); v.load(); v.addEventListener('canplay',()=>{ if(W.on&&W.i===0) v.play().catch(()=>{}); },{once:true}); }
+  v.play().catch(()=>{});
+}
+function wPauseVideos(){ const v=$('#w-vid'); if(v) v.pause(); }
+window.addEventListener('resize',()=>{ if(W.on){ wPoster(); if(W.i===0) wVideo(); } });
+
+/* scene 2: counters count up on entry */
+function wCount(){
+  $$('#w-walk .w-num').forEach(el=>{
+    const to=+el.dataset.n, fmt=n=>n.toLocaleString('en-IN');
+    if(wReduce()){ el.textContent=fmt(to); return; }
+    const t0=performance.now(), D=1300;
+    (function tick(t){ const p=Math.min(1,(t-t0)/D), e=1-Math.pow(1-p,3); el.textContent=fmt(Math.round(to*e)); if(p<1&&W.i===2) requestAnimationFrame(tick); else el.textContent=fmt(to); })(t0);
+  });
+}
+/* scene 3: pins drop one by one; tap names the spot */
+function wPins(){
+  const m=$('#w-map'); m.classList.remove('go'); void m.offsetWidth; m.classList.add('go');
+  $$('#w-map .w-pin').forEach(p=>p.classList.remove('open')); $('#w-pinCap').textContent='';
+}
+function wPin(b){
+  const open=!b.classList.contains('open');
+  $$('#w-map .w-pin').forEach(p=>p.classList.toggle('open',p===b&&open));
+  const cap=$('#w-pinCap'); cap.textContent='';
+  if(open){ cap.textContent=b.dataset.cap+' '; if(b.dataset.t&&TOURS[b.dataset.t]){ const l=document.createElement('button'); l.type='button'; l.className='linkish'; l.textContent='See it in 360°'; l.onclick=()=>walk(b.dataset.t); cap.appendChild(l); } }
+}
+/* scene 5: tap a space to read more */
+function wSpace(el){ const open=!el.classList.contains('open'); $$('#w-walk .w-space').forEach(s=>s.classList.toggle('open',s===el&&open)); }
+/* scenes 7, 8, 9: tabs swap one line (and, for décor, the photo). They cycle on their own until someone taps. */
+const W_TEASE={6:['w-foodPills','w-foodLine'],7:['w-decorPills','w-decorLine'],8:['w-giftPills','w-giftLine']};
+function wPick(box,line,b){
+  box.querySelectorAll('.w-pill').forEach(p=>p.classList.toggle('sel',p===b));
+  const swap=()=>{ line.innerHTML='<em>'+b.textContent+'.</em> '+b.dataset.l; line.classList.remove('w-fade'); };
+  if(wReduce()){ swap(); } else { line.classList.add('w-fade'); setTimeout(swap,180); }
+  if(b.dataset.img){ const im=$('#w-decorImg'); if(im.getAttribute('src')!==b.dataset.img){ im.classList.add('w-fade'); setTimeout(()=>{ im.src=b.dataset.img; im.alt=b.dataset.alt||''; im.onload=()=>im.classList.remove('w-fade'); },200); } }
+}
+function wTease(boxId, lineId){
+  const box=$('#'+boxId), line=$('#'+lineId);
+  box.querySelectorAll('.w-pill').forEach(b=>b.onclick=()=>{ box.dataset.touched='1'; wStopCycle(); wPick(box,line,b); });
+  wPick(box,line,box.querySelector('.w-pill'));
+}
+function wStopCycle(){ if(W.cycle){ clearInterval(W.cycle); W.cycle=null; } }
+function wCycle(n){
+  wStopCycle();
+  const t=W_TEASE[n]; if(!t||wReduce()) return;
+  const box=$('#'+t[0]), line=$('#'+t[1]); if(box.dataset.touched) return;
+  W.cycle=setInterval(()=>{ if(!W.on||W.i!==n||wOverlayOpen()){ return; } const all=[...box.querySelectorAll('.w-pill')], i=all.findIndex(p=>p.classList.contains('sel')); wPick(box,line,all[(i+1)%all.length]); },4200);
+}
+wTease('w-foodPills','w-foodLine'); wTease('w-decorPills','w-decorLine'); wTease('w-giftPills','w-giftLine');
+$('#w-tourTab').href=TOURS['Property'].src;
+
+/* moving through the walk: wheel at a scene's edge, arrow keys, swipe at an edge, the continue control, the rail */
+document.addEventListener('wheel',e=>{
+  if(!W.on||wOverlayOpen()) return;
+  const s=wScenes[W.i], now=Date.now();
+  if(Math.abs(e.deltaY)<24 || now-W.wheelT<1100) return;
+  if(e.deltaY>0 && wAtBottom(s)){ W.wheelT=now; wGo(W.i+1); }
+  else if(e.deltaY<0 && wAtTop(s)){ W.wheelT=now; wGo(W.i-1); }
+},{passive:true});
+document.addEventListener('keydown',e=>{
+  if(!W.on||wOverlayOpen()) return;
+  const t=e.target, typing=t && (t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.tagName==='SELECT');
+  if(typing) return;
+  const onCtl=t && (t.tagName==='BUTTON'||t.tagName==='A'||t.getAttribute('role')==='button');
+  if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key==='PageDown'||(e.key===' '&&!onCtl)){ e.preventDefault(); wGo(W.i+1); }
+  else if(e.key==='ArrowUp'||e.key==='ArrowLeft'||e.key==='PageUp'){ e.preventDefault(); wGo(W.i-1); }
+  else if(e.key==='Home'){ e.preventDefault(); wGo(0); }
+  else if(e.key==='End'){ e.preventDefault(); wGo(wLast); }
+});
+wRoot.addEventListener('touchstart',e=>{ if(e.touches.length!==1||wOverlayOpen()){ W.touch=null; return; } const s=wScenes[W.i]; W.touch={x:e.touches[0].clientX,y:e.touches[0].clientY,top:wAtTop(s),bot:wAtBottom(s)}; },{passive:true});
+wRoot.addEventListener('touchend',e=>{
+  const T=W.touch; W.touch=null; if(!T||wOverlayOpen()) return;
+  const t=e.changedTouches[0], dx=t.clientX-T.x, dy=t.clientY-T.y, s=wScenes[W.i];
+  if(Math.abs(dy)<70 || Math.abs(dy)<Math.abs(dx)*1.5) return;
+  if(dy<0 && T.bot && wAtBottom(s)) wGo(W.i+1);
+  else if(dy>0 && T.top && wAtTop(s)) wGo(W.i-1);
+},{passive:true});
+
+/* routing: no hash (or #walk) lands on the walk; #home, #plan and section hashes go straight to the classic site */
+/* only #home, #plan and the site's own section ids bypass the walk; anything else (or nothing) lands on it */
+const wKnown=h=>h==='#home'||h==='#plan'||(h.length>1&&!!document.getElementById(h.slice(1))&&h!=='#w-walk');
+window.addEventListener('hashchange',()=>{
+  const h=location.hash;
+  if(h==='#walk'){ if(!W.on) wStart(); return; }
+  if(!W.on) return;
+  if(h==='#plan') wExit('plan');
+  else if(h==='#home'||h===''||h==='#') wExit('home');
+  else { const id=h.slice(1); if(document.getElementById(id)){ wExit('home'); setTimeout(()=>goSec(id),80); } }
+});
+if(!wKnown(location.hash)) wStart();
 </script>
 
 </body>
